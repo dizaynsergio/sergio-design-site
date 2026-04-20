@@ -1,0 +1,748 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sergio Design - Разработка сайтов, приложений и AI-решений</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Dela+Gothic+One&family=Nunito+Sans:ital,wght@0,300;0,400;0,600;0,700;1,300&display=swap" rel="stylesheet">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
+    <style>
+        :root {
+            --bg: #040612;
+            --cyan: #5a7bff;
+            --violet: #8f6dff;
+            --pink: #d19cff;
+            --text: #f7f7ff;
+            --muted: #b0b6d0;
+            --border: rgba(255, 255, 255, 0.14);
+            --font-title: 'Dela Gothic One', sans-serif;
+            --font-body: 'Nunito Sans', sans-serif;
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        html {
+            scroll-snap-type: y mandatory;
+            overflow-x: hidden;
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: var(--font-body);
+            color: var(--text);
+            background: radial-gradient(85% 85% at 72% 82%, rgba(90, 123, 255, 0.14), transparent 70%), var(--bg);
+            overflow-x: hidden;
+        }
+
+        #particle-canvas {
+            position: fixed;
+            inset: 0;
+            z-index: 0;
+            pointer-events: none;
+        }
+
+        .noise {
+            position: fixed;
+            inset: 0;
+            z-index: 1;
+            pointer-events: none;
+            opacity: 0.08;
+            mix-blend-mode: overlay;
+            background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 140 140' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.95' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
+            background-size: 200px 200px;
+        }
+
+        .nav-fixed {
+            position: fixed;
+            inset: 0 0 auto 0;
+            z-index: 10;
+            height: 82px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 0 36px;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+            backdrop-filter: blur(10px);
+            background: rgba(4, 6, 18, 0.52);
+        }
+
+        .logo {
+            font-family: var(--font-title);
+            text-decoration: none;
+            text-transform: uppercase;
+            letter-spacing: 0.08em;
+            color: var(--text);
+            font-size: 18px;
+        }
+
+        .logo span {
+            background: linear-gradient(90deg, var(--cyan), var(--violet), var(--pink));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .nav-links {
+            list-style: none;
+            display: flex;
+            gap: 28px;
+        }
+
+        .nav-links a {
+            color: var(--text);
+            text-decoration: none;
+            font-size: 13px;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 0.17em;
+            opacity: 0.82;
+            transition: opacity 0.25s ease, color 0.25s ease;
+        }
+
+        .nav-links a:hover {
+            opacity: 1;
+            color: var(--cyan);
+        }
+
+        .section-indicators {
+            position: fixed;
+            right: 24px;
+            top: 50%;
+            transform: translateY(-50%);
+            z-index: 10;
+            display: flex;
+            flex-direction: column;
+            gap: 12px;
+        }
+
+        .dot {
+            width: 10px;
+            height: 10px;
+            border-radius: 50%;
+            border: 1px solid rgba(255, 255, 255, 0.22);
+            background: rgba(255, 255, 255, 0.1);
+            cursor: pointer;
+            transition: all 0.25s ease;
+        }
+
+        .dot.active {
+            border-color: var(--cyan);
+            background: var(--cyan);
+            box-shadow: 0 0 12px var(--cyan), 0 0 24px rgba(90, 123, 255, 0.5);
+            transform: scale(1.25);
+        }
+
+        .section {
+            min-height: 100vh;
+            scroll-snap-align: start;
+            position: relative;
+            z-index: 2;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 110px 0 48px;
+        }
+
+        .section::before {
+            content: "";
+            position: absolute;
+            inset: 0;
+            z-index: -1;
+            pointer-events: none;
+            opacity: 0.22;
+        }
+
+        .hero::before {
+            background: radial-gradient(56% 56% at 70% 45%, rgba(90, 123, 255, 0.42), transparent 70%);
+        }
+
+        .services::before {
+            background: radial-gradient(56% 56% at 18% 46%, rgba(143, 109, 255, 0.45), transparent 70%);
+        }
+
+        .portfolio::before {
+            background: radial-gradient(56% 56% at 74% 54%, rgba(209, 156, 255, 0.4), transparent 70%);
+        }
+
+        .contact::before {
+            background: radial-gradient(56% 56% at 50% 20%, rgba(90, 123, 255, 0.24), transparent 70%);
+        }
+
+        .section-inner {
+            width: min(1200px, 100%);
+            padding: 0 36px;
+        }
+
+        .kicker {
+            font-size: 12px;
+            text-transform: uppercase;
+            letter-spacing: 0.28em;
+            color: var(--cyan);
+            margin-bottom: 18px;
+            font-weight: 700;
+        }
+
+        .hero-title {
+            font-family: var(--font-title);
+            font-size: clamp(48px, 11vw, 148px);
+            line-height: 0.88;
+            text-transform: uppercase;
+            margin-bottom: 20px;
+        }
+
+        .hero-title .line {
+            display: block;
+        }
+
+        .hero-title .line:last-child {
+            margin-left: clamp(10px, 6vw, 80px);
+            background: linear-gradient(90deg, var(--cyan), var(--violet), var(--pink));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .hero-sub {
+            max-width: 640px;
+            font-size: clamp(17px, 2vw, 24px);
+            color: var(--muted);
+            line-height: 1.6;
+        }
+
+        .section-title {
+            font-family: var(--font-title);
+            font-size: clamp(34px, 5vw, 72px);
+            text-transform: uppercase;
+            line-height: 0.95;
+            margin-bottom: 42px;
+        }
+
+        .cards-grid {
+            display: grid;
+            grid-template-columns: repeat(3, minmax(0, 1fr));
+            gap: 20px;
+        }
+
+        .card {
+            border: 1px solid var(--border);
+            background: rgba(255, 255, 255, 0.02);
+            backdrop-filter: blur(6px);
+            padding: 28px;
+            min-height: 250px;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .card::after {
+            content: "";
+            position: absolute;
+            inset: 0;
+            border: 1px solid transparent;
+            transition: 0.35s ease;
+            pointer-events: none;
+        }
+
+        .card:hover::after {
+            border-color: rgba(90, 123, 255, 0.75);
+            box-shadow: inset 0 0 24px rgba(90, 123, 255, 0.2), 0 0 34px rgba(143, 109, 255, 0.24);
+        }
+
+        .card h3 {
+            font-family: var(--font-title);
+            font-size: clamp(20px, 2vw, 30px);
+            line-height: 1.14;
+            text-transform: uppercase;
+            margin-bottom: 16px;
+        }
+
+        .card p {
+            color: var(--muted);
+            line-height: 1.65;
+            font-size: 16px;
+        }
+
+        .portfolio .card {
+            min-height: 280px;
+            display: flex;
+            flex-direction: column;
+            justify-content: flex-end;
+        }
+
+        .project-preview {
+            position: absolute;
+            inset: 22px 22px auto 22px;
+            height: 120px;
+            border: 1px dashed rgba(255, 255, 255, 0.18);
+            background: linear-gradient(125deg, rgba(90, 123, 255, 0.11), rgba(143, 109, 255, 0.1), rgba(209, 156, 255, 0.09));
+        }
+
+        .tag {
+            align-self: flex-start;
+            padding: 6px 12px;
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            color: var(--cyan);
+            text-transform: uppercase;
+            letter-spacing: 0.14em;
+            font-size: 12px;
+            font-weight: 700;
+            margin-bottom: 14px;
+        }
+
+        .contact-layout {
+            display: grid;
+            grid-template-columns: 1.2fr 1fr;
+            gap: 30px;
+        }
+
+        .contact-text p {
+            color: var(--muted);
+            font-size: 18px;
+            line-height: 1.7;
+            max-width: 460px;
+        }
+
+        .contact-form {
+            display: grid;
+            gap: 12px;
+        }
+
+        .contact-form label {
+            color: rgba(255, 255, 255, 0.7);
+            font-size: 13px;
+            text-transform: uppercase;
+            letter-spacing: 0.14em;
+            font-weight: 700;
+            margin-top: 4px;
+        }
+
+        .contact-form input,
+        .contact-form textarea {
+            width: 100%;
+            border: 1px solid rgba(255, 255, 255, 0.16);
+            background: rgba(255, 255, 255, 0.02);
+            color: var(--text);
+            font-family: var(--font-body);
+            font-size: 15px;
+            padding: 14px 14px;
+            outline: none;
+            transition: border-color 0.2s ease, box-shadow 0.2s ease;
+        }
+
+        .contact-form textarea {
+            min-height: 110px;
+            resize: vertical;
+        }
+
+        .contact-form input:focus,
+        .contact-form textarea:focus {
+            border-color: var(--violet);
+            box-shadow: 0 0 0 2px rgba(143, 109, 255, 0.24);
+        }
+
+        .actions {
+            display: flex;
+            gap: 12px;
+            flex-wrap: wrap;
+            margin-top: 8px;
+        }
+
+        .btn {
+            border: 1px solid transparent;
+            font-family: var(--font-title);
+            text-transform: uppercase;
+            letter-spacing: 0.08em;
+            font-size: 13px;
+            padding: 13px 20px;
+            text-decoration: none;
+            cursor: pointer;
+            transition: transform 0.2s ease, box-shadow 0.25s ease;
+        }
+
+        .btn:hover {
+            transform: translateY(-2px);
+        }
+
+        .btn-primary {
+            background: linear-gradient(90deg, var(--cyan), var(--violet));
+            color: #090912;
+            box-shadow: 0 0 22px rgba(90, 123, 255, 0.34);
+        }
+
+        .btn-whatsapp {
+            background: transparent;
+            color: var(--text);
+            border-color: rgba(255, 255, 255, 0.3);
+        }
+
+        .btn-whatsapp:hover {
+            border-color: var(--violet);
+            box-shadow: 0 0 22px rgba(143, 109, 255, 0.28);
+        }
+
+        @media (max-width: 960px) {
+            .cards-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .contact-layout {
+                grid-template-columns: 1fr;
+            }
+
+            .section-indicators {
+                right: 12px;
+            }
+        }
+
+        @media (max-width: 760px) {
+            .nav-fixed {
+                padding: 0 18px;
+            }
+
+            .nav-links {
+                display: none;
+            }
+
+            .section {
+                padding-top: 96px;
+            }
+
+            .section-inner {
+                padding: 0 18px;
+            }
+
+            .contact-text p {
+                font-size: 16px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <canvas id="particle-canvas"></canvas>
+    <div class="noise"></div>
+
+    <nav class="nav-fixed">
+        <a class="logo" href="#hero">Sergio <span>Design</span></a>
+        <ul class="nav-links">
+            <li><a href="#hero">Главная</a></li>
+            <li><a href="#services">Услуги</a></li>
+            <li><a href="#portfolio">Портфолио</a></li>
+            <li><a href="#contact">Контакты</a></li>
+        </ul>
+    </nav>
+
+    <div class="section-indicators">
+        <button class="dot active" data-index="0" aria-label="Hero"></button>
+        <button class="dot" data-index="1" aria-label="Services"></button>
+        <button class="dot" data-index="2" aria-label="Portfolio"></button>
+        <button class="dot" data-index="3" aria-label="Contact"></button>
+    </div>
+
+    <section class="section hero" id="hero">
+        <div class="section-inner">
+            <p class="kicker anim-item">Цифровая разработка для роста бизнеса</p>
+            <h1 class="hero-title anim-item">
+                <span class="line">Sergio</span>
+                <span class="line">Design</span>
+            </h1>
+            <p class="hero-sub anim-item">
+                Мы создаем сайты, мобильные приложения и AI-решения,
+                которые усиливают маркетинг, автоматизируют процессы
+                и помогают вашему бизнесу расти быстрее.
+            </p>
+        </div>
+    </section>
+
+    <section class="section services" id="services">
+        <div class="section-inner">
+            <h2 class="section-title anim-item">Услуги</h2>
+            <div class="cards-grid">
+                <article class="card anim-item">
+                    <h3>Сайты и<br>лендинги</h3>
+                    <p>Проектируем и запускаем быстрые сайты с акцентом на конверсию, SEO и удобство для клиента.</p>
+                </article>
+                <article class="card anim-item">
+                    <h3>Мобильные<br>приложения</h3>
+                    <p>Разрабатываем iOS и Android приложения с современным UX, нативной производительностью и масштабируемой архитектурой.</p>
+                </article>
+                <article class="card anim-item">
+                    <h3>AI-решения и<br>автоматизация</h3>
+                    <p>Внедряем чат-ботов, AI-помощников и автоматизации, чтобы сократить рутину и повысить результат команды.</p>
+                </article>
+            </div>
+        </div>
+    </section>
+
+    <section class="section portfolio" id="portfolio">
+        <div class="section-inner">
+            <h2 class="section-title anim-item">Портфолио</h2>
+            <div class="cards-grid">
+                <article class="card anim-item">
+                    <div class="project-preview"></div>
+                    <span class="tag">Web</span>
+                    <h3>Nova Clinic</h3>
+                    <p>Корпоративный сайт и система онлайн-записи для сети медицинских центров.</p>
+                </article>
+                <article class="card anim-item">
+                    <div class="project-preview"></div>
+                    <span class="tag">Mobile</span>
+                    <h3>City Move</h3>
+                    <p>Мобильное приложение для городской логистики с трекингом и push-уведомлениями.</p>
+                </article>
+                <article class="card anim-item">
+                    <div class="project-preview"></div>
+                    <span class="tag">AI</span>
+                    <h3>Sales Copilot</h3>
+                    <p>AI-ассистент для отдела продаж: генерация ответов, классификация лидов и авто-отчеты.</p>
+                </article>
+            </div>
+        </div>
+    </section>
+
+    <section class="section contact" id="contact">
+        <div class="section-inner contact-layout">
+            <div class="contact-text anim-item">
+                <p class="kicker">Обсудим ваш проект</p>
+                <h2 class="section-title">Контакты</h2>
+                <p>
+                    Расскажите задачу, а мы предложим лучшее решение и подготовим
+                    план запуска под ваши цели, сроки и бюджет.
+                </p>
+            </div>
+            <form class="contact-form card anim-item">
+                <label for="name">Имя</label>
+                <input id="name" name="name" type="text" placeholder="Ваше имя">
+                <label for="phone">WhatsApp / Телефон</label>
+                <input id="phone" name="phone" type="tel" placeholder="+7 (___) ___-__-__">
+                <label for="project">Описание проекта</label>
+                <textarea id="project" name="project" placeholder="Коротко опишите вашу задачу"></textarea>
+                <div class="actions">
+                    <button class="btn btn-primary" type="submit">Отправить</button>
+                    <a class="btn btn-whatsapp" href="https://wa.me/79990000000" target="_blank" rel="noopener noreferrer">Написать в WhatsApp</a>
+                </div>
+            </form>
+        </div>
+    </section>
+
+    <script>
+        (function () {
+            'use strict';
+
+            const canvas = document.getElementById('particle-canvas');
+            const ctx = canvas.getContext('2d');
+            const mouse = { x: -9999, y: -9999 };
+            const particles = [];
+            let width = 0;
+            let height = 0;
+
+            const SPACING = 36;
+            const MOUSE_RADIUS = 160;
+            const MAX_CONNECTION = 92;
+            const FORCE = 52;
+            const RETURN_SPEED = 0.034;
+
+            const palette = [
+                { r: 90, g: 123, b: 255 },
+                { r: 143, g: 109, b: 255 },
+                { r: 209, g: 156, b: 255 }
+            ];
+
+            let colorIndex = 0;
+            let nextColorIndex = 1;
+            let colorT = 0;
+
+            function lerp(a, b, t) {
+                return a + (b - a) * t;
+            }
+
+            function currentRGB() {
+                const from = palette[colorIndex];
+                const to = palette[nextColorIndex];
+                return {
+                    r: Math.round(lerp(from.r, to.r, colorT)),
+                    g: Math.round(lerp(from.g, to.g, colorT)),
+                    b: Math.round(lerp(from.b, to.b, colorT))
+                };
+            }
+
+            function buildGrid() {
+                particles.length = 0;
+                const cols = Math.ceil(width / SPACING) + 1;
+                const rows = Math.ceil(height / SPACING) + 1;
+                const ox = (width - (cols - 1) * SPACING) / 2;
+                const oy = (height - (rows - 1) * SPACING) / 2;
+
+                for (let row = 0; row < rows; row++) {
+                    for (let col = 0; col < cols; col++) {
+                        const x = ox + col * SPACING;
+                        const y = oy + row * SPACING;
+                        particles.push({ ox: x, oy: y, x: x, y: y, vx: 0, vy: 0, row: row, col: col });
+                    }
+                }
+            }
+
+            function resize() {
+                width = canvas.width = window.innerWidth;
+                height = canvas.height = window.innerHeight;
+                buildGrid();
+            }
+
+            function animateParticles() {
+                colorT += 0.0028;
+                if (colorT >= 1) {
+                    colorT = 0;
+                    colorIndex = nextColorIndex;
+                    nextColorIndex = (nextColorIndex + 1) % palette.length;
+                }
+
+                const rgb = currentRGB();
+                ctx.clearRect(0, 0, width, height);
+
+                for (let i = 0; i < particles.length; i++) {
+                    const p = particles[i];
+                    const dx = p.x - mouse.x;
+                    const dy = p.y - mouse.y;
+                    const distance = Math.sqrt(dx * dx + dy * dy);
+
+                    if (distance < MOUSE_RADIUS && distance > 0) {
+                        const push = (1 - distance / MOUSE_RADIUS) * FORCE;
+                        const angle = Math.atan2(dy, dx);
+                        p.vx += Math.cos(angle) * push * 0.08;
+                        p.vy += Math.sin(angle) * push * 0.08;
+                    }
+
+                    p.vx += (p.ox - p.x) * RETURN_SPEED;
+                    p.vy += (p.oy - p.y) * RETURN_SPEED;
+                    p.vx *= 0.9;
+                    p.vy *= 0.9;
+                    p.x += p.vx;
+                    p.y += p.vy;
+                }
+
+                ctx.lineWidth = 0.5;
+                for (let i = 0; i < particles.length; i++) {
+                    const a = particles[i];
+                    for (let j = i + 1; j < particles.length; j++) {
+                        const b = particles[j];
+                        if (Math.abs(a.col - b.col) > 1 || Math.abs(a.row - b.row) > 1) continue;
+                        const lx = a.x - b.x;
+                        const ly = a.y - b.y;
+                        const lineDistance = Math.sqrt(lx * lx + ly * ly);
+                        if (lineDistance < MAX_CONNECTION) {
+                            const alpha = (1 - lineDistance / MAX_CONNECTION) * 0.24;
+                            ctx.strokeStyle = `rgba(${rgb.r},${rgb.g},${rgb.b},${alpha})`;
+                            ctx.beginPath();
+                            ctx.moveTo(a.x, a.y);
+                            ctx.lineTo(b.x, b.y);
+                            ctx.stroke();
+                        }
+                    }
+                }
+
+                for (let i = 0; i < particles.length; i++) {
+                    const p = particles[i];
+                    const moveDx = p.x - p.ox;
+                    const moveDy = p.y - p.oy;
+                    const d = Math.sqrt(moveDx * moveDx + moveDy * moveDy);
+                    const radius = 1 + Math.min(d * 0.07, 2.1);
+                    const alpha = 0.12 + Math.min(d * 0.02, 0.62);
+                    ctx.fillStyle = `rgba(${rgb.r},${rgb.g},${rgb.b},${alpha})`;
+                    ctx.beginPath();
+                    ctx.arc(p.x, p.y, radius, 0, Math.PI * 2);
+                    ctx.fill();
+                }
+
+                requestAnimationFrame(animateParticles);
+            }
+
+            window.addEventListener('mousemove', (event) => {
+                mouse.x = event.clientX;
+                mouse.y = event.clientY;
+            });
+
+            window.addEventListener('mouseleave', () => {
+                mouse.x = -9999;
+                mouse.y = -9999;
+            });
+
+            window.addEventListener('touchmove', (event) => {
+                if (!event.touches.length) return;
+                mouse.x = event.touches[0].clientX;
+                mouse.y = event.touches[0].clientY;
+            }, { passive: true });
+
+            window.addEventListener('touchend', () => {
+                mouse.x = -9999;
+                mouse.y = -9999;
+            });
+
+            window.addEventListener('resize', resize);
+            resize();
+            animateParticles();
+
+            gsap.registerPlugin(ScrollTrigger);
+
+            gsap.set('.anim-item', { opacity: 0, y: 48 });
+            gsap.to('.hero .anim-item', {
+                opacity: 1,
+                y: 0,
+                duration: 1,
+                stagger: 0.16,
+                ease: 'power3.out',
+                delay: 0.2
+            });
+
+            gsap.utils.toArray('.services .anim-item, .portfolio .anim-item, .contact .anim-item').forEach((item) => {
+                gsap.to(item, {
+                    opacity: 1,
+                    y: 0,
+                    duration: 0.9,
+                    ease: 'power3.out',
+                    scrollTrigger: {
+                        trigger: item,
+                        start: 'top 82%',
+                        toggleActions: 'play none none reverse'
+                    }
+                });
+            });
+
+            const sections = gsap.utils.toArray('.section');
+            const dots = gsap.utils.toArray('.dot');
+
+            dots.forEach((dot) => {
+                dot.addEventListener('click', () => {
+                    const index = Number(dot.dataset.index || 0);
+                    const section = sections[index];
+                    if (section) section.scrollIntoView({ behavior: 'smooth' });
+                });
+            });
+
+            const observer = new IntersectionObserver((entries) => {
+                entries.forEach((entry) => {
+                    if (!entry.isIntersecting) return;
+                    const activeIndex = sections.indexOf(entry.target);
+                    dots.forEach((d) => d.classList.remove('active'));
+                    if (dots[activeIndex]) dots[activeIndex].classList.add('active');
+                });
+            }, { threshold: 0.55 });
+
+            sections.forEach((section) => observer.observe(section));
+
+            const form = document.querySelector('.contact-form');
+            if (form) {
+                form.addEventListener('submit', (event) => {
+                    event.preventDefault();
+                    alert('Спасибо! Мы свяжемся с вами в ближайшее время.');
+                    form.reset();
+                });
+            }
+        })();
+    </script>
+</body>
+</html>
