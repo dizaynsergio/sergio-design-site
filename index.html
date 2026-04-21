@@ -4,6 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Sergio Design - Разработка сайтов, приложений и AI-решений</title>
+    <link rel="icon" href="favicon">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Dela+Gothic+One&family=Nunito+Sans:ital,wght@0,300;0,400;0,600;0,700;1,300&display=swap" rel="stylesheet">
@@ -163,8 +164,121 @@
             background: radial-gradient(56% 56% at 70% 45%, rgba(90, 123, 255, 0.42), transparent 70%);
         }
 
+        .hero {
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+        }
+
+        .hero-layout {
+            display: grid;
+            grid-template-columns: 3fr 2fr;
+            gap: clamp(24px, 4vw, 64px);
+            align-items: center;
+        }
+
+        .hero-left {
+            max-width: 680px;
+        }
+
+        .hero-tag {
+            font-size: 12px;
+            text-transform: uppercase;
+            letter-spacing: 0.24em;
+            color: #a855f7;
+            font-weight: 700;
+            margin-bottom: 1rem;
+        }
+
+        .hero-title {
+            font-family: var(--font-title);
+            font-size: clamp(2.5rem, 5vw, 4rem);
+            font-weight: 400;
+            line-height: 1.1;
+            color: #ffffff;
+            margin: 0;
+            text-transform: none;
+        }
+
+        .hero-sub {
+            margin-top: 1.5rem;
+            max-width: 500px;
+            font-size: 1.1rem;
+            color: #94a3b8;
+            line-height: 1.7;
+        }
+
+        .hero-cta {
+            margin-top: 2rem;
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            text-decoration: none;
+            font-family: var(--font-title);
+            font-size: 13px;
+            letter-spacing: 0.08em;
+            text-transform: uppercase;
+            color: #ffffff;
+            padding: 16px 32px;
+            border-radius: 14px;
+            background: linear-gradient(90deg, #7B2FFF, #A855F7);
+            box-shadow: 0 0 20px rgba(123, 47, 255, 0.4);
+            transition: transform 0.2s ease, filter 0.2s ease;
+        }
+
+        .hero-cta:hover {
+            transform: translateY(-2px);
+            filter: brightness(1.08);
+        }
+
+        .hero-right {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .hero-visual {
+            width: min(420px, 100%);
+            aspect-ratio: 1 / 1;
+            border: 1px solid rgba(255, 255, 255, 0.14);
+            border-radius: 24px;
+            position: relative;
+            overflow: hidden;
+            background:
+                radial-gradient(45% 45% at 68% 28%, rgba(168, 85, 247, 0.34), transparent 70%),
+                radial-gradient(55% 55% at 24% 72%, rgba(123, 47, 255, 0.26), transparent 70%),
+                rgba(255, 255, 255, 0.02);
+            backdrop-filter: blur(4px);
+        }
+
+        .hero-visual::before {
+            content: "";
+            position: absolute;
+            inset: 0;
+            background-image:
+                linear-gradient(rgba(255, 255, 255, 0.09) 1px, transparent 1px),
+                linear-gradient(90deg, rgba(255, 255, 255, 0.09) 1px, transparent 1px);
+            background-size: 28px 28px;
+            opacity: 0.4;
+        }
+
+        .hero-visual::after {
+            content: "";
+            position: absolute;
+            inset: 18% 18%;
+            border: 1px solid rgba(255, 255, 255, 0.18);
+            border-radius: 18px;
+            box-shadow: 0 0 48px rgba(123, 47, 255, 0.3);
+        }
+
         .services::before {
             background: radial-gradient(56% 56% at 18% 46%, rgba(143, 109, 255, 0.45), transparent 70%);
+        }
+
+        .services,
+        .portfolio {
+            min-height: auto;
+            padding: 60px 0;
         }
 
         .portfolio::before {
@@ -189,39 +303,45 @@
             font-weight: 700;
         }
 
-        .hero-title {
-            font-family: var(--font-title);
-            font-size: clamp(48px, 11vw, 148px);
-            line-height: 0.88;
-            text-transform: uppercase;
-            margin-bottom: 20px;
-        }
-
-        .hero-title .line {
-            display: block;
-        }
-
-        .hero-title .line:last-child {
-            margin-left: clamp(10px, 6vw, 80px);
-            background: linear-gradient(90deg, var(--cyan), var(--violet), var(--pink));
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-            background-clip: text;
-        }
-
-        .hero-sub {
-            max-width: 640px;
-            font-size: clamp(17px, 2vw, 24px);
-            color: var(--muted);
-            line-height: 1.6;
-        }
-
         .section-title {
             font-family: var(--font-title);
             font-size: clamp(34px, 5vw, 72px);
             text-transform: uppercase;
             line-height: 0.95;
             margin-bottom: 42px;
+        }
+
+        .stats {
+            min-height: auto;
+            padding: 60px 0;
+        }
+
+        .stats-grid {
+            display: grid;
+            grid-template-columns: repeat(3, minmax(0, 1fr));
+            gap: 20px;
+        }
+
+        .stat-card {
+            border: 1px solid var(--border);
+            background: rgba(255, 255, 255, 0.02);
+            padding: 24px;
+            border-radius: 16px;
+        }
+
+        .stat-value {
+            font-family: var(--font-title);
+            font-size: clamp(34px, 4vw, 56px);
+            line-height: 1;
+            color: #ffffff;
+            margin-bottom: 8px;
+        }
+
+        .stat-label {
+            color: #94a3b8;
+            font-size: 15px;
+            letter-spacing: 0.04em;
+            text-transform: uppercase;
         }
 
         .cards-grid {
@@ -256,7 +376,7 @@
 
         .card h3 {
             font-family: var(--font-title);
-            font-size: clamp(20px, 2vw, 30px);
+            font-size: clamp(17px, 1.5vw, 24px);
             line-height: 1.14;
             text-transform: uppercase;
             margin-bottom: 16px;
@@ -276,11 +396,12 @@
         }
 
         .project-preview {
-            position: absolute;
-            inset: 22px 22px auto 22px;
-            height: 120px;
-            border: 1px dashed rgba(255, 255, 255, 0.18);
-            background: linear-gradient(125deg, rgba(90, 123, 255, 0.11), rgba(143, 109, 255, 0.1), rgba(209, 156, 255, 0.09));
+            width: 100%;
+            height: 200px;
+            border: 1px solid rgba(255, 255, 255, 0.12);
+            border-radius: 12px;
+            background: linear-gradient(140deg, rgba(26, 31, 64, 0.95), rgba(64, 35, 114, 0.85), rgba(16, 20, 44, 0.95));
+            margin-bottom: 16px;
         }
 
         .tag {
@@ -308,49 +429,15 @@
             max-width: 460px;
         }
 
-        .contact-form {
+        .contact-actions.card {
             display: grid;
-            gap: 12px;
-        }
-
-        .contact-form label {
-            color: rgba(255, 255, 255, 0.7);
-            font-size: 13px;
-            text-transform: uppercase;
-            letter-spacing: 0.14em;
-            font-weight: 700;
-            margin-top: 4px;
-        }
-
-        .contact-form input,
-        .contact-form textarea {
-            width: 100%;
-            border: 1px solid rgba(255, 255, 255, 0.16);
-            background: rgba(255, 255, 255, 0.02);
-            color: var(--text);
-            font-family: var(--font-body);
-            font-size: 15px;
-            padding: 14px 14px;
-            outline: none;
-            transition: border-color 0.2s ease, box-shadow 0.2s ease;
-        }
-
-        .contact-form textarea {
-            min-height: 110px;
-            resize: vertical;
-        }
-
-        .contact-form input:focus,
-        .contact-form textarea:focus {
-            border-color: var(--violet);
-            box-shadow: 0 0 0 2px rgba(143, 109, 255, 0.24);
+            align-content: center;
         }
 
         .actions {
             display: flex;
             gap: 12px;
-            flex-wrap: wrap;
-            margin-top: 8px;
+            flex-direction: column;
         }
 
         .btn {
@@ -363,6 +450,7 @@
             text-decoration: none;
             cursor: pointer;
             transition: transform 0.2s ease, box-shadow 0.25s ease;
+            text-align: center;
         }
 
         .btn:hover {
@@ -382,12 +470,67 @@
         }
 
         .btn-whatsapp:hover {
-            border-color: var(--violet);
-            box-shadow: 0 0 22px rgba(143, 109, 255, 0.28);
+            background: #25D366;
+            border-color: #25D366;
+            color: #04120a;
+            box-shadow: 0 0 24px rgba(37, 211, 102, 0.45);
+        }
+
+        .btn-instagram {
+            background: transparent;
+            color: var(--text);
+            border-color: rgba(255, 255, 255, 0.3);
+        }
+
+        .btn-instagram:hover {
+            background: linear-gradient(90deg, #f58529, #dd2a7b, #8134af, #515bd4);
+            border-color: transparent;
+            box-shadow: 0 0 24px rgba(221, 42, 123, 0.38);
+        }
+
+        .site-footer {
+            border-top: 1px solid rgba(255, 255, 255, 0.14);
+            background: #000000;
+            padding: 20px 0;
+            position: relative;
+            z-index: 3;
+        }
+
+        .footer-inner {
+            width: min(1200px, 100%);
+            margin: 0 auto;
+            padding: 0 36px;
+            display: flex;
+            flex-wrap: wrap;
+            gap: 10px 20px;
+            justify-content: space-between;
+            color: #94a3b8;
+            font-size: 14px;
+        }
+
+        .footer-privacy {
+            color: #94a3b8;
         }
 
         @media (max-width: 960px) {
+            .hero-layout {
+                grid-template-columns: 1fr;
+            }
+
+            .hero-right {
+                width: 100%;
+            }
+
+            .hero-visual {
+                max-width: 340px;
+                margin: 0 auto;
+            }
+
             .cards-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .stats-grid {
                 grid-template-columns: 1fr;
             }
 
@@ -417,6 +560,10 @@
                 padding: 0 18px;
             }
 
+            .footer-inner {
+                padding: 0 18px;
+            }
+
             .contact-text p {
                 font-size: 16px;
             }
@@ -439,23 +586,44 @@
 
     <div class="section-indicators">
         <button class="dot active" data-index="0" aria-label="Hero"></button>
-        <button class="dot" data-index="1" aria-label="Services"></button>
-        <button class="dot" data-index="2" aria-label="Portfolio"></button>
-        <button class="dot" data-index="3" aria-label="Contact"></button>
+        <button class="dot" data-index="1" aria-label="Stats"></button>
+        <button class="dot" data-index="2" aria-label="Services"></button>
+        <button class="dot" data-index="3" aria-label="Portfolio"></button>
+        <button class="dot" data-index="4" aria-label="Contact"></button>
     </div>
 
     <section class="section hero" id="hero">
+        <div class="section-inner hero-layout">
+            <div class="hero-left">
+                <p class="hero-tag anim-item">Сайты · Приложения · AI</p>
+                <h1 class="hero-title anim-item">Сайты и AI которые приносят клиентов</h1>
+                <p class="hero-sub anim-item">
+                    Мы создаём сайты, приложения и AI-решения которые усиливают маркетинг, автоматизируют процессы и помогают бизнесу расти быстрее.
+                </p>
+                <a class="hero-cta anim-item" href="#contact">Обсудить проект <span aria-hidden="true">→</span></a>
+            </div>
+            <div class="hero-right anim-item" aria-hidden="true">
+                <div class="hero-visual"></div>
+            </div>
+        </div>
+    </section>
+
+    <section class="section stats" id="stats">
         <div class="section-inner">
-            <p class="kicker anim-item">Цифровая разработка для роста бизнеса</p>
-            <h1 class="hero-title anim-item">
-                <span class="line">Sergio</span>
-                <span class="line">Design</span>
-            </h1>
-            <p class="hero-sub anim-item">
-                Мы создаем сайты, мобильные приложения и AI-решения,
-                которые усиливают маркетинг, автоматизируют процессы
-                и помогают вашему бизнесу расти быстрее.
-            </p>
+            <div class="stats-grid">
+                <article class="stat-card anim-item">
+                    <p class="stat-value">12+</p>
+                    <p class="stat-label">Проектов сдано</p>
+                </article>
+                <article class="stat-card anim-item">
+                    <p class="stat-value">3</p>
+                    <p class="stat-label">Страны присутствия</p>
+                </article>
+                <article class="stat-card anim-item">
+                    <p class="stat-value">2x</p>
+                    <p class="stat-label">Рост трафика у клиентов</p>
+                </article>
+            </div>
         </div>
     </section>
 
@@ -515,20 +683,21 @@
                     план запуска под ваши цели, сроки и бюджет.
                 </p>
             </div>
-            <form class="contact-form card anim-item">
-                <label for="name">Имя</label>
-                <input id="name" name="name" type="text" placeholder="Ваше имя">
-                <label for="phone">WhatsApp / Телефон</label>
-                <input id="phone" name="phone" type="tel" placeholder="+7 (___) ___-__-__">
-                <label for="project">Описание проекта</label>
-                <textarea id="project" name="project" placeholder="Коротко опишите вашу задачу"></textarea>
+            <div class="contact-actions card anim-item">
                 <div class="actions">
-                    <button class="btn btn-primary" type="submit">Отправить</button>
-                    <a class="btn btn-whatsapp" href="https://wa.me/79990000000" target="_blank" rel="noopener noreferrer">Написать в WhatsApp</a>
+                    <a class="btn btn-whatsapp" href="https://wa.me/77055557142" target="_blank" rel="noopener noreferrer">Написать в WhatsApp</a>
+                    <a class="btn btn-instagram" href="https://www.instagram.com/sergiodesign.online?igsh=MWY5dmZvaHEzOHhoNQ%3D%3D&utm_source=qr" target="_blank" rel="noopener noreferrer">Открыть Instagram</a>
                 </div>
-            </form>
+            </div>
         </div>
     </section>
+
+    <footer class="site-footer">
+        <div class="footer-inner">
+            <p>© 2026 sergiodesign.online. Все права защищены.</p>
+            <p class="footer-privacy">Политика конфиденциальности</p>
+        </div>
+    </footer>
 
     <script>
         (function () {
@@ -698,7 +867,7 @@
                 delay: 0.2
             });
 
-            gsap.utils.toArray('.services .anim-item, .portfolio .anim-item, .contact .anim-item').forEach((item) => {
+            gsap.utils.toArray('.stats .anim-item, .services .anim-item, .portfolio .anim-item, .contact .anim-item').forEach((item) => {
                 gsap.to(item, {
                     opacity: 1,
                     y: 0,
@@ -734,14 +903,6 @@
 
             sections.forEach((section) => observer.observe(section));
 
-            const form = document.querySelector('.contact-form');
-            if (form) {
-                form.addEventListener('submit', (event) => {
-                    event.preventDefault();
-                    alert('Спасибо! Мы свяжемся с вами в ближайшее время.');
-                    form.reset();
-                });
-            }
         })();
     </script>
 </body>
