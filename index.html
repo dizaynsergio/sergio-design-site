@@ -289,6 +289,20 @@
             background: radial-gradient(56% 56% at 50% 20%, rgba(90, 123, 255, 0.24), transparent 70%);
         }
 
+        .contact {
+            min-height: auto;
+            padding: 60px 0;
+        }
+
+        .pricing {
+            min-height: auto;
+            padding: 60px 0;
+        }
+
+        .pricing::before {
+            background: radial-gradient(52% 52% at 52% 40%, rgba(123, 47, 255, 0.3), transparent 70%);
+        }
+
         .section-inner {
             width: min(1200px, 100%);
             padding: 0 36px;
@@ -342,6 +356,7 @@
             font-size: 15px;
             letter-spacing: 0.04em;
             text-transform: uppercase;
+            line-height: 1.65;
         }
 
         .cards-grid {
@@ -388,6 +403,28 @@
             font-size: 16px;
         }
 
+        .service-link {
+            margin-top: 16px;
+            display: inline-flex;
+            align-items: center;
+            text-decoration: none;
+            font-family: var(--font-title);
+            font-size: 12px;
+            text-transform: uppercase;
+            letter-spacing: 0.08em;
+            color: #ffffff;
+            padding: 10px 16px;
+            border-radius: 10px;
+            border: 1px solid rgba(255, 255, 255, 0.24);
+            transition: transform 0.2s ease, border-color 0.2s ease, box-shadow 0.2s ease;
+        }
+
+        .service-link:hover {
+            transform: translateY(-2px);
+            border-color: #a855f7;
+            box-shadow: 0 0 18px rgba(168, 85, 247, 0.35);
+        }
+
         .portfolio .card {
             min-height: 280px;
             display: flex;
@@ -402,6 +439,157 @@
             border-radius: 12px;
             background: linear-gradient(140deg, rgba(26, 31, 64, 0.95), rgba(64, 35, 114, 0.85), rgba(16, 20, 44, 0.95));
             margin-bottom: 16px;
+        }
+
+        .pricing-grid {
+            display: grid;
+            grid-template-columns: repeat(3, minmax(0, 1fr));
+            gap: 20px;
+        }
+
+        .pricing-card {
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            background: rgba(255, 255, 255, 0.02);
+            border-radius: 16px;
+            padding: 24px;
+            display: flex;
+            flex-direction: column;
+            min-height: 100%;
+            position: relative;
+        }
+
+        .pricing-card.featured {
+            border-color: rgba(168, 85, 247, 0.9);
+            box-shadow: 0 0 32px rgba(123, 47, 255, 0.35);
+        }
+
+        .pricing-badge {
+            position: absolute;
+            top: -18px;
+            left: 50%;
+            transform: translateX(-50%);
+            padding: 7px 16px;
+            min-width: 220px;
+            border-radius: 999px;
+            font-size: 11px;
+            text-transform: uppercase;
+            letter-spacing: 0.09em;
+            font-weight: 700;
+            color: #ffffff;
+            background: linear-gradient(90deg, #7b2fff, #a855f7);
+            border: 1px solid rgba(255, 255, 255, 0.25);
+            white-space: nowrap;
+            text-align: center;
+        }
+
+        .pricing-title {
+            font-family: var(--font-title);
+            font-size: 24px;
+            text-transform: uppercase;
+            margin-bottom: 8px;
+            line-height: 1.15;
+        }
+
+        .pricing-price {
+            font-family: var(--font-title);
+            font-size: 24px;
+            font-weight: 400;
+            margin: 0 0 14px 0;
+            background: linear-gradient(90deg, #7B2FFF, #A855F7);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            color: transparent;
+        }
+
+        .pricing-list {
+            list-style: none;
+            display: grid;
+            gap: 10px;
+            color: #c2c7de;
+            margin-bottom: 20px;
+            flex: 1;
+        }
+
+        .pricing-list li {
+            line-height: 1.45;
+        }
+
+        .pricing-btn {
+            display: inline-flex;
+            justify-content: center;
+            align-items: center;
+            text-decoration: none;
+            border-radius: 12px;
+            padding: 14px 18px;
+            font-family: var(--font-title);
+            font-size: 12px;
+            letter-spacing: 0.08em;
+            text-transform: uppercase;
+            transition: transform 0.2s ease, box-shadow 0.2s ease, border-color 0.2s ease, filter 0.2s ease;
+        }
+
+        .pricing-btn:hover {
+            transform: translateY(-2px);
+        }
+
+        .pricing-btn-outline {
+            border: 1px solid #a855f7;
+            color: #ffffff;
+        }
+
+        .pricing-btn-outline:hover {
+            box-shadow: 0 0 18px rgba(168, 85, 247, 0.35);
+        }
+
+        .pricing-btn-fill {
+            border: 1px solid transparent;
+            background: linear-gradient(90deg, #7B2FFF, #A855F7);
+            color: #ffffff;
+            box-shadow: 0 0 20px rgba(123, 47, 255, 0.4);
+        }
+
+        .pricing-btn-fill:hover {
+            filter: brightness(1.08);
+        }
+
+        .pricing-bonus {
+            margin-top: 22px;
+            border: 1px solid rgba(255, 220, 120, 0.32);
+            background: linear-gradient(90deg, rgba(245, 158, 11, 0.22), rgba(168, 85, 247, 0.2));
+            border-radius: 14px;
+            padding: 16px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 14px;
+            flex-wrap: wrap;
+        }
+
+        .pricing-bonus p {
+            color: #f8fafc;
+            line-height: 1.45;
+            margin: 0;
+        }
+
+        .pricing-bonus-btn {
+            text-decoration: none;
+            font-family: var(--font-title);
+            font-size: 12px;
+            text-transform: uppercase;
+            letter-spacing: 0.08em;
+            color: #120723;
+            background: #fbbf24;
+            border: 1px solid #fbbf24;
+            border-radius: 10px;
+            padding: 11px 14px;
+            transition: transform 0.2s ease, box-shadow 0.2s ease;
+            white-space: nowrap;
+        }
+
+        .pricing-bonus-btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 0 20px rgba(251, 191, 36, 0.4);
         }
 
         .tag {
@@ -539,6 +727,10 @@
                 grid-template-columns: 1fr;
             }
 
+            .pricing-grid {
+                grid-template-columns: 1fr;
+            }
+
             .contact-layout {
                 grid-template-columns: 1fr;
             }
@@ -594,7 +786,8 @@
         <button class="dot" data-index="1" aria-label="Stats"></button>
         <button class="dot" data-index="2" aria-label="Services"></button>
         <button class="dot" data-index="3" aria-label="Portfolio"></button>
-        <button class="dot" data-index="4" aria-label="Contact"></button>
+        <button class="dot" data-index="4" aria-label="Pricing"></button>
+        <button class="dot" data-index="5" aria-label="Contact"></button>
     </div>
 
     <section class="section hero" id="hero">
@@ -621,12 +814,12 @@
                     <p class="stat-label">Проектов сдано</p>
                 </article>
                 <article class="stat-card anim-item">
-                    <p class="stat-value">3</p>
-                    <p class="stat-label">Страны присутствия</p>
+                    <p class="stat-value">3 дня</p>
+                    <p class="stat-label">Средний срок сдачи лендинга</p>
                 </article>
                 <article class="stat-card anim-item">
-                    <p class="stat-value">2x</p>
-                    <p class="stat-label">Рост трафика у клиентов</p>
+                    <p class="stat-value">24/7</p>
+                    <p class="stat-label">Поддержка после запуска</p>
                 </article>
             </div>
         </div>
@@ -639,14 +832,17 @@
                 <article class="card anim-item">
                     <h3>Сайты и<br>лендинги</h3>
                     <p>Проектируем и запускаем быстрые сайты с акцентом на конверсию, SEO и удобство для клиента.</p>
+                    <a class="service-link" href="#contact">Связаться</a>
                 </article>
                 <article class="card anim-item">
                     <h3>Мобильные<br>приложения</h3>
                     <p>Разрабатываем iOS и Android приложения с современным UX, нативной производительностью и масштабируемой архитектурой.</p>
+                    <a class="service-link" href="#contact">Связаться</a>
                 </article>
                 <article class="card anim-item">
                     <h3>AI-решения и<br>автоматизация</h3>
                     <p>Внедряем чат-ботов, AI-помощников и автоматизации, чтобы сократить рутину и повысить результат команды.</p>
+                    <a class="service-link" href="#contact">Связаться</a>
                 </article>
             </div>
         </div>
@@ -674,6 +870,71 @@
                     <h3>Sales Copilot</h3>
                     <p>AI-ассистент для отдела продаж: генерация ответов, классификация лидов и авто-отчеты.</p>
                 </article>
+            </div>
+        </div>
+    </section>
+
+    <section class="section pricing" id="pricing">
+        <div class="section-inner">
+            <h2 class="section-title anim-item">ВЫБЕРИ ПАКЕТ</h2>
+            <div class="pricing-grid">
+                <article class="pricing-card anim-item">
+                    <h3 class="pricing-title">БАЗОВЫЙ</h3>
+                    <ul class="pricing-list">
+                        <li>Лендинг или сайт до 5 страниц</li>
+                        <li>Адаптив под мобильные</li>
+                        <li>Базовая SEO-настройка</li>
+                        <li>Форма захвата лидов</li>
+                        <li>Интеграция с WhatsApp / Telegram</li>
+                        <li>Аналитика (Google / Яндекс)</li>
+                        <li>Срок сдачи — 7 дней</li>
+                        <li>30 дней поддержки</li>
+                        <li>Хостинг на 1 год в подарок 🎁</li>
+                    </ul>
+                    <p class="pricing-price">от 250 000 ₸</p>
+                    <a class="pricing-btn pricing-btn-outline" href="#contact">НАЧАТЬ →</a>
+                </article>
+
+                <article class="pricing-card featured anim-item">
+                    <p class="pricing-badge">⭐ САМЫЙ ПОПУЛЯРНЫЙ</p>
+                    <h3 class="pricing-title">БИЗНЕС</h3>
+                    <ul class="pricing-list">
+                        <li>Всё из Базового</li>
+                        <li>Сайт до 15 страниц или MVP приложение</li>
+                        <li>Личный кабинет / CRM интеграция</li>
+                        <li>Чат-бот для захвата лидов</li>
+                        <li>Платёжная система</li>
+                        <li>A/B тест посадочной страницы</li>
+                        <li>Срок сдачи — 14 дней</li>
+                        <li>90 дней поддержки</li>
+                        <li>Хостинг на 1 год в подарок 🎁</li>
+                        <li>★ Бесплатный аудит конкурентов</li>
+                    </ul>
+                    <p class="pricing-price">от 750 000 ₸</p>
+                    <a class="pricing-btn pricing-btn-fill" href="#contact">ВЫБРАТЬ ПАКЕТ →</a>
+                </article>
+
+                <article class="pricing-card anim-item">
+                    <h3 class="pricing-title">ПРЕМИУМ</h3>
+                    <ul class="pricing-list">
+                        <li>Всё из Бизнес</li>
+                        <li>Полноценное iOS + Android приложение</li>
+                        <li>AI-ассистент под бизнес</li>
+                        <li>Автоматизация бизнес-процессов</li>
+                        <li>Дашборд аналитики</li>
+                        <li>Приоритетная разработка</li>
+                        <li>180 дней поддержки</li>
+                        <li>Выделенный менеджер проекта</li>
+                        <li>★ Стратегическая сессия — 2 часа</li>
+                    </ul>
+                    <p class="pricing-price">от 2 000 000 ₸</p>
+                    <a class="pricing-btn pricing-btn-outline" href="#contact">ОБСУДИТЬ ПРОЕКТ →</a>
+                </article>
+            </div>
+
+            <div class="pricing-bonus anim-item">
+                <p>⚡ Акция апрель 2026 — Подпишись на Instagram @sergiodesign и получи бесплатный аудит сайта (стоимость $150)</p>
+                <a class="pricing-bonus-btn" href="https://www.instagram.com/sergiodesign.online?igsh=MWY5dmZvaHEzOHhoNQ%3D%3D&utm_source=qr" target="_blank" rel="noopener noreferrer">ПОДПИСАТЬСЯ →</a>
             </div>
         </div>
     </section>
@@ -872,7 +1133,7 @@
                 delay: 0.2
             });
 
-            gsap.utils.toArray('.stats .anim-item, .services .anim-item, .portfolio .anim-item, .contact .anim-item').forEach((item) => {
+            gsap.utils.toArray('.stats .anim-item, .services .anim-item, .portfolio .anim-item, .pricing .anim-item, .contact .anim-item').forEach((item) => {
                 gsap.to(item, {
                     opacity: 1,
                     y: 0,
