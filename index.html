@@ -512,6 +512,11 @@
             color: #94a3b8;
         }
 
+        .anim-item {
+            /* Fallback если GSAP не отработал */
+            transition: opacity 0.1s;
+        }
+
         @media (max-width: 960px) {
             .hero-layout {
                 grid-template-columns: 1fr;
@@ -880,6 +885,16 @@
                     }
                 });
             });
+
+            // Через 2 секунды принудительно показать всё что не показалось
+            setTimeout(() => {
+                document.querySelectorAll('.anim-item').forEach(el => {
+                    if (window.getComputedStyle(el).opacity === '0') {
+                        el.style.opacity = '1';
+                        el.style.transform = 'none';
+                    }
+                });
+            }, 2000);
 
             const sections = gsap.utils.toArray('.section');
             const dots = gsap.utils.toArray('.dot');
