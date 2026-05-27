@@ -1,0 +1,14 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" role="img" aria-label="Triangle favicon">
+  <style>
+    :root {
+      --triangle-color: #000000;
+    }
+
+    @media (prefers-color-scheme: dark) {
+      :root {
+        --triangle-color: #ffffff;
+      }
+    }
+  </style>
+  <path fill="var(--triangle-color)" d="M32 8L56 52H8Z" />
+</svg>
