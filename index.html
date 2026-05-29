@@ -55,7 +55,7 @@
             left: 50%;
             transform: translateX(-50%);
             z-index: 40;
-            width: min(1220px, calc(100% - 28px));
+            width: min(1360px, calc(100% - 28px));
         }
 
         .nav-fixed {
@@ -283,7 +283,7 @@
         }
 
         #pricing .section-title {
-            margin-top: -14px;
+            margin-top: -28px;
             margin-bottom: 28px;
         }
 
@@ -293,7 +293,7 @@
 
         #portfolio,
         #pricing {
-            padding-top: 52px;
+            padding-top: 92px;
         }
 
         #portfolio {
@@ -306,6 +306,10 @@
 
         .hero {
             padding-top: 90px;
+        }
+
+        .hero .section-inner {
+            width: min(1360px, 100%);
         }
 
         .hero-panel {
@@ -356,20 +360,28 @@
             line-height: 0.95;
             letter-spacing: -0.03em;
             color: #261f38;
+            margin-top: 80px;
             margin-bottom: 16px;
             font-weight: 800;
+        }
+
+        .hero-title-gradient {
+            background: linear-gradient(90deg, #9E92E7, #2000EA);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
         }
 
         .hero-sub {
             color: #4f4b65;
             font-size: clamp(16px, 2vw, 21px);
             max-width: 840px;
-            margin: 0 auto;
+            margin: 20px auto 0;
             line-height: 1.45;
         }
 
         .hero-actions {
-            margin-top: 28px;
+            margin-top: 30px;
             display: flex;
             align-items: center;
             justify-content: center;
@@ -555,13 +567,13 @@
 
         .service-visual {
             position: relative;
-            min-height: 540px;
+            min-height: auto;
             border-radius: 24px;
             border: 0;
             background: transparent;
             box-shadow: none;
             padding: 20px;
-            overflow: hidden;
+            overflow: visible;
         }
 
         .service-center {
@@ -578,6 +590,7 @@
             padding: 20px;
             color: #3b3458;
             background: transparent;
+            pointer-events: none;
         }
 
         .service-center.phone {
@@ -614,13 +627,17 @@
         .hotspots {
             position: absolute;
             inset: 0;
-            pointer-events: none;
+            pointer-events: auto;
+            z-index: 20;
         }
 
         .hotspot {
             position: absolute;
-            width: min(220px, 42%);
-            pointer-events: auto;
+            width: auto;
+            max-width: 220px;
+            pointer-events: none;
+            z-index: 21;
+            padding: 2px;
         }
 
         .hotspot.is-open {
@@ -628,9 +645,18 @@
             z-index: 2;
         }
 
+        .hotspot-body {
+            border-radius: 12px;
+            transition: background 0.2s ease;
+        }
+
+        .hotspot.is-open .hotspot-body {
+            background: rgba(255, 255, 255, 0.24);
+        }
+
         .hotspot-toggle {
-            width: 36px;
-            height: 36px;
+            width: 44px;
+            height: 44px;
             border-radius: 50%;
             border: 1px solid rgba(255, 255, 255, 0.9);
             background: rgba(255, 255, 255, 0.88);
@@ -643,6 +669,8 @@
             justify-content: center;
             box-shadow: var(--shadow-glass);
             transition: background 0.2s ease, color 0.2s ease, transform 0.2s ease;
+            touch-action: manipulation;
+            pointer-events: auto;
         }
 
         .hotspot.is-open .hotspot-toggle {
@@ -681,10 +709,10 @@
             padding: 10px 12px;
         }
 
-        .hs-left-top { top: 8%; left: 4%; }
-        .hs-right-top { top: 8%; right: 4%; text-align: right; }
-        .hs-left-bottom { bottom: 10%; left: 5%; }
-        .hs-right-bottom { bottom: 10%; right: 5%; text-align: right; }
+        .hs-left-top { top: 8%; left: 4%; max-width: 230px; }
+        .hs-right-top { top: 8%; right: 3%; text-align: right; max-width: 190px; }
+        .hs-left-bottom { bottom: 10%; left: 5%; max-width: 210px; }
+        .hs-right-bottom { bottom: 10%; right: 3%; text-align: right; max-width: 190px; }
 
         .portfolio-grid {
             display: grid;
@@ -851,6 +879,10 @@
             background: linear-gradient(170deg, #2d2490, #180f55);
             color: #fff;
             border-color: rgba(255, 255, 255, 0.25);
+            padding: 30px 28px;
+            transform: scale(1.04);
+            z-index: 2;
+            box-shadow: 0 18px 34px rgba(32, 0, 234, 0.28);
         }
 
         .pricing-badge {
@@ -859,12 +891,20 @@
             left: 50%;
             transform: translate(-50%, -50%);
             border-radius: 999px;
-            background: linear-gradient(90deg, #9E92E7, #c6bdff);
-            color: #2d2670;
+            background: linear-gradient(120deg, #2000EA, #4d3cff, #6f61ff, #2000EA);
+            background-size: 220% 220%;
+            animation: pricing-badge-gradient 4s ease-in-out infinite;
+            color: #ffffff;
             font-size: 11px;
             font-weight: 700;
             padding: 7px 12px;
             white-space: nowrap;
+        }
+
+        @keyframes pricing-badge-gradient {
+            0% { background-position: 0% 50%; }
+            50% { background-position: 100% 50%; }
+            100% { background-position: 0% 50%; }
         }
 
         .pricing-title {
@@ -1020,7 +1060,7 @@
         .btn-whatsapp {
             background: #25D366;
             border-color: #25D366;
-            color: #06150a;
+            color: #ffffff;
             font-weight: 800;
         }
 
@@ -1060,7 +1100,7 @@
             justify-content: center;
             gap: 8px;
             text-decoration: none;
-            color: #05170c;
+            color: #ffffff;
             background: #25D366;
             border: 1px solid #25D366;
             border-radius: 999px;
@@ -1073,10 +1113,11 @@
         }
 
         .whatsapp-float:hover { transform: translateY(-2px); }
-        .whatsapp-float svg { width: 18px; height: 18px; fill: #05170c; }
+        .whatsapp-float svg { width: 18px; height: 18px; fill: #ffffff; }
 
         @media (max-width: 1060px) {
             .pricing-grid { grid-template-columns: 1fr; }
+            .pricing-card.featured { transform: scale(1.02); }
             .portfolio-item.large, .portfolio-item.tall { grid-column: span 12; }
             .contact-layout { grid-template-columns: 1fr; }
             .hero-stats { grid-template-columns: repeat(2, minmax(0, 1fr)); }
@@ -1134,7 +1175,8 @@
                 margin-top: 62px;
             }
             .hero-panel { min-height: auto; padding: 40px 0 26px; border-radius: 24px; }
-            .hero-title { line-height: 1.04; }
+            .hero-title { margin-top: 26px; line-height: 1.04; }
+            .hero-actions { margin-top: 10px; }
             .hero-stat b { font-size: 34px; }
             .services-stage { padding: 18px; min-height: auto; }
             .service-panel { min-height: auto; }
@@ -1172,7 +1214,6 @@
             <div class="nav-center glass">
                 <ul class="nav-links">
                     <li><a href="#hero">Главная</a></li>
-                    <li><a href="#services">Услуги</a></li>
                     <li><a href="#portfolio">Портфолио</a></li>
                     <li><a href="#pricing">Тарифы</a></li>
                     <li><a href="#contact">Контакты</a></li>
@@ -1190,7 +1231,6 @@
     <div class="mobile-menu glass" id="mobile-menu" aria-hidden="true">
         <ul>
             <li><a href="#hero">Главная</a></li>
-            <li><a href="#services">Услуги</a></li>
             <li><a href="#portfolio">Портфолио</a></li>
             <li><a href="#pricing">Тарифы</a></li>
             <li><a href="#contact">Контакты</a></li>
@@ -1202,7 +1242,7 @@
             <div class="hero-panel glass">
                 <div class="hero-content">
                     <p class="hero-kicker glass">Сайты · Приложения · AI</p>
-                    <h1 class="hero-title">САЙТЫ И AI КОТОРЫЕ ПРИНОСЯТ КЛИЕНТОВ</h1>
+                    <h1 class="hero-title"><span class="hero-title-gradient">САЙТЫ</span> И <span class="hero-title-gradient">AI</span> КОТОРЫЕ ПРИНОСЯТ КЛИЕНТОВ</h1>
                     <p class="hero-sub">
                         Мы создаём сайты, приложения и AI-решения которые усиливают маркетинг, автоматизируют процессы и помогают бизнесу расти быстрее.
                     </p>
@@ -1217,159 +1257,6 @@
                     <div class="hero-stat"><b>24/7</b><span>Поддержка после запуска</span></div>
                     <div class="hero-stat"><b>180k</b><span>рост показателей у клиентов</span></div>
                 </div>
-            </div>
-        </div>
-    </section>
-
-    <section class="section services" id="services">
-        <div class="section-inner">
-            <div class="services-stage glass">
-                <article class="service-panel is-active" data-panel="mobile">
-                    <div class="service-layout">
-                        <div class="service-list">
-                            <button class="service-item is-active service-select" type="button" data-target="mobile">
-                                <h4>Мобильные приложения и платформы</h4>
-                                <p>Проектируем и разрабатываем мобильные продукты под iOS/Android и веб-платформы с фокусом на удобство, производительность и масштабируемость.</p>
-                            </button>
-                            <button class="service-item service-select" type="button" data-target="web">
-                                <h4>Сайты и лендинги</h4>
-                                <p>Создаем современные сайты и лендинги, которые усиливают бренд, улучшают конверсию и помогают стабильно получать заявки от клиентов.</p>
-                            </button>
-                            <button class="service-item service-select" type="button" data-target="ai">
-                                <h4>AI решения для бизнеса</h4>
-                                <p>Внедряем AI-ассистентов и автоматизацию процессов, чтобы сократить рутину команды, ускорить обработку задач и повысить эффективность бизнеса.</p>
-                            </button>
-                        </div>
-                        <div class="service-visual">
-                            <div class="service-center phone">
-                                <div>
-                                    <div class="service-device">PHONE</div>
-                                    <p class="service-device-sub">iOS / Android / Platform</p>
-                                </div>
-                            </div>
-                            <div class="hotspots">
-                                <div class="hotspot hs-left-top is-open">
-                                    <button class="hotspot-toggle" type="button" aria-label="Подробнее">+</button>
-                                    <h4>Нативная скорость</h4>
-                                    <p>Стабильная работа интерфейса, быстрый отклик и продуманная анимация во всех сценариях.</p>
-                                </div>
-                                <div class="hotspot hs-right-top">
-                                    <button class="hotspot-toggle" type="button" aria-label="Подробнее">+</button>
-                                    <h4>Интеграции API</h4>
-                                    <p>Подключаем CRM, платежные системы и внешние сервисы, чтобы продукт работал как единая платформа.</p>
-                                </div>
-                                <div class="hotspot hs-left-bottom">
-                                    <button class="hotspot-toggle" type="button" aria-label="Подробнее">+</button>
-                                    <h4>Push и retention</h4>
-                                    <p>Настраиваем уведомления и онбординг, которые возвращают пользователей и повышают конверсию.</p>
-                                </div>
-                                <div class="hotspot hs-right-bottom">
-                                    <button class="hotspot-toggle" type="button" aria-label="Подробнее">+</button>
-                                    <h4>Масштабируемость</h4>
-                                    <p>Закладываем архитектуру, которая без боли выдерживает рост пользователей и функций.</p>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </article>
-
-                <article class="service-panel" data-panel="web">
-                    <div class="service-layout">
-                        <div class="service-list">
-                            <button class="service-item service-select" type="button" data-target="mobile">
-                                <h4>Мобильные приложения и платформы</h4>
-                                <p>Проектируем и разрабатываем мобильные продукты под iOS/Android и веб-платформы с фокусом на удобство, производительность и масштабируемость.</p>
-                            </button>
-                            <button class="service-item is-active service-select" type="button" data-target="web">
-                                <h4>Сайты и лендинги</h4>
-                                <p>Создаем современные сайты и лендинги, которые усиливают бренд, улучшают конверсию и помогают стабильно получать заявки от клиентов.</p>
-                            </button>
-                            <button class="service-item service-select" type="button" data-target="ai">
-                                <h4>AI решения для бизнеса</h4>
-                                <p>Внедряем AI-ассистентов и автоматизацию процессов, чтобы сократить рутину команды, ускорить обработку задач и повысить эффективность бизнеса.</p>
-                            </button>
-                        </div>
-                        <div class="service-visual">
-                            <div class="service-center laptop">
-                                <div>
-                                    <div class="service-device">LAPTOP</div>
-                                    <p class="service-device-sub">Landing / Website / SEO</p>
-                                </div>
-                            </div>
-                            <div class="hotspots">
-                                <div class="hotspot hs-left-top is-open">
-                                    <button class="hotspot-toggle" type="button" aria-label="Подробнее">+</button>
-                                    <h4>Конверсионная структура</h4>
-                                    <p>Продающий прототип и сценарии, которые ведут пользователя к заявке без лишних шагов.</p>
-                                </div>
-                                <div class="hotspot hs-right-top">
-                                    <button class="hotspot-toggle" type="button" aria-label="Подробнее">+</button>
-                                    <h4>SEO база</h4>
-                                    <p>Техническая оптимизация, семантика и контентная структура под рост органического трафика.</p>
-                                </div>
-                                <div class="hotspot hs-left-bottom">
-                                    <button class="hotspot-toggle" type="button" aria-label="Подробнее">+</button>
-                                    <h4>Скорость загрузки</h4>
-                                    <p>Оптимизируем медиа и код, чтобы сайт открывался быстро даже при слабом интернете.</p>
-                                </div>
-                                <div class="hotspot hs-right-bottom">
-                                    <button class="hotspot-toggle" type="button" aria-label="Подробнее">+</button>
-                                    <h4>Аналитика</h4>
-                                    <p>Подключаем воронку и события, чтобы видеть реальные источники заявок и точки роста.</p>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </article>
-
-                <article class="service-panel" data-panel="ai">
-                    <div class="service-layout">
-                        <div class="service-list">
-                            <button class="service-item service-select" type="button" data-target="mobile">
-                                <h4>Мобильные приложения и платформы</h4>
-                                <p>Проектируем и разрабатываем мобильные продукты под iOS/Android и веб-платформы с фокусом на удобство, производительность и масштабируемость.</p>
-                            </button>
-                            <button class="service-item service-select" type="button" data-target="web">
-                                <h4>Сайты и лендинги</h4>
-                                <p>Создаем современные сайты и лендинги, которые усиливают бренд, улучшают конверсию и помогают стабильно получать заявки от клиентов.</p>
-                            </button>
-                            <button class="service-item is-active service-select" type="button" data-target="ai">
-                                <h4>AI решения для бизнеса</h4>
-                                <p>Внедряем AI-ассистентов и автоматизацию процессов, чтобы сократить рутину команды, ускорить обработку задач и повысить эффективность бизнеса.</p>
-                            </button>
-                        </div>
-                        <div class="service-visual">
-                            <div class="service-center robot">
-                                <div>
-                                    <div class="service-device">ROBOT</div>
-                                    <p class="service-device-sub">AI copilots / automation</p>
-                                </div>
-                            </div>
-                            <div class="hotspots">
-                                <div class="hotspot hs-left-top is-open">
-                                    <button class="hotspot-toggle" type="button" aria-label="Подробнее">+</button>
-                                    <h4>AI-ассистент продаж</h4>
-                                    <p>Автоматизируем ответы, квалификацию лидов и подготовку персональных предложений.</p>
-                                </div>
-                                <div class="hotspot hs-right-top">
-                                    <button class="hotspot-toggle" type="button" aria-label="Подробнее">+</button>
-                                    <h4>Автоворонки</h4>
-                                    <p>Связываем сайт, CRM и мессенджеры, чтобы заявки обрабатывались без задержек.</p>
-                                </div>
-                                <div class="hotspot hs-left-bottom">
-                                    <button class="hotspot-toggle" type="button" aria-label="Подробнее">+</button>
-                                    <h4>Отчеты и аналитика</h4>
-                                    <p>Собираем дашборды и подсветку ключевых метрик для руководителя и отдела маркетинга.</p>
-                                </div>
-                                <div class="hotspot hs-right-bottom">
-                                    <button class="hotspot-toggle" type="button" aria-label="Подробнее">+</button>
-                                    <h4>AI-поддержка 24/7</h4>
-                                    <p>Чат-бот обрабатывает типовые вопросы клиентов и передает сложные кейсы менеджеру.</p>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </article>
             </div>
         </div>
     </section>
@@ -1475,8 +1362,7 @@
     <section class="section contact" id="contact">
         <div class="section-inner contact-layout">
             <div class="contact-card glass contact-text">
-                <p class="kicker">Обсудим ваш проект</p>
-                <h2 class="section-title" style="text-align:left;margin-bottom:12px;">Контакты</h2>
+                <h2 class="section-title" style="text-align:left;margin-bottom:12px;">Обсудим ваш проект</h2>
                 <p>Расскажите задачу, а мы предложим лучшее решение и подготовим план запуска под ваши цели, сроки и бюджет.</p>
             </div>
             <div class="contact-card glass">
@@ -1568,16 +1454,33 @@
                 });
             });
 
-            document.querySelectorAll('.hotspot-toggle').forEach(function (btn) {
-                btn.addEventListener('click', function () {
-                    const wrap = btn.closest('.hotspot');
-                    if (!wrap) return;
-                    const panel = btn.closest('.service-panel');
-                    if (!panel) return;
-                    panel.querySelectorAll('.hotspot').forEach(function (item) {
-                        if (item !== wrap) item.classList.remove('is-open');
-                    });
-                    wrap.classList.toggle('is-open');
+            function toggleHotspot(hotspot) {
+                if (!hotspot) return;
+                const panel = hotspot.closest('.service-panel');
+                if (!panel) return;
+                const willOpen = !hotspot.classList.contains('is-open');
+                panel.querySelectorAll('.hotspot').forEach(function (item) {
+                    item.classList.remove('is-open');
+                    const b = item.querySelector('.hotspot-toggle');
+                    if (b) b.setAttribute('aria-expanded', 'false');
+                });
+                if (willOpen) {
+                    hotspot.classList.add('is-open');
+                    const currentBtn = hotspot.querySelector('.hotspot-toggle');
+                    if (currentBtn) currentBtn.setAttribute('aria-expanded', 'true');
+                }
+            }
+
+            const hotspots = document.querySelectorAll('.hotspot');
+            hotspots.forEach(function (spot) {
+                const btn = spot.querySelector('.hotspot-toggle');
+                if (!btn) return;
+                btn.setAttribute('aria-expanded', spot.classList.contains('is-open') ? 'true' : 'false');
+
+                btn.addEventListener('click', function (event) {
+                    event.preventDefault();
+                    event.stopPropagation();
+                    toggleHotspot(spot);
                 });
             });
 
