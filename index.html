@@ -605,6 +605,25 @@
             line-height: 1.7;
             color: var(--muted);
             font-weight: 300;
+            margin-bottom: 28px;
+        }
+        .service-cta {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            text-decoration: none;
+            font-size: 11px;
+            font-weight: 500;
+            letter-spacing: 1.5px;
+            text-transform: uppercase;
+            color: var(--accent);
+            border: 1px solid var(--accent);
+            padding: 10px 20px;
+            transition: background 0.2s ease, color 0.2s ease;
+        }
+        .service-cta:hover {
+            background: var(--accent);
+            color: #fff;
         }
 
         /* ===================================
@@ -1448,16 +1467,19 @@
                     <span class="service-num">01</span>
                     <h3>Веб-разработка</h3>
                     <p>Лендинги, корпоративные сайты и веб-приложения с конверсионной структурой и современным дизайном. Быстро, чисто, на результат.</p>
+                    <a class="service-cta" href="#contact">Связаться →</a>
                 </div>
                 <div class="service-card">
                     <span class="service-num">02</span>
                     <h3>Мобильные приложения</h3>
                     <p>iOS и Android приложения с интуитивным UX и плавной анимацией. От быстрого MVP до полноценного продукта с нуля.</p>
+                    <a class="service-cta" href="#contact">Связаться →</a>
                 </div>
                 <div class="service-card">
                     <span class="service-num">03</span>
                     <h3>AI-решения</h3>
                     <p>Умные ассистенты, автоматизация процессов и AI-инструменты под ваш бизнес. Снижают нагрузку и дают конкурентное преимущество.</p>
+                    <a class="service-cta" href="#contact">Связаться →</a>
                 </div>
             </div>
 
@@ -1725,13 +1747,13 @@
             if (i < lineEls.length) {
                 lineEls[i].classList.add('show');
                 i++;
-                setTimeout(showNext, 60 + Math.random() * 100);
+                setTimeout(showNext, 25 + Math.random() * 40);
             } else {
                 setTimeout(function () {
                     bootScreen.classList.add('hidden');
                     mainSite.style.opacity = '1';
                     initPage();
-                }, 480);
+                }, 200);
             }
         }
         showNext();
