@@ -667,6 +667,51 @@
         .p-link.primary:hover { background: var(--accent2); border-color: var(--accent2); }
 
         /* ===================================
+           LOGOS CAROUSEL
+        =================================== */
+        .logos-carousel {
+            overflow: hidden;
+            padding: 48px 0;
+            border-top: 1px solid var(--line);
+            border-bottom: 1px solid var(--line);
+            margin-bottom: 0;
+            position: relative;
+        }
+        .logos-track {
+            display: flex;
+            align-items: center;
+            gap: 64px;
+            width: max-content;
+            animation: logoScroll 28s linear infinite;
+        }
+        .logos-carousel:hover .logos-track {
+            animation-play-state: paused;
+        }
+        @keyframes logoScroll {
+            from { transform: translateX(0); }
+            to   { transform: translateX(-50%); }
+        }
+        .logo-item {
+            flex-shrink: 0;
+            height: 40px;
+            display: flex;
+            align-items: center;
+        }
+        .logo-item img {
+            height: 36px;
+            width: auto;
+            max-width: 140px;
+            object-fit: contain;
+            filter: grayscale(100%) brightness(2.5) contrast(0.6);
+            opacity: 0.55;
+            transition: filter 0.3s ease, opacity 0.3s ease;
+        }
+        .logo-item:hover img {
+            filter: none;
+            opacity: 1;
+        }
+
+        /* ===================================
            QUOTE
         =================================== */
         .quote-section {
@@ -1414,6 +1459,27 @@
                             </div>
                         </div>
                     </article>
+                </div>
+            </div>
+
+            <!-- Logos Carousel -->
+            <div class="logos-carousel">
+                <div class="logos-track">
+                    <div class="logo-item"><img src="logos/Vector.svg" alt="RAF"></div>
+                    <div class="logo-item"><img src="logos/homex vector.svg" alt="Homex"></div>
+                    <div class="logo-item"><img src="logos/idDv0I0QDR_logos.svg" alt="Client"></div>
+                    <div class="logo-item"><img src="logos/motion svg.svg" alt="Motion"></div>
+                    <div class="logo-item"><img src="logos/variteks_logo_vektre.svg" alt="Variteks"></div>
+                    <div class="logo-item"><img src="logos/Слой_1.svg" alt="Client"></div>
+                    <div class="logo-item"><img src="logos/Слой_2.svg" alt="Client"></div>
+                    <!-- duplicate for seamless loop -->
+                    <div class="logo-item"><img src="logos/Vector.svg" alt="RAF"></div>
+                    <div class="logo-item"><img src="logos/homex vector.svg" alt="Homex"></div>
+                    <div class="logo-item"><img src="logos/idDv0I0QDR_logos.svg" alt="Client"></div>
+                    <div class="logo-item"><img src="logos/motion svg.svg" alt="Motion"></div>
+                    <div class="logo-item"><img src="logos/variteks_logo_vektre.svg" alt="Variteks"></div>
+                    <div class="logo-item"><img src="logos/Слой_1.svg" alt="Client"></div>
+                    <div class="logo-item"><img src="logos/Слой_2.svg" alt="Client"></div>
                 </div>
             </div>
 
