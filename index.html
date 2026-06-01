@@ -171,7 +171,7 @@
             color: var(--text);
             text-decoration: none;
             display: flex;
-            align-items: baseline;
+            align-items: center;
             gap: 5px;
             flex-shrink: 0;
         }
@@ -183,6 +183,42 @@
             letter-spacing: 0;
             text-transform: none;
         }
+        .nav-logo-icon {
+            width: 18px;
+            height: auto;
+            display: block;
+            flex-shrink: 0;
+        }
+
+        /* Phone button — shared base */
+        .nav-phone-desktop,
+        .nav-phone-mobile {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-decoration: none;
+            color: var(--text);
+            border: 1px solid rgba(240,236,228,0.25);
+            transition: border-color 0.2s, background 0.2s;
+            flex-shrink: 0;
+        }
+        .nav-phone-desktop:hover,
+        .nav-phone-mobile:hover {
+            border-color: var(--text);
+            background: rgba(240,236,228,0.05);
+        }
+        /* Desktop phone — same height as nav-cta */
+        .nav-phone-desktop {
+            padding: 9px 14px;
+        }
+        .nav-phone-desktop svg { width: 16px; height: 16px; stroke: currentColor; fill: none; }
+        /* Mobile phone — same size as hamburger */
+        .nav-phone-mobile {
+            display: none;
+            width: 40px;
+            height: 40px;
+        }
+        .nav-phone-mobile svg { width: 18px; height: 18px; stroke: currentColor; fill: none; }
 
         .nav-links {
             list-style: none;
@@ -573,7 +609,7 @@
             bottom: 0; left: 0; right: 0;
             padding: 22px 28px 26px;
             z-index: 2;
-            background: var(--accent);
+            background: #1e1e1e;
         }
         .portfolio-tag {
             display: block;
@@ -1184,8 +1220,9 @@
             .content-inner { padding: 80px 20px 60px; }
             .site-nav { padding: 20px 20px; }
             .site-nav.scrolled { padding: 14px 20px; }
-            .nav-links, .nav-cta { display: none; }
+            .nav-links, .nav-cta, .nav-phone-desktop { display: none; }
             .nav-toggle { display: flex; }
+            .nav-phone-mobile { display: flex; }
             .hero-text { padding: 0 20px; bottom: 16%; }
             .hero-text h1 { font-size: clamp(3.5rem, 16vw, 5rem); }
             .stat-item { padding: 36px 0 32px 20px; }
@@ -1221,14 +1258,20 @@
 
     <!-- Navigation -->
     <nav class="site-nav" id="siteNav">
-        <a class="nav-logo" href="#top">SERGIO <em>design</em></a>
+        <a class="nav-logo" href="#top">SERGIO <em>design</em><img class="nav-logo-icon" src="favicon.svg" alt="Sergio Design logo"></a>
         <ul class="nav-links" id="navLinks">
             <li><a href="#about">Главная</a></li>
             <li><a href="#portfolio">Портфолио</a></li>
             <li><a href="#pricing">Тарифы</a></li>
             <li><a href="#contact">Контакты</a></li>
         </ul>
+        <a class="nav-phone-desktop" href="tel:+77055557142" aria-label="Позвонить">
+            <svg viewBox="0 0 24 24" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07A19.5 19.5 0 013.3 10.8a19.79 19.79 0 01-3.07-8.67A2 2 0 012.2 0h3a2 2 0 012 1.72c.127.96.361 1.903.7 2.81a2 2 0 01-.45 2.11L6.09 7.91a16 16 0 006 6l1.27-1.27a2 2 0 012.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0122 16.92z"/></svg>
+        </a>
         <a class="nav-cta" href="#contact">Связаться</a>
+        <a class="nav-phone-mobile" href="tel:+77055557142" aria-label="Позвонить">
+            <svg viewBox="0 0 24 24" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07A19.5 19.5 0 013.3 10.8a19.79 19.79 0 01-3.07-8.67A2 2 0 012.2 0h3a2 2 0 012 1.72c.127.96.361 1.903.7 2.81a2 2 0 01-.45 2.11L6.09 7.91a16 16 0 006 6l1.27-1.27a2 2 0 012.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0122 16.92z"/></svg>
+        </a>
         <button class="nav-toggle" id="navToggle" aria-label="Меню" aria-expanded="false">
             <span></span><span></span><span></span>
         </button>
@@ -1306,7 +1349,7 @@
             </div>
 
             <!-- Services -->
-            <div class="section-label reveal">Что мы делаем</div>
+            <div id="services" class="section-label reveal">Что мы делаем</div>
             <div class="services-grid reveal">
                 <div class="service-card">
                     <span class="service-num">01</span>
@@ -1569,7 +1612,6 @@
                 setTimeout(function () {
                     bootScreen.classList.add('hidden');
                     mainSite.style.opacity = '1';
-                    setTimeout(function () { waFloat.classList.add('show'); }, 800);
                     initPage();
                 }, 480);
             }
@@ -1648,6 +1690,21 @@
             ticking = true;
         }
     }, { passive: true });
+
+    /* ===================================
+       WHATSAPP FLOAT — show on services scroll
+    =================================== */
+    (function () {
+        var servicesEl = document.getElementById('services');
+        if (!servicesEl || !waFloat) return;
+        var waObs = new IntersectionObserver(function (entries) {
+            if (entries[0].isIntersecting) {
+                waFloat.classList.add('show');
+                waObs.disconnect();
+            }
+        }, { threshold: 0.1 });
+        waObs.observe(servicesEl);
+    })();
 
     /* ===================================
        REVEAL ON SCROLL
