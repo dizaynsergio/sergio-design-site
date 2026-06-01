@@ -1149,18 +1149,23 @@
             .stat-item:nth-child(2) { border-right: none; }
             .stat-item:nth-child(3) { border-top: 1px solid var(--line); }
             .services-grid { grid-template-columns: 1fr; }
-            .portfolio-grid { grid-template-columns: 1fr; }
+            .portfolio-grid { grid-template-columns: 1fr; gap: 24px; background: transparent; }
             .portfolio-card {
                 aspect-ratio: unset;
+                height: auto;
                 display: flex;
                 flex-direction: column;
+                gap: 0;
+                overflow: hidden;
             }
             .portfolio-img {
                 position: relative;
                 inset: unset;
                 height: 220px;
                 width: 100%;
-                flex-shrink: 0;
+                flex: 0 0 220px;
+                background-size: cover;
+                background-position: top center;
             }
             .portfolio-overlay { display: none; }
             .portfolio-content {
@@ -1168,6 +1173,7 @@
                 bottom: auto;
                 left: auto;
                 right: auto;
+                flex: 0 0 auto;
             }
             .pricing-grid { grid-template-columns: 1fr; background: none; border: 1px solid var(--line); }
             .pricing-card { border-bottom: 1px solid var(--line); }
