@@ -190,6 +190,14 @@
             flex-shrink: 0;
         }
 
+        /* Nav right group — keeps phone + cta together */
+        .nav-right {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            flex-shrink: 0;
+        }
+
         /* Phone button — shared base */
         .nav-phone-desktop,
         .nav-phone-mobile {
@@ -573,8 +581,8 @@
         .portfolio-grid {
             display: grid;
             grid-template-columns: 1fr 1fr;
-            gap: 1px;
-            background: var(--line);
+            gap: 24px;
+            background: transparent;
             margin-bottom: 80px;
         }
         .portfolio-card {
@@ -652,11 +660,11 @@
         }
         .p-link:hover { border-color: #fff; background: rgba(255,255,255,0.1); }
         .p-link.primary {
-            background: #fff;
-            border-color: #fff;
-            color: var(--accent);
+            background: var(--accent);
+            border-color: var(--accent);
+            color: #fff;
         }
-        .p-link.primary:hover { background: rgba(255,255,255,0.9); }
+        .p-link.primary:hover { background: var(--accent2); border-color: var(--accent2); }
 
         /* ===================================
            QUOTE
@@ -911,6 +919,12 @@
             color: #fff;
         }
         .cta-btn.instagram:hover { background: var(--accent2); border-color: var(--accent2); }
+        .cta-btn.telegram {
+            background: #229ED9;
+            border-color: #229ED9;
+            color: #fff;
+        }
+        .cta-btn.telegram:hover { background: #1a8bbf; border-color: #1a8bbf; }
 
         /* ===================================
            FOOTER
@@ -1265,16 +1279,18 @@
             <li><a href="#pricing">Тарифы</a></li>
             <li><a href="#contact">Контакты</a></li>
         </ul>
-        <a class="nav-phone-desktop" href="tel:+77055557142" aria-label="Позвонить">
-            <svg viewBox="0 0 24 24" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07A19.5 19.5 0 013.3 10.8a19.79 19.79 0 01-3.07-8.67A2 2 0 012.2 0h3a2 2 0 012 1.72c.127.96.361 1.903.7 2.81a2 2 0 01-.45 2.11L6.09 7.91a16 16 0 006 6l1.27-1.27a2 2 0 012.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0122 16.92z"/></svg>
-        </a>
-        <a class="nav-cta" href="#contact">Связаться</a>
-        <a class="nav-phone-mobile" href="tel:+77055557142" aria-label="Позвонить">
-            <svg viewBox="0 0 24 24" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07A19.5 19.5 0 013.3 10.8a19.79 19.79 0 01-3.07-8.67A2 2 0 012.2 0h3a2 2 0 012 1.72c.127.96.361 1.903.7 2.81a2 2 0 01-.45 2.11L6.09 7.91a16 16 0 006 6l1.27-1.27a2 2 0 012.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0122 16.92z"/></svg>
-        </a>
-        <button class="nav-toggle" id="navToggle" aria-label="Меню" aria-expanded="false">
-            <span></span><span></span><span></span>
-        </button>
+        <div class="nav-right">
+            <a class="nav-phone-desktop" href="tel:+77055557142" aria-label="Позвонить">
+                <svg viewBox="0 0 24 24" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07A19.5 19.5 0 013.3 10.8a19.79 19.79 0 01-3.07-8.67A2 2 0 012.2 0h3a2 2 0 012 1.72c.127.96.361 1.903.7 2.81a2 2 0 01-.45 2.11L6.09 7.91a16 16 0 006 6l1.27-1.27a2 2 0 012.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0122 16.92z"/></svg>
+            </a>
+            <a class="nav-cta" href="#contact">Связаться</a>
+            <a class="nav-phone-mobile" href="tel:+77055557142" aria-label="Позвонить">
+                <svg viewBox="0 0 24 24" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07A19.5 19.5 0 013.3 10.8a19.79 19.79 0 01-3.07-8.67A2 2 0 012.2 0h3a2 2 0 012 1.72c.127.96.361 1.903.7 2.81a2 2 0 01-.45 2.11L6.09 7.91a16 16 0 006 6l1.27-1.27a2 2 0 012.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0122 16.92z"/></svg>
+            </a>
+            <button class="nav-toggle" id="navToggle" aria-label="Меню" aria-expanded="false">
+                <span></span><span></span><span></span>
+            </button>
+        </div>
     </nav>
 
     <!-- Mobile Menu -->
@@ -1536,6 +1552,10 @@
                         <a class="cta-btn instagram" href="https://www.instagram.com/sergiodesign.online?igsh=MWY5dmZvaHEzOHhoNQ%3D%3D&utm_source=qr" target="_blank" rel="noopener">
                             <svg viewBox="0 0 32 32" fill="currentColor" aria-hidden="true"><path d="M16 2.9c4.27 0 4.78.02 6.46.09 1.56.07 2.41.33 2.97.55.75.29 1.28.63 1.84 1.19.56.56.9 1.09 1.19 1.84.22.56.48 1.41.55 2.97.07 1.68.09 2.19.09 6.46s-.02 4.78-.09 6.46c-.07 1.56-.33 2.41-.55 2.97-.29.75-.63 1.28-1.19 1.84-.56.56-1.09.9-1.84 1.19-.56.22-1.41.48-2.97.55-1.68.07-2.19.09-6.46.09s-4.78-.02-6.46-.09c-1.56-.07-2.41-.33-2.97-.55-.75-.29-1.28-.63-1.84-1.19-.56-.56-.9-1.09-1.19-1.84-.22-.56-.48-1.41-.55-2.97C2.92 20.78 2.9 20.27 2.9 16s.02-4.78.09-6.46c.07-1.56.33-2.41.55-2.97.29-.75.63-1.28 1.19-1.84.56-.56 1.09-.9 1.84-1.19.56-.22 1.41-.48 2.97-.55C11.22 2.92 11.73 2.9 16 2.9M16 0c-4.34 0-4.89.02-6.59.1C7.72.17 6.54.45 5.5.85c-1.07.42-1.98.97-2.88 1.87C1.72 3.62 1.17 4.53.75 5.6.35 6.64.07 7.82 0 9.51-.02 11.21 0 11.76 0 16s.02 4.79.1 6.49c.07 1.69.35 2.87.75 3.91.42 1.07.97 1.98 1.87 2.88.9.9 1.81 1.45 2.88 1.87 1.04.4 2.22.68 3.91.75C11.21 31.98 11.76 32 16 32s4.79-.02 6.49-.1c1.69-.07 2.87-.35 3.91-.75 1.07-.42 1.98-.97 2.88-1.87.9-.9 1.45-1.81 1.87-2.88.4-1.04.68-2.22.75-3.91C31.98 20.79 32 20.24 32 16s-.02-4.79-.1-6.49c-.07-1.69-.35-2.87-.75-3.91-.42-1.07-.97-1.98-1.87-2.88-.9-.9-1.81-1.45-2.88-1.87-1.04-.4-2.22-.68-3.91-.75C20.79.02 20.24 0 16 0zm0 7.78a8.22 8.22 0 1 0 0 16.44A8.22 8.22 0 0 0 16 7.78zm0 13.56a5.34 5.34 0 1 1 0-10.68 5.34 5.34 0 0 1 0 10.68zm10.46-13.88a1.92 1.92 0 1 1-3.84 0 1.92 1.92 0 0 1 3.84 0z"/></svg>
                             Открыть Instagram
+                        </a>
+                        <a class="cta-btn telegram" href="https://t.me/sergio_design" target="_blank" rel="noopener">
+                            <svg viewBox="0 0 32 32" fill="currentColor" aria-hidden="true"><path d="M16 0C7.163 0 0 7.163 0 16s7.163 16 16 16 16-7.163 16-16S24.837 0 16 0zm7.9 10.933-2.688 12.669c-.2.894-.724 1.114-1.468.693l-4.063-2.993-1.96 1.887c-.217.217-.398.398-.817.398l.292-4.138 7.527-6.799c.327-.292-.071-.454-.508-.162L8.847 18.56l-3.994-1.248c-.868-.272-.884-.868.181-1.285l15.608-6.018c.724-.272 1.358.162 1.258 1.014v-.09z"/></svg>
+                            Написать в Telegram
                         </a>
                     </div>
                 </div>
