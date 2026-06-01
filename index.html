@@ -1150,7 +1150,25 @@
             .stat-item:nth-child(3) { border-top: 1px solid var(--line); }
             .services-grid { grid-template-columns: 1fr; }
             .portfolio-grid { grid-template-columns: 1fr; }
-            .portfolio-card { aspect-ratio: 16/10; }
+            .portfolio-card {
+                aspect-ratio: unset;
+                display: flex;
+                flex-direction: column;
+            }
+            .portfolio-img {
+                position: relative;
+                inset: unset;
+                height: 220px;
+                width: 100%;
+                flex-shrink: 0;
+            }
+            .portfolio-overlay { display: none; }
+            .portfolio-content {
+                position: relative;
+                bottom: auto;
+                left: auto;
+                right: auto;
+            }
             .pricing-grid { grid-template-columns: 1fr; background: none; border: 1px solid var(--line); }
             .pricing-card { border-bottom: 1px solid var(--line); }
             .contact-grid { grid-template-columns: 1fr; gap: 48px; }
