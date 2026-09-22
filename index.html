@@ -2,2262 +2,683 @@
 <html lang="ru">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Sergio Design — Разработка сайтов, приложений и AI-решений в Казахстане</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+    <meta name="theme-color" content="#030712">
+    <meta name="color-scheme" content="dark">
+    <script>
+        (function () {
+            var d = document.documentElement;
+            d.className = 'js';
+            try {
+                var l = new URLSearchParams(location.search).get('lang') || localStorage.getItem('sd-lang');
+                if (l === 'en') { d.lang = 'en'; d.classList.add('i18n-wait'); }
+            } catch (e) {}
+            setTimeout(function () {
+                if (!window.SD_OK) { d.classList.remove('js', 'i18n-wait'); d.lang = 'ru'; }
+            }, 4000);
+        })();
+    </script>
+    <title data-i18n="meta.title">Sergio Design — Автоматизация бизнеса, дашборды и интеграции 1С, Битрикс24, amoCRM</title>
+    <meta name="description" data-i18n-attr="content:meta.desc" content="Полная автоматизация бизнес-процессов и интеграции 1С, Битрикс24, amoCRM и Meta Ads. Все данные компании — в одном дашборде. Сайты и приложения. Бесплатный аудит — пишите в WhatsApp.">
     <link rel="icon" type="image/svg+xml" href="favicon.svg">
-    <meta name="description" content="Разработка сайтов, мобильных приложений и AI-решений под ключ в Казахстане. Лендинг за 3 дня. Веб-дизайн, UX/UI и конверсионные сайты для бизнеса. Заказать сайт — пишите в WhatsApp.">
-    <meta property="og:title" content="Sergio Design — Разработка сайтов и приложений в Казахстане">
-    <meta property="og:description" content="Разработка сайтов, мобильных приложений и AI-решений под ключ. Лендинг за 3 дня. Веб-дизайн и UX/UI для бизнеса в Казахстане.">
+    <link rel="canonical" href="https://sergiodesign.online/">
+    <meta property="og:title" content="Sergio Design — весь бизнес в одном дашборде">
+    <meta property="og:description" content="Автоматизация бизнес-процессов и интеграции 1С, Битрикс24, amoCRM, Meta Ads. Дашборды, сайты и приложения.">
     <meta property="og:type" content="website">
     <meta property="og:url" content="https://sergiodesign.online/">
     <meta property="og:image" content="https://sergiodesign.online/preview.jpg">
     <meta property="og:image:width" content="1200">
     <meta property="og:image:height" content="630">
-    <meta property="og:image:alt" content="Sergio Design — Сайты, приложения и AI-решения">
     <meta name="twitter:card" content="summary_large_image">
-    <meta name="twitter:title" content="Sergio Design — Разработка сайтов и приложений в Казахстане">
-    <meta name="twitter:description" content="Разработка сайтов, мобильных приложений и AI-решений под ключ. Лендинг за 3 дня. Веб-дизайн для бизнеса в Казахстане.">
     <meta name="twitter:image" content="https://sergiodesign.online/preview.jpg">
-    <link rel="canonical" href="https://sergiodesign.online/">
     <script type="application/ld+json">
     {
       "@context": "https://schema.org",
       "@type": "ProfessionalService",
       "name": "Sergio Design",
       "url": "https://sergiodesign.online/",
-      "logo": "https://sergiodesign.online/favicon.svg",
       "image": "https://sergiodesign.online/preview.jpg",
-      "description": "Создаём сайты, мобильные приложения и AI-решения которые приносят клиентов. Средний срок лендинга — 3 дня.",
+      "description": "Автоматизация бизнес-процессов, дашборды и интеграции 1С, Битрикс24, amoCRM, Meta Ads. Разработка сайтов и мобильных приложений.",
       "telephone": "+77055557142",
-      "address": {
-        "@type": "PostalAddress",
-        "addressCountry": "KZ"
-      },
-      "sameAs": [
-        "https://www.instagram.com/sergiodesign.online",
-        "https://t.me/sergio_design"
-      ],
-      "priceRange": "$$",
-      "serviceType": ["Веб-разработка", "Мобильные приложения", "AI-решения", "UX/UI дизайн"]
+      "address": { "@type": "PostalAddress", "addressCountry": "KZ" },
+      "sameAs": ["https://www.instagram.com/sergiodesign.online", "https://t.me/sergio_design"],
+      "serviceType": ["Автоматизация бизнес-процессов", "Интеграции 1С, Битрикс24, amoCRM", "Бизнес-дашборды", "Веб-разработка", "Мобильные приложения"]
     }
     </script>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&family=DM+Sans:wght@300;400;500&family=Fira+Code:wght@400;500&display=swap" rel="stylesheet">
-    <style>
-        /* ===================================
-           RESET & BASE
-        =================================== */
-        *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
-
-        :root {
-            --bg:       #0c0c0c;
-            --surface:  #141414;
-            --surface2: #1a1a1a;
-            --text:     #f0ece4;
-            --muted:    #8a8680;
-            --dim:      #5a5652;
-            --accent:   #ff4d17;
-            --accent2:  #e63a08;
-            --grad-text: linear-gradient(105deg, #ffffff 0%, #ffe2d4 38%, var(--accent) 100%);
-            --line:     rgba(240,236,228,0.08);
-            --fh: 'Space Grotesk', sans-serif;
-            --fb: 'DM Sans', sans-serif;
-            --fm: 'Fira Code', monospace;
-        }
-
-        html { scroll-behavior: smooth; }
-
-        body {
-            background: var(--bg);
-            color: var(--text);
-            font-family: var(--fb);
-            overflow-x: hidden;
-            -webkit-font-smoothing: antialiased;
-            -moz-osx-font-smoothing: grayscale;
-        }
-
-        /* ===================================
-           BOOT SCREEN
-        =================================== */
-        .boot-screen {
-            position: fixed;
-            inset: 0;
-            background: #050505;
-            z-index: 10000;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            transition: opacity 0.9s ease;
-        }
-        .boot-screen.hidden {
-            opacity: 0;
-            pointer-events: none;
-        }
-        .boot-content {
-            width: min(580px, 90vw);
-        }
-        .boot-logo {
-            font-family: var(--fm);
-            font-size: 11px;
-            letter-spacing: 5px;
-            text-transform: uppercase;
-            color: var(--accent);
-            margin-bottom: 20px;
-            padding-bottom: 12px;
-            border-bottom: 1px solid rgba(255,77,23,0.25);
-        }
-        .boot-text {
-            font-family: var(--fm);
-            font-size: 13px;
-            color: #c8c4bc;
-            line-height: 2;
-        }
-        .boot-line {
-            opacity: 0;
-            display: block;
-            transition: opacity 0.12s ease;
-        }
-        .boot-line.show   { opacity: 1; }
-        .boot-line.dim    { color: var(--dim); }
-        .boot-line.green  { color: #4caf89; }
-        .boot-line.accent { color: var(--accent); }
-        .boot-line.bright { color: var(--text); }
-
-        /* ===================================
-           SCROLL INDICATOR
-        =================================== */
-        .scroll-indicator {
-            position: fixed;
-            bottom: 40px;
-            left: 50%;
-            transform: translateX(-50%);
-            z-index: 100;
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            gap: 10px;
-            opacity: 1;
-            transition: opacity 0.5s ease;
-            pointer-events: none;
-        }
-        .scroll-indicator.hidden { opacity: 0; }
-        .scroll-indicator span {
-            font-size: 10px;
-            letter-spacing: 4px;
-            text-transform: uppercase;
-            color: var(--muted);
-        }
-        .scroll-line {
-            width: 1px;
-            height: 44px;
-            background: rgba(138,134,128,0.3);
-            position: relative;
-            overflow: hidden;
-        }
-        .scroll-line::after {
-            content: '';
-            position: absolute;
-            top: -100%;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background: var(--muted);
-            animation: scrollDown 1.9s ease-in-out infinite;
-        }
-        @keyframes scrollDown {
-            0%   { top: -100%; }
-            50%  { top: 0; }
-            100% { top: 100%; }
-        }
-
-        /* ===================================
-           NAVIGATION
-        =================================== */
-        .site-nav {
-            position: fixed;
-            top: 0;
-            left: 0;
-            right: 0;
-            z-index: 200;
-            padding: 22px 32px;
-            display: grid;
-            grid-template-columns: 1fr auto 1fr;
-            align-items: center;
-            transition: padding 0.3s ease;
-        }
-        .site-nav.scrolled {
-            padding: 14px 32px;
-        }
-
-        /* Frosted-glass pill shared base */
-        .nav-glass {
-            background: rgba(255,255,255,0.07);
-            backdrop-filter: blur(16px) saturate(140%);
-            -webkit-backdrop-filter: blur(16px) saturate(140%);
-            border: 1px solid rgba(255,255,255,0.14);
-            border-radius: 999px;
-            box-shadow: 0 8px 32px rgba(0,0,0,0.25), inset 0 1px 0 rgba(255,255,255,0.08);
-        }
-
-        /* Center logo */
-        .nav-logo {
-            grid-column: 2;
-            justify-self: center;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            text-decoration: none;
-            width: 52px;
-            height: 52px;
-            border-radius: 50%;
-            flex-shrink: 0;
-        }
-        .nav-logo-icon {
-            width: 26px;
-            height: auto;
-            display: block;
-        }
-
-        /* Left pill — menu links */
-        .nav-links {
-            grid-column: 1;
-            justify-self: start;
-            list-style: none;
-            display: flex;
-            align-items: center;
-            gap: 2px;
-            padding: 5px;
-        }
-        .nav-links a {
-            display: block;
-            font-size: 13px;
-            font-weight: 500;
-            letter-spacing: 0.2px;
-            color: rgba(255,255,255,0.7);
-            text-decoration: none;
-            padding: 9px 18px;
-            border-radius: 999px;
-            transition: color 0.2s, background 0.2s;
-        }
-        .nav-links a:hover,
-        .nav-links a.active {
-            color: #fff;
-            background: rgba(255,255,255,0.12);
-        }
-
-        /* Right group — actions */
-        .nav-right {
-            grid-column: 3;
-            justify-self: end;
-            display: flex;
-            align-items: center;
-            gap: 8px;
-            padding: 6px 6px 6px 6px;
-        }
-
-        /* Phone + CTA buttons */
-        .nav-phone-desktop,
-        .nav-phone-mobile {
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            text-decoration: none;
-            color: #fff;
-            border-radius: 999px;
-            transition: background 0.2s;
-            flex-shrink: 0;
-        }
-        .nav-phone-desktop {
-            width: 40px;
-            height: 40px;
-            background: rgba(255,255,255,0.08);
-        }
-        .nav-phone-desktop:hover { background: rgba(255,255,255,0.18); }
-        .nav-phone-desktop svg { width: 17px; height: 17px; stroke: currentColor; fill: none; }
-        .nav-phone-mobile {
-            display: none;
-            width: 42px;
-            height: 42px;
-        }
-        .nav-phone-mobile svg { width: 18px; height: 18px; stroke: currentColor; fill: none; }
-
-        .nav-cta {
-            text-decoration: none;
-            font-size: 13px;
-            font-weight: 600;
-            letter-spacing: 0.2px;
-            color: #fff;
-            background: var(--accent);
-            border-radius: 999px;
-            padding: 11px 22px;
-            transition: background 0.2s;
-        }
-        .nav-cta:hover { background: var(--accent2); }
-
-        .nav-toggle {
-            display: none;
-            background: none;
-            border: none;
-            width: 42px;
-            height: 42px;
-            cursor: pointer;
-            flex-direction: column;
-            align-items: center;
-            justify-content: center;
-            gap: 5px;
-        }
-        .nav-toggle span {
-            display: block;
-            width: 18px;
-            height: 1px;
-            background: var(--text);
-            transition: 0.2s;
-        }
-        .nav-toggle[aria-expanded="true"] span:nth-child(1) { transform: translateY(6px) rotate(45deg); }
-        .nav-toggle[aria-expanded="true"] span:nth-child(2) { opacity: 0; }
-        .nav-toggle[aria-expanded="true"] span:nth-child(3) { transform: translateY(-6px) rotate(-45deg); }
-
-        .mobile-menu {
-            position: fixed;
-            top: 0;
-            left: 0;
-            right: 0;
-            bottom: 0;
-            background: rgba(5,5,5,0.97);
-            backdrop-filter: blur(20px);
-            z-index: 199;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            opacity: 0;
-            pointer-events: none;
-            transition: opacity 0.25s ease;
-        }
-        .mobile-menu.is-open {
-            opacity: 1;
-            pointer-events: auto;
-        }
-        .mobile-menu ul {
-            list-style: none;
-            display: grid;
-            gap: 8px;
-            text-align: center;
-        }
-        .mobile-menu a {
-            display: block;
-            font-family: var(--fh);
-            font-size: clamp(1.8rem, 6vw, 2.5rem);
-            font-weight: 500;
-            color: var(--muted);
-            text-decoration: none;
-            padding: 10px 24px;
-            transition: color 0.2s;
-            letter-spacing: -0.02em;
-        }
-        .mobile-menu a:hover { color: var(--text); }
-
-        /* ===================================
-           HERO (FIXED)
-        =================================== */
-        .hero-section {
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100vh;
-            z-index: 1;
-            overflow: hidden;
-        }
-
-        .hero-bg {
-            position: absolute;
-            inset: 0;
-            will-change: transform;
-            background:
-                repeating-linear-gradient(90deg, rgba(0,0,0,0.16) 0px, rgba(0,0,0,0.16) 1px, transparent 1px, transparent 11px),
-                radial-gradient(ellipse 65% 85% at 80% 42%, rgba(255,110,45,0.55), transparent 62%),
-                linear-gradient(100deg, #090909 0%, #1a0905 22%, #571507 50%, #b8330d 76%, #ff4d17 100%);
-        }
-
-        /* Subtle noise texture */
-        .hero-bg::before {
-            content: '';
-            position: absolute;
-            inset: 0;
-            opacity: 0.04;
-            background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='300' height='300'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.65' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='300' height='300' filter='url(%23n)'/%3E%3C/svg%3E");
-            background-size: 300px 300px;
-        }
-
-        /* Gradient vignette — darkens left for text + fades to bg at bottom */
-        .hero-overlay {
-            position: absolute;
-            inset: 0;
-            background:
-                linear-gradient(90deg, rgba(9,9,9,0.85) 0%, rgba(9,9,9,0.35) 30%, transparent 55%),
-                linear-gradient(to bottom, rgba(9,9,9,0.4) 0%, transparent 30%, transparent 70%, rgba(12,12,12,0.85) 92%, #0c0c0c 100%);
-            z-index: 2;
-            pointer-events: none;
-        }
-
-        .hero-text {
-            position: absolute;
-            inset: 0;
-            z-index: 3;
-            display: flex;
-            align-items: center;
-            will-change: transform, opacity;
-        }
-        .hero-inner {
-            max-width: 1320px;
-            width: 100%;
-            margin: 0 auto;
-            padding: 0 48px;
-            display: grid;
-            grid-template-columns: 1.08fr 0.92fr;
-            align-items: center;
-            gap: 40px;
-        }
-
-        .hero-kicker {
-            display: inline-block;
-            font-family: var(--fh);
-            font-size: clamp(1rem, 1.6vw, 1.45rem);
-            font-weight: 400;
-            color: rgba(255,255,255,0.85);
-            letter-spacing: -0.01em;
-            margin-bottom: 0;
-        }
-        .hero-h1 {
-            font-family: var(--fh);
-            font-size: clamp(3rem, 6.8vw, 6.5rem);
-            font-weight: 700;
-            line-height: 0.92;
-            letter-spacing: -0.04em;
-            color: #fff;
-            margin-bottom: 14px;
-            white-space: nowrap;        /* one line — last letter tucks behind the phone */
-        }
-        .hero-left { min-width: 0; }     /* let the nowrap headline overflow the grid column */
-        .hero-h1 span {
-            background: linear-gradient(100deg, #fff 0%, #fff 45%, rgba(255,255,255,0.35) 100%);
-            -webkit-background-clip: text;
-            background-clip: text;
-            color: transparent;
-        }
-        .hero-sub {
-            font-size: clamp(0.95rem, 1.4vw, 1.15rem);
-            line-height: 1.5;
-            color: rgba(255,255,255,0.72);
-            font-weight: 300;
-            max-width: 440px;
-            margin-bottom: 26px;
-        }
-
-        /* Hero actions */
-        .hero-actions {
-            display: flex;
-            align-items: center;
-            gap: 14px;
-            margin-bottom: 30px;
-        }
-        .hero-btn {
-            display: inline-flex;
-            align-items: center;
-            gap: 14px;
-            background: var(--accent);
-            color: #fff;
-            text-decoration: none;
-            font-family: var(--fh);
-            font-size: 1rem;
-            font-weight: 600;
-            padding: 9px 9px 9px 26px;
-            border-radius: 999px;
-            transition: background 0.25s ease, transform 0.25s ease;
-        }
-        .hero-btn:hover { background: var(--accent2); transform: translateY(-2px); }
-        .hero-btn span {
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            width: 40px;
-            height: 40px;
-            border-radius: 50%;
-            background: #fff;
-        }
-        .hero-btn span svg { width: 18px; height: 18px; stroke: var(--accent); fill: none; }
-        .hero-scroll-dot {
-            display: inline-flex;
-            align-items: center;
-            justify-content: center;
-            width: 58px;
-            height: 58px;
-            border-radius: 50%;
-            background: #fff;
-            text-decoration: none;
-            transition: transform 0.25s ease;
-        }
-        .hero-scroll-dot:hover { transform: translateY(3px); }
-        .hero-scroll-dot svg { width: 22px; height: 22px; stroke: #0c0c0c; fill: none; }
-
-        /* Hero glass plates */
-        .hero-plates {
-            display: flex;
-            align-items: stretch;
-            gap: 14px;
-            flex-wrap: wrap;
-        }
-        .hero-plate {
-            background: rgba(255,255,255,0.07);
-            backdrop-filter: blur(18px) saturate(140%);
-            -webkit-backdrop-filter: blur(18px) saturate(140%);
-            border: 1px solid rgba(255,255,255,0.14);
-            border-radius: 20px;
-            box-shadow: 0 12px 40px rgba(0,0,0,0.28), inset 0 1px 0 rgba(255,255,255,0.08);
-            padding: 15px 18px;
-        }
-        .hero-plate.big {
-            display: flex;
-            flex-direction: column;
-            justify-content: space-between;
-            width: 250px;
-            gap: 14px;
-        }
-        .plate-chip {
-            display: inline-flex;
-            align-items: center;
-            gap: 8px;
-            align-self: flex-start;
-            background: rgba(255,255,255,0.1);
-            border-radius: 999px;
-            padding: 6px 14px;
-            font-size: 0.78rem;
-            font-weight: 500;
-            color: rgba(255,255,255,0.9);
-        }
-        .plate-chip svg { width: 15px; height: 15px; stroke: var(--accent); fill: none; }
-        .plate-bottom { display: flex; align-items: flex-end; justify-content: space-between; gap: 16px; }
-        .plate-num {
-            font-family: var(--fh);
-            font-size: clamp(1.9rem, 2.5vw, 2.4rem);
-            font-weight: 700;
-            line-height: 1;
-            color: #fff;
-        }
-        .plate-label {
-            font-size: 0.8rem;
-            color: rgba(255,255,255,0.62);
-            line-height: 1.35;
-            margin-top: 6px;
-            max-width: 150px;
-        }
-        .plate-arrow {
-            flex-shrink: 0;
-            width: 44px;
-            height: 44px;
-            border-radius: 50%;
-            background: var(--accent);
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            text-decoration: none;
-            transition: background 0.2s, transform 0.2s;
-        }
-        .plate-arrow:hover { background: var(--accent2); transform: translateY(-2px); }
-        .plate-arrow svg { width: 18px; height: 18px; stroke: #fff; fill: none; }
-        .hero-plate.stat {
-            display: flex;
-            flex-direction: column;
-            justify-content: center;
-            min-width: 130px;
-        }
-
-        /* Phone placeholder (mockup coming later) */
-        .hero-right { display: flex; justify-content: center; align-items: center; }
-        .hero-phone {
-            position: relative;
-            width: clamp(230px, 24vw, 300px);
-            aspect-ratio: 9 / 19;
-            border-radius: 42px;
-            background: linear-gradient(165deg, #232323, #0b0b0b);
-            border: 1px solid rgba(255,255,255,0.14);
-            box-shadow: 0 50px 90px rgba(0,0,0,0.55), inset 0 1px 0 rgba(255,255,255,0.12);
-            padding: 12px;
-        }
-        .hero-phone::before {
-            content: '';
-            position: absolute;
-            top: 16px;
-            left: 50%;
-            transform: translateX(-50%);
-            width: 38%;
-            height: 22px;
-            background: #0b0b0b;
-            border-radius: 0 0 16px 16px;
-            z-index: 2;
-        }
-        .phone-screen {
-            width: 100%;
-            height: 100%;
-            border-radius: 32px;
-            background:
-                radial-gradient(ellipse 80% 50% at 50% 22%, rgba(255,77,23,0.35), transparent 60%),
-                linear-gradient(160deg, #161616, #0a0a0a);
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            overflow: hidden;
-        }
-        .phone-screen span {
-            font-family: var(--fm);
-            font-size: 11px;
-            letter-spacing: 3px;
-            text-transform: uppercase;
-            color: rgba(255,255,255,0.4);
-        }
-
-        /* ===================================
-           SPACER
-        =================================== */
-        .spacer {
-            height: 100vh;
-            position: relative;
-            z-index: 0;
-        }
-
-        /* ===================================
-           CONTENT SECTION
-        =================================== */
-        .content-section {
-            position: relative;
-            z-index: 10;
-            background: var(--bg);
-        }
-
-        .content-inner {
-            max-width: 1200px;
-            margin: 0 auto;
-            padding: 120px 40px 80px;
-        }
-
-        /* ===================================
-           SECTION LABELS
-        =================================== */
-        .section-label {
-            font-size: 10px;
-            letter-spacing: 5px;
-            text-transform: uppercase;
-            color: var(--accent);
-            margin-bottom: 40px;
-            display: flex;
-            align-items: center;
-            gap: 16px;
-        }
-        .section-label::before {
-            content: '';
-            display: block;
-            width: 36px;
-            height: 1px;
-            background: var(--accent);
-            flex-shrink: 0;
-        }
-
-        /* ===================================
-           BIG HEADING
-        =================================== */
-        .big-heading {
-            font-family: var(--fh);
-            font-size: clamp(2.4rem, 5.5vw, 5rem);
-            font-weight: 600;
-            line-height: 1.08;
-            letter-spacing: -0.025em;
-            color: var(--text);
-            margin-bottom: 60px;
-            max-width: 960px;
-            overflow: visible;    /* prevent gradient text clipping */
-            padding-bottom: 0.06em; /* space for descenders so gradient isn't cut */
-        }
-        .big-heading em {
-            font-style: italic;
-            font-weight: 300;
-            display: inline;
-            padding: 0.06em 0.22em 0.1em 0.04em;
-            /* clone gives each wrapped line its own padding so italic tail isn't clipped */
-            -webkit-box-decoration-break: clone;
-            box-decoration-break: clone;
-            background: var(--grad-text);
-            -webkit-background-clip: text;
-            background-clip: text;
-            color: transparent;
-        }
-
-        /* Reusable gradient text (white → orange) */
-        .grad-text {
-            background: var(--grad-text);
-            -webkit-background-clip: text;
-            background-clip: text;
-            color: transparent;
-        }
-
-        /* Grey grid backdrop (full-bleed, edge-faded) behind the About block */
-        #about {
-            position: relative;
-            padding: 50px 0 64px;
-        }
-        #about::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            bottom: 0;
-            left: 50%;
-            margin-left: -50vw;
-            width: 100vw;
-            background-image:
-                linear-gradient(rgba(255,255,255,0.045) 1px, transparent 1px),
-                linear-gradient(90deg, rgba(255,255,255,0.045) 1px, transparent 1px);
-            background-size: 54px 54px;
-            -webkit-mask-image: radial-gradient(ellipse 72% 85% at 50% 45%, #000 28%, transparent 78%);
-            mask-image: radial-gradient(ellipse 72% 85% at 50% 45%, #000 28%, transparent 78%);
-            z-index: 0;
-            pointer-events: none;
-        }
-        #about > * { position: relative; z-index: 1; }
-
-        /* ===================================
-           TEXT COLUMNS
-        =================================== */
-        .text-columns {
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 80px;
-            margin-bottom: 100px;
-        }
-        .text-columns p {
-            font-size: 1rem;
-            line-height: 1.75;
-            color: var(--muted);
-            font-weight: 300;
-        }
-        .text-columns p strong {
-            color: var(--text);
-            font-weight: 500;
-        }
-
-        /* ===================================
-           STATS
-        =================================== */
-        .stats-row {
-            display: grid;
-            grid-template-columns: repeat(4, 1fr);
-            gap: 0;
-            border-top: 1px solid var(--line);
-            border-bottom: 1px solid var(--line);
-            margin-bottom: 100px;
-        }
-        .stat-item {
-            padding: 56px 0 52px;
-            border-right: 1px solid var(--line);
-            padding-left: 40px;
-        }
-        .stat-item:last-child { border-right: none; }
-        .stat-number {
-            font-family: var(--fh);
-            font-size: clamp(2.2rem, 3.8vw, 3.2rem);
-            font-weight: 700;
-            color: var(--text);
-            line-height: 1;
-            margin-bottom: 10px;
-        }
-        .stat-number span { color: var(--accent); font-size: 0.5em; font-weight: 400; }
-        .stat-number .pre { color: var(--muted); font-size: 0.5em; font-weight: 400; margin-right: 0.15em; }
-        .stat-label {
-            font-size: 0.8rem;
-            color: var(--muted);
-            font-weight: 300;
-            line-height: 1.4;
-        }
-
-        /* ===================================
-           SERVICES
-        =================================== */
-        .services-grid {
-            display: grid;
-            grid-template-columns: repeat(3, 1fr);
-            gap: 1px;
-            background: var(--line);
-            margin-bottom: 100px;
-        }
-        .service-card {
-            background: var(--bg);
-            padding: 52px 40px 48px;
-            position: relative;
-            overflow: hidden;
-            transition: background 0.3s ease;
-        }
-        .service-card:hover { background: var(--surface); }
-        .service-card::after {
-            content: '';
-            position: absolute;
-            bottom: 0; left: 0;
-            width: 0; height: 1px;
-            background: var(--accent);
-            transition: width 0.5s ease;
-        }
-        .service-card:hover::after { width: 100%; }
-        .service-num {
-            font-family: var(--fm);
-            font-size: 10px;
-            letter-spacing: 3px;
-            color: var(--accent);
-            margin-bottom: 28px;
-            display: block;
-        }
-        .service-card h3 {
-            font-family: var(--fh);
-            font-size: 1.35rem;
-            font-weight: 600;
-            color: var(--text);
-            margin-bottom: 14px;
-            line-height: 1.2;
-        }
-        .service-card p {
-            font-size: 0.875rem;
-            line-height: 1.7;
-            color: var(--muted);
-            font-weight: 300;
-            margin-bottom: 28px;
-        }
-        .service-cta {
-            display: inline-flex;
-            align-items: center;
-            gap: 8px;
-            text-decoration: none;
-            font-size: 11px;
-            font-weight: 500;
-            letter-spacing: 1.5px;
-            text-transform: uppercase;
-            color: var(--accent);
-            border: 1px solid var(--accent);
-            padding: 10px 20px;
-            transition: background 0.2s ease, color 0.2s ease;
-        }
-        .service-cta:hover {
-            background: var(--accent);
-            color: #fff;
-        }
-
-        /* ===================================
-           PORTFOLIO
-        =================================== */
-        .portfolio-grid {
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 24px;
-            background: transparent;
-            margin-bottom: 80px;
-        }
-        .portfolio-card {
-            position: relative;
-            aspect-ratio: 4 / 3;
-            overflow: hidden;
-            background: var(--surface);
-            cursor: pointer;
-        }
-        .portfolio-img {
-            position: absolute;
-            inset: 0;
-            background-size: 100% auto;
-            background-position: top center;
-            background-repeat: no-repeat;
-            transition: transform 0.7s cubic-bezier(0.16,1,0.3,1);
-        }
-        .portfolio-card:hover .portfolio-img { transform: scale(1.04); }
-
-        .portfolio-overlay {
-            position: absolute;
-            inset: 0;
-            background: linear-gradient(
-                to top,
-                rgba(8,8,8,0.15) 0%,
-                transparent 40%
-            );
-            z-index: 1;
-        }
-        .portfolio-content {
-            position: absolute;
-            bottom: 0; left: 0; right: 0;
-            padding: 22px 28px 26px;
-            z-index: 2;
-            background: #1e1e1e;
-        }
-        .portfolio-tag {
-            display: block;
-            font-size: 10px;
-            letter-spacing: 3px;
-            text-transform: uppercase;
-            color: rgba(255,255,255,0.6);
-            margin-bottom: 6px;
-        }
-        .portfolio-card h3 {
-            font-family: var(--fh);
-            font-size: 1.35rem;
-            font-weight: 600;
-            color: #fff;
-            margin-bottom: 5px;
-        }
-        .portfolio-card p {
-            font-size: 0.82rem;
-            color: rgba(255,255,255,0.72);
-            line-height: 1.5;
-            margin-bottom: 16px;
-        }
-        .portfolio-links {
-            display: flex;
-            gap: 10px;
-            opacity: 1;
-            transform: none;
-        }
-        .p-link {
-            display: inline-block;
-            text-decoration: none;
-            font-size: 11px;
-            font-weight: 500;
-            letter-spacing: 1px;
-            text-transform: uppercase;
-            color: #fff;
-            padding: 9px 16px;
-            border: 1px solid rgba(255,255,255,0.4);
-            transition: border-color 0.2s, background 0.2s;
-        }
-        .p-link:hover { border-color: #fff; background: rgba(255,255,255,0.1); }
-        .p-link.primary {
-            background: var(--accent);
-            border-color: var(--accent);
-            color: #fff;
-        }
-        .p-link.primary:hover { background: var(--accent2); border-color: var(--accent2); }
-
-        /* ===================================
-           LOGOS CAROUSEL
-        =================================== */
-        .logos-carousel {
-            overflow: hidden;
-            padding: 48px 0;
-            border-top: 1px solid var(--line);
-            border-bottom: 1px solid var(--line);
-            margin-bottom: 0;
-            position: relative;
-            /* full-bleed: break out of the max-width content container */
-            width: 100vw;
-            left: 50%;
-            margin-left: -50vw;
-            /* fade logos into the page edges instead of a hard frame */
-            -webkit-mask-image: linear-gradient(90deg, transparent 0, #000 9%, #000 91%, transparent 100%);
-            mask-image: linear-gradient(90deg, transparent 0, #000 9%, #000 91%, transparent 100%);
-        }
-        .logos-track {
-            display: flex;
-            align-items: center;
-            gap: 64px;
-            width: max-content;
-            animation: logoScroll 28s linear infinite;
-        }
-        /* carousel never pauses on hover */
-        @keyframes logoScroll {
-            from { transform: translateX(0); }
-            to   { transform: translateX(-50%); }
-        }
-        .logo-item {
-            flex-shrink: 0;
-            height: 40px;
-            display: flex;
-            align-items: center;
-        }
-        .logo-item img {
-            height: 36px;
-            width: auto;
-            max-width: 140px;
-            object-fit: contain;
-            filter: grayscale(100%) brightness(2.5) contrast(0.6);
-            opacity: 0.55;
-            transition: filter 0.3s ease, opacity 0.3s ease;
-        }
-        /* no hover state — logos stay greyscale always */
-
-        /* ===================================
-           QUOTE
-        =================================== */
-        .quote-section {
-            padding: 80px 0 100px;
-            text-align: center;
-            max-width: 760px;
-            margin: 0 auto;
-        }
-        .quote-section blockquote {
-            font-family: var(--fh);
-            font-size: clamp(1.3rem, 2.8vw, 1.9rem);
-            font-weight: 300;
-            line-height: 1.55;
-            color: var(--text);
-            font-style: italic;
-            margin-bottom: 22px;
-        }
-        .quote-section cite {
-            font-style: normal;
-            font-size: 10px;
-            color: var(--dim);
-            letter-spacing: 4px;
-            text-transform: uppercase;
-        }
-
-        /* ===================================
-           PRICING
-        =================================== */
-        .pricing-wrap {
-            margin-bottom: 24px;
-        }
-        .pricing-grid {
-            display: grid;
-            grid-template-columns: repeat(3, 1fr);
-            gap: 1px;
-            background: var(--line);
-        }
-        .pricing-card {
-            background: var(--bg);
-            padding: 48px 36px;
-            position: relative;
-            display: flex;
-            flex-direction: column;
-        }
-        .pricing-card.featured {
-            background: var(--surface);
-        }
-        .pricing-card.featured::before {
-            content: '';
-            position: absolute;
-            top: 0; left: 0; right: 0;
-            height: 2px;
-            background: var(--accent);
-        }
-        .pricing-badge {
-            position: absolute;
-            top: 14px; left: 36px;
-            font-size: 9px;
-            letter-spacing: 3px;
-            text-transform: uppercase;
-            color: var(--accent);
-        }
-        .pricing-name {
-            font-family: var(--fh);
-            font-size: 10px;
-            letter-spacing: 4px;
-            text-transform: uppercase;
-            color: var(--dim);
-            margin-bottom: 24px;
-            margin-top: 4px;
-        }
-        .pricing-card.featured .pricing-name { margin-top: 20px; }
-
-        .pricing-price {
-            font-family: var(--fh);
-            font-size: clamp(1.8rem, 2.8vw, 2.4rem);
-            font-weight: 700;
-            color: var(--text);
-            line-height: 1;
-            margin-bottom: 6px;
-        }
-        .pricing-price span {
-            font-size: 0.52em;
-            font-weight: 300;
-            color: var(--muted);
-        }
-        .pricing-sub {
-            font-size: 0.78rem;
-            color: var(--dim);
-            margin-bottom: 30px;
-        }
-        .pricing-divider {
-            width: 100%;
-            height: 1px;
-            background: var(--line);
-            margin-bottom: 28px;
-        }
-        .pricing-list {
-            list-style: none;
-            display: grid;
-            gap: 11px;
-            flex: 1;
-            margin-bottom: 22px;
-        }
-        .pricing-list.truncated {
-            max-height: 215px;
-            overflow: hidden;
-            -webkit-mask-image: linear-gradient(to bottom, black 65%, transparent 100%);
-            mask-image: linear-gradient(to bottom, black 65%, transparent 100%);
-        }
-        .pricing-card.expanded .pricing-list.truncated {
-            max-height: 600px;
-            -webkit-mask-image: none;
-            mask-image: none;
-        }
-        .pricing-list li {
-            font-size: 0.845rem;
-            color: var(--muted);
-            line-height: 1.45;
-            display: flex;
-            gap: 10px;
-            align-items: flex-start;
-        }
-        .pricing-list li::before {
-            content: '—';
-            color: var(--accent);
-            flex-shrink: 0;
-            font-family: var(--fm);
-            font-size: 0.8rem;
-        }
-        .pricing-toggle-btn {
-            background: none;
-            border: 1px dashed rgba(240,236,228,0.12);
-            color: var(--dim);
-            font-family: var(--fb);
-            font-size: 11px;
-            letter-spacing: 1px;
-            padding: 9px 14px;
-            cursor: pointer;
-            margin-bottom: 14px;
-            transition: color 0.2s, border-color 0.2s;
-            text-align: left;
-        }
-        .pricing-toggle-btn:hover { color: var(--muted); border-color: rgba(240,236,228,0.22); }
-        .pricing-cta {
-            display: block;
-            text-align: center;
-            text-decoration: none;
-            padding: 14px;
-            font-size: 11px;
-            font-weight: 500;
-            letter-spacing: 2px;
-            text-transform: uppercase;
-            border: 1px solid rgba(240,236,228,0.18);
-            color: var(--text);
-            transition: border-color 0.2s, background 0.2s;
-            margin-top: auto;
-        }
-        .pricing-cta:hover { border-color: rgba(240,236,228,0.4); background: rgba(240,236,228,0.04); }
-        .pricing-card.featured .pricing-cta {
-            background: var(--accent);
-            border-color: var(--accent);
-            color: #fff;
-        }
-        .pricing-card.featured .pricing-cta:hover { background: var(--accent2); border-color: var(--accent2); }
-
-        .pricing-bonus {
-            margin-top: 1px;
-            background: var(--surface);
-            padding: 20px 28px;
-            display: flex;
-            align-items: center;
-            gap: 16px;
-            flex-wrap: wrap;
-        }
-        .pricing-bonus-link {
-            font-size: 13.5px;
-            font-weight: 500;
-            color: #fff;
-            text-decoration: none;
-            padding: 11px 20px;
-            background: var(--accent);
-            transition: background 0.2s, box-shadow 0.3s ease;
-            white-space: nowrap;
-        }
-        .pricing-bonus-link:hover {
-            background: var(--accent2);
-            box-shadow: 0 0 18px 4px rgba(212, 85, 42, 0.55);
-        }
-        .pricing-bonus-text { font-size: 13px; color: var(--muted); }
-
-        /* ===================================
-           CONTACT
-        =================================== */
-        .contact-section {
-            border-top: 1px solid var(--line);
-            padding: 100px 0 80px;
-        }
-        .contact-inner {
-            max-width: 1200px;
-            margin: 0 auto;
-            padding: 0 40px;
-        }
-        .contact-grid {
-            display: grid;
-            grid-template-columns: 1.1fr 0.9fr;
-            gap: 100px;
-            align-items: center;
-        }
-        .contact-heading {
-            font-family: var(--fh);
-            font-size: clamp(2.2rem, 4.5vw, 4rem);
-            font-weight: 600;
-            line-height: 1.08;
-            letter-spacing: -0.025em;
-            color: var(--text);
-            margin-bottom: 20px;
-        }
-        .contact-heading em { font-style: italic; font-weight: 300; background: var(--grad-text); -webkit-background-clip: text; background-clip: text; color: transparent; }
-        .contact-desc {
-            font-size: 1rem;
-            color: var(--muted);
-            line-height: 1.7;
-            font-weight: 300;
-            max-width: 480px;
-        }
-        .contact-actions { display: grid; gap: 12px; }
-        .cta-btn {
-            display: flex;
-            align-items: center;
-            gap: 14px;
-            text-decoration: none;
-            padding: 18px 22px;
-            font-size: 13px;
-            font-weight: 500;
-            letter-spacing: 0.5px;
-            color: var(--accent);
-            border: 1px solid var(--accent);
-            background: transparent;
-        }
-        .cta-btn svg { width: 20px; height: 20px; flex-shrink: 0; fill: currentColor; }
-
-        .cta-btn.whatsapp:hover { background: #25D366; border-color: #25D366; color: #fff; }
-        .cta-btn.instagram:hover { background: var(--accent); border-color: var(--accent); color: #fff; }
-        .cta-btn.telegram:hover  { background: #229ED9;  border-color: #229ED9;  color: #fff; }
-
-        /* ===================================
-           FOOTER
-        =================================== */
-        .site-footer {
-            border-top: 1px solid var(--line);
-            padding: 36px 40px;
-            max-width: 1200px;
-            margin: 0 auto;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            gap: 20px;
-            flex-wrap: wrap;
-        }
-        .footer-logo {
-            font-family: var(--fh);
-            font-size: 13px;
-            font-weight: 700;
-            letter-spacing: 0.08em;
-            text-transform: uppercase;
-            color: var(--text);
-        }
-        .footer-logo em { font-style: italic; font-weight: 300; background: var(--grad-text); -webkit-background-clip: text; background-clip: text; color: transparent; letter-spacing: 0; text-transform: none; }
-        .footer-links { display: flex; gap: 24px; }
-        .footer-links a { font-size: 12px; color: var(--dim); text-decoration: none; transition: color 0.2s; letter-spacing: 0.5px; }
-        .footer-links a:hover { color: var(--muted); }
-        .footer-copy { font-size: 11px; color: var(--dim); letter-spacing: 0.5px; }
-
-        /* ===================================
-           SERVICES BLOCK (замена тарифов)
-        =================================== */
-        .sv-header {
-            text-align: center;
-            margin-bottom: 48px;
-            padding-top: 80px;
-        }
-        .sv-label {
-            display: block;
-            font-size: 11px;
-            letter-spacing: 4px;
-            color: var(--accent);
-            text-transform: uppercase;
-            margin-bottom: 14px;
-            font-family: var(--fb);
-        }
-        .sv-title {
-            font-family: var(--fh);
-            font-size: clamp(1.6rem, 3vw, 2.4rem);
-            font-weight: 700;
-            letter-spacing: -0.01em;
-            text-transform: uppercase;
-            color: var(--text);
-            margin-bottom: 10px;
-        }
-        .sv-subtitle {
-            font-size: 13px;
-            color: var(--dim);
-            letter-spacing: 0.3px;
-            font-family: var(--fb);
-        }
-        .sv-grid {
-            display: grid;
-            grid-template-columns: repeat(3, 1fr);
-            gap: 1px;
-            background: #2a2a2a;
-            border: 1px solid #2a2a2a;
-            margin-bottom: 1px;
-        }
-        .sv-card {
-            background: #161616;
-            padding: 40px 36px;
-            display: flex;
-            flex-direction: column;
-        }
-        .sv-card.featured {
-            background: #1a1a1a;
-            border-top: 2px solid var(--accent);
-        }
-        .sv-featured-label {
-            font-size: 10px;
-            letter-spacing: 3px;
-            color: var(--accent);
-            text-transform: uppercase;
-            margin-bottom: 18px;
-            display: block;
-            font-family: var(--fb);
-        }
-        .sv-card-tag {
-            font-size: 10px;
-            letter-spacing: 3px;
-            color: var(--dim);
-            text-transform: uppercase;
-            margin-bottom: 16px;
-            display: block;
-            font-family: var(--fb);
-        }
-        .sv-price {
-            font-family: var(--fh);
-            font-size: 38px;
-            font-weight: 900;
-            line-height: 1;
-            color: var(--text);
-            margin-bottom: 6px;
-        }
-        .sv-price sup {
-            font-size: 20px;
-            font-weight: 400;
-            vertical-align: super;
-        }
-        .sv-price-note {
-            font-size: 12px;
-            color: var(--dim);
-            margin-bottom: 28px;
-            font-family: var(--fb);
-        }
-        .sv-deadline {
-            font-size: 12px;
-            font-weight: 600;
-            color: var(--accent);
-            letter-spacing: 0.3px;
-            margin-top: 5px;
-            margin-bottom: 8px;
-            font-family: var(--fb);
-        }
-        .sv-divider {
-            height: 1px;
-            background: #2a2a2a;
-            margin-bottom: 28px;
-        }
-        .sv-features {
-            list-style: none;
-        }
-        .sv-features li {
-            font-size: 13px;
-            color: #ccc;
-            padding: 7px 0;
-            display: flex;
-            align-items: flex-start;
-            gap: 10px;
-            line-height: 1.45;
-            border-bottom: 1px solid #1f1f1f;
-            font-family: var(--fb);
-        }
-        .sv-features li:last-child { border-bottom: none; }
-        .sv-features li::before {
-            content: '—';
-            color: var(--accent);
-            flex-shrink: 0;
-            font-family: var(--fm);
-        }
-        .sv-features li.bonus {
-            color: var(--accent);
-            font-weight: 600;
-            font-size: 12px;
-        }
-        .sv-features li.bonus::before { content: '★'; }
-        .sv-features li.muted { color: #ccc; }
-        .sv-features li.muted::before { color: var(--accent); }
-        .sv-features li.hidden { display: none; }
-        .sv-features li.hidden.visible { display: flex; }
-        .sv-badge {
-            display: inline-block;
-            background: var(--accent);
-            color: #fff;
-            font-size: 8px;
-            font-weight: 700;
-            letter-spacing: 0.5px;
-            text-transform: uppercase;
-            padding: 2px 6px;
-            border-radius: 2px;
-            margin-left: 6px;
-            vertical-align: middle;
-            white-space: nowrap;
-            font-family: var(--fb);
-        }
-        .sv-expand-wrap {
-            margin-top: 20px;
-            flex: 1;
-            display: flex;
-            flex-direction: column;
-            justify-content: flex-end;
-        }
-        .sv-expand-btn {
-            border: 1px dashed #2d2d2d;
-            background: transparent;
-            color: var(--dim);
-            font-size: 11px;
-            font-family: var(--fb);
-            padding: 10px;
-            width: 100%;
-            cursor: pointer;
-            margin-bottom: 12px;
-            letter-spacing: 1px;
-            transition: all 0.2s;
-            text-align: center;
-        }
-        .sv-expand-btn:hover { border-color: #555; color: var(--muted); }
-        .sv-cta {
-            border: 1px solid rgba(240,236,228,0.25);
-            background: transparent;
-            color: var(--text);
-            font-family: var(--fh);
-            font-size: 11px;
-            font-weight: 700;
-            letter-spacing: 2px;
-            text-transform: uppercase;
-            padding: 17px;
-            width: 100%;
-            cursor: pointer;
-            transition: all 0.2s;
-            text-decoration: none;
-            display: block;
-            text-align: center;
-        }
-        .sv-cta:hover { background: var(--text); color: var(--bg); border-color: var(--text); }
-        .sv-cta.primary {
-            background: var(--accent);
-            border-color: var(--accent);
-            color: #fff;
-        }
-        .sv-cta.primary:hover { background: var(--accent2); border-color: var(--accent2); }
-
-        @media (max-width: 960px) {
-            .sv-grid { grid-template-columns: 1fr; }
-        }
-        @media (max-width: 768px) {
-            .sv-card { padding: 32px 20px; }
-            .sv-price { font-size: 30px; }
-        }
-
-        /* ===================================
-           WHATSAPP FLOAT
-        =================================== */
-        .whatsapp-float {
-            position: fixed;
-            right: 24px;
-            bottom: 24px;
-            z-index: 500;
-            width: 52px;
-            height: 52px;
-            border-radius: 50%;
-            background: #25D366;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            text-decoration: none;
-            box-shadow: 0 8px 28px rgba(37,211,102,0.35);
-            transition: transform 0.2s ease, opacity 0.5s ease;
-            opacity: 0;
-        }
-        .whatsapp-float.show { opacity: 1; }
-        .whatsapp-float:hover { transform: translateY(-3px); }
-        .whatsapp-float svg { width: 24px; height: 24px; fill: #fff; }
-
-        /* ===================================
-           REVEAL ANIMATIONS
-        =================================== */
-        .reveal {
-            opacity: 0;
-            transform: translateY(48px);
-            transition: opacity 0.85s cubic-bezier(0.16,1,0.3,1),
-                        transform 0.85s cubic-bezier(0.16,1,0.3,1);
-        }
-        .reveal.visible { opacity: 1; transform: translateY(0); }
-
-        /* ===================================
-           EMIL-STYLE MICRO-INTERACTIONS
-        =================================== */
-        .cta-btn {
-            transition: border-color 0.25s ease, background 0.25s ease, color 0.25s ease,
-                        transform 0.55s cubic-bezier(0.34,1.56,0.64,1);
-        }
-        .service-card,
-        .sv-card {
-            will-change: transform;
-            transition: background 0.3s ease,
-                        transform 0.55s cubic-bezier(0.34,1.56,0.64,1);
-        }
-
-        /* ===================================
-           RESPONSIVE
-        =================================== */
-        @media (max-width: 960px) {
-            .text-columns { grid-template-columns: 1fr; gap: 40px; }
-            .stats-row { grid-template-columns: repeat(2,1fr); }
-            .stat-item:nth-child(2) { border-right: none; }
-            .stat-item:nth-child(3) { border-top: 1px solid var(--line); }
-            .services-grid { grid-template-columns: 1fr; }
-            .portfolio-grid { grid-template-columns: 1fr; gap: 24px; background: transparent; }
-            .portfolio-card {
-                aspect-ratio: unset;
-                height: auto;
-                display: flex;
-                flex-direction: column;
-                gap: 0;
-                overflow: hidden;
-            }
-            .portfolio-img {
-                position: relative;
-                inset: unset;
-                height: 220px;
-                width: 100%;
-                flex: 0 0 220px;
-                background-size: cover;
-                background-position: top center;
-            }
-            .portfolio-overlay { display: none; }
-            .portfolio-content {
-                position: relative;
-                bottom: auto;
-                left: auto;
-                right: auto;
-                flex: 0 0 auto;
-            }
-            .pricing-grid { grid-template-columns: 1fr; background: none; border: 1px solid var(--line); }
-            .pricing-card { border-bottom: 1px solid var(--line); }
-            .contact-grid { grid-template-columns: 1fr; gap: 48px; }
-
-            /* Hero stacks; phone hidden until mockup is ready */
-            .hero-text { align-items: flex-end; padding-bottom: 9vh; }
-            .hero-inner { grid-template-columns: 1fr; gap: 0; }
-            .hero-right { display: none; }
-            .hero-sub { max-width: 100%; }
-            .hero-h1 { white-space: normal; }   /* allow 2 lines when phone is hidden */
-            .hero-overlay {
-                background:
-                    linear-gradient(90deg, rgba(9,9,9,0.78) 0%, rgba(9,9,9,0.4) 45%, rgba(9,9,9,0.2) 100%),
-                    linear-gradient(to bottom, rgba(9,9,9,0.3) 0%, transparent 30%, transparent 65%, rgba(12,12,12,0.9) 92%, #0c0c0c 100%);
-            }
-        }
-
-        @media (max-width: 768px) {
-            .content-inner { padding: 80px 20px 60px; }
-            .site-nav { padding: 20px 20px; }
-            .site-nav.scrolled { padding: 14px 20px; }
-            .nav-links, .nav-cta, .nav-phone-desktop { display: none; }
-            .nav-toggle { display: flex; }
-            .nav-phone-mobile { display: flex; }
-            .hero-inner { padding: 0 22px; }
-            .hero-h1 { font-size: clamp(3rem, 14vw, 4.6rem); }
-            .stat-item { padding: 36px 0 32px 20px; }
-            .service-card { padding: 36px 24px; }
-            .pricing-card { padding: 36px 24px; }
-            .contact-inner { padding: 0 20px; }
-            .contact-section { padding: 72px 0 60px; }
-            .site-footer { padding: 28px 20px; flex-direction: column; align-items: flex-start; gap: 16px; }
-            .scroll-indicator { bottom: 28px; }
-            .portfolio-links { opacity: 1; transform: none; }
-            .pricing-bonus { padding: 16px 20px; }
-        }
-
-        @media (max-width: 480px) {
-            .stats-row { grid-template-columns: 1fr 1fr; }
-            .stat-item:nth-child(even) { border-right: none; }
-            .stat-item:nth-child(n+3) { border-top: 1px solid var(--line); }
-        }
-    </style>
+    <link rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Inter+Tight:wght@500;600&display=swap">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Inter+Tight:wght@500;600&display=swap" media="print" onload="this.media='all'">
+    <noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Inter+Tight:wght@500;600&display=swap"></noscript>
+    <link rel="stylesheet" href="assets/site.css?v=3">
+    <script src="assets/i18n.js?v=3" defer></script>
+    <script src="assets/main.js?v=3" defer></script>
+    <script src="assets/orb.js?v=3" defer></script>
 </head>
 <body>
 
-<!-- ============ BOOT SCREEN ============ -->
-<div class="boot-screen" id="bootScreen">
-    <div class="boot-content">
-        <div class="boot-logo">Sergio Design — Init sequence</div>
-        <div class="boot-text" id="bootText"></div>
+<svg width="0" height="0" style="position:absolute" aria-hidden="true">
+    <symbol id="i-wa" viewBox="0 0 32 32"><path fill="currentColor" d="M16 3C8.82 3 3 8.82 3 16c0 2.34.62 4.63 1.79 6.65L3 29l6.52-1.71A12.93 12.93 0 0 0 16 29c7.18 0 13-5.82 13-13S23.18 3 16 3Zm0 23.64c-1.95 0-3.86-.52-5.54-1.51l-.39-.23-3.87 1.01 1.03-3.76-.25-.4A10.61 10.61 0 0 1 5.36 16c0-5.87 4.77-10.64 10.64-10.64S26.64 10.13 26.64 16 21.87 26.64 16 26.64Zm5.84-7.99c-.32-.16-1.88-.93-2.17-1.03-.29-.1-.5-.16-.72.16-.21.32-.8 1.03-.99 1.24-.19.21-.37.24-.69.08-.32-.16-1.34-.49-2.55-1.57-.95-.85-1.59-1.9-1.77-2.22-.19-.32-.02-.5.14-.66.15-.15.32-.38.48-.57.16-.19.21-.32.32-.53.1-.21.05-.4-.03-.57-.08-.16-.72-1.73-.99-2.37-.26-.62-.52-.54-.71-.55h-.61c-.21 0-.55.08-.84.4-.29.32-1.11 1.08-1.08 2.63.03 1.55 1.11 3.04 1.27 3.24.16.21 2.19 3.34 5.31 4.69.74.32 1.33.5 1.78.64.75.24 1.43.21 1.96.13.6-.09 1.88-.73 2.15-1.44.27-.72.27-1.33.19-1.44-.08-.1-.27-.16-.58-.32Z"/></symbol>
+    <symbol id="i-tg" viewBox="0 0 32 32"><path fill="currentColor" d="M16 0C7.163 0 0 7.163 0 16s7.163 16 16 16 16-7.163 16-16S24.837 0 16 0zm7.9 10.933-2.688 12.669c-.2.894-.724 1.114-1.468.693l-4.063-2.993-1.96 1.887c-.217.217-.398.398-.817.398l.292-4.138 7.527-6.799c.327-.292-.071-.454-.508-.162L8.847 18.56l-3.994-1.248c-.868-.272-.884-.868.181-1.285l15.608-6.018c.724-.272 1.358.162 1.258 1.014v-.09z"/></symbol>
+    <symbol id="i-ig" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-width="1.8"><rect x="3" y="3" width="18" height="18" rx="5"/><circle cx="12" cy="12" r="4.2"/><circle cx="17.4" cy="6.6" r=".9" fill="currentColor" stroke="none"/></g></symbol>
+    <symbol id="i-phone" viewBox="0 0 24 24"><path fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" d="M22 16.92v3a2 2 0 0 1-2.18 2 19.8 19.8 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6A19.8 19.8 0 0 1 2.12 4.18 2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.13.96.36 1.9.7 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.9.34 1.85.57 2.81.7A2 2 0 0 1 22 16.92z"/></symbol>
+    <symbol id="i-arrow" viewBox="0 0 24 24"><path fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" d="M5 12h14M13 6l6 6-6 6"/></symbol>
+    <symbol id="i-arrow-ur" viewBox="0 0 24 24"><path fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" d="M7 17 17 7M8 7h9v9"/></symbol>
+    <symbol id="i-check" viewBox="0 0 24 24"><path fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" d="m5 12.5 4.2 4.2L19 7"/></symbol>
+    <symbol id="i-lock" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"><rect x="4.5" y="10.5" width="15" height="10" rx="2.5"/><path d="M8 10.5V7.8a4 4 0 0 1 8 0v2.7"/></g></symbol>
+    <symbol id="i-cal" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"><rect x="3.5" y="5" width="17" height="15.5" rx="3"/><path d="M3.5 10h17M8 3v4M16 3v4"/></g></symbol>
+    <symbol id="i-play" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-width="1.8" stroke-linejoin="round"><rect x="3" y="4" width="18" height="16" rx="3.5"/><path d="M10 9.2v5.6l4.6-2.8z" fill="currentColor"/></g></symbol>
+    <symbol id="i-up" viewBox="0 0 24 24"><path fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" d="m4 16 5.5-5.5 4 4L20 8M15 8h5v5"/></symbol>
+    <symbol id="i-grid" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-width="1.8"><rect x="3.5" y="3.5" width="7" height="9" rx="2"/><rect x="13.5" y="3.5" width="7" height="5" rx="2"/><rect x="13.5" y="11.5" width="7" height="9" rx="2"/><rect x="3.5" y="15.5" width="7" height="5" rx="2"/></g></symbol>
+    <symbol id="i-flow" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"><rect x="3" y="3.5" width="7" height="5.5" rx="1.8"/><rect x="14" y="15" width="7" height="5.5" rx="1.8"/><path d="M6.5 9v3.5a2.5 2.5 0 0 0 2.5 2.5h5"/><path d="m12 13 2 2-2 2"/></g></symbol>
+    <symbol id="i-plug" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M9 2v5M15 2v5M6 7h12v3.5a6 6 0 0 1-12 0z"/><path d="M12 16.5V22"/></g></symbol>
+    <symbol id="i-ai" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-width="1.8" stroke-linejoin="round"><path d="M12 3.5 13.9 9l5.6 1.9-5.6 1.9L12 18.5l-1.9-5.7-5.6-1.9L10.1 9z"/><path d="M19 15.5l.8 2.2 2.2.8-2.2.8-.8 2.2-.8-2.2-2.2-.8 2.2-.8z"/></g></symbol>
+    <symbol id="i-web" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-width="1.8"><rect x="2.5" y="4" width="19" height="16" rx="3"/><path d="M2.5 9h19"/><circle cx="6" cy="6.5" r=".6" fill="currentColor"/><circle cx="8.3" cy="6.5" r=".6" fill="currentColor"/></g></symbol>
+    <symbol id="i-app" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"><rect x="6" y="2.5" width="12" height="19" rx="3"/><path d="M10.5 18.5h3"/></g></symbol>
+    <symbol id="i-shield" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-width="1.8" stroke-linejoin="round"><path d="M12 3 4.5 6v5.5c0 4.6 3.1 8.2 7.5 9.5 4.4-1.3 7.5-4.9 7.5-9.5V6z"/><path d="m8.8 12 2.3 2.3 4.2-4.3" stroke-linecap="round"/></g></symbol>
+    <symbol id="i-x" viewBox="0 0 24 24"><path fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" d="M6 6l12 12M18 6 6 18"/></symbol>
+    <symbol id="i-plus" viewBox="0 0 24 24"><path fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" d="M12 5v14M5 12h14"/></symbol>
+</svg>
+
+<div class="bg" aria-hidden="true"></div>
+<div class="cursor" aria-hidden="true"><span class="cursor__orb"></span></div>
+
+<!-- ============ HEADER ============ -->
+<header class="nav" id="nav">
+    <div class="nav__inner">
+        <div class="lang glass blur" role="group" data-i18n-attr="aria-label:a.lang" aria-label="Язык">
+            <span class="lang__thumb" aria-hidden="true"></span>
+            <button type="button" class="lang__btn" data-lang="ru" aria-pressed="true">RU</button>
+            <button type="button" class="lang__btn" data-lang="en" aria-pressed="false">EN</button>
+        </div>
+
+        <nav class="nav__links glass blur" data-i18n-attr="aria-label:a.main" aria-label="Основное меню">
+            <a href="#solutions" data-i18n="nav.solutions">Решения</a>
+            <a href="#integrations" data-i18n="nav.integrations">Интеграции</a>
+            <a href="#dashboard" data-i18n="nav.dashboard">Дашборд</a>
+            <a href="#cases" data-i18n="nav.cases">Кейсы</a>
+            <a href="#faq" data-i18n="nav.faq">Вопросы</a>
+        </nav>
+
+        <div class="nav__right">
+            <a class="btn btn--primary btn--sm" data-wa="nav" href="https://wa.me/77055557142" target="_blank" rel="noopener">
+                <svg class="ico" aria-hidden="true"><use href="#i-wa"/></svg>
+                <span data-i18n="nav.cta">Связаться</span>
+            </a>
+            <button type="button" class="burger glass blur" id="burger" aria-expanded="false" aria-controls="menu" data-i18n-attr="aria-label:nav.menu" aria-label="Меню">
+                <span></span><span></span>
+            </button>
+        </div>
+    </div>
+</header>
+
+<!-- Mobile menu -->
+<div class="menu" id="menu" aria-hidden="true">
+    <nav class="menu__links" data-i18n-attr="aria-label:a.mobile" aria-label="Мобильное меню">
+        <a href="#solutions" data-i18n="nav.solutions">Решения</a>
+        <a href="#integrations" data-i18n="nav.integrations">Интеграции</a>
+        <a href="#dashboard" data-i18n="nav.dashboard">Дашборд</a>
+        <a href="#cases" data-i18n="nav.cases">Кейсы</a>
+        <a href="#process" data-i18n="nav.process">Как работаем</a>
+        <a href="#faq" data-i18n="nav.faq">Вопросы</a>
+    </nav>
+    <div class="menu__cta">
+        <a class="btn btn--primary btn--lg btn--block" data-wa="nav" href="https://wa.me/77055557142" target="_blank" rel="noopener">
+            <svg class="ico" aria-hidden="true"><use href="#i-wa"/></svg>
+            <span data-i18n="menu.wa">Написать в WhatsApp</span>
+        </a>
+        <a class="btn btn--glass btn--lg btn--block" href="tel:+77055557142">
+            <svg class="ico" aria-hidden="true"><use href="#i-phone"/></svg>
+            <span>+7 705 555 71 42</span>
+        </a>
     </div>
 </div>
 
-<!-- ============ MAIN SITE ============ -->
-<div id="mainSite" style="opacity:0; transition: opacity 0.8s ease;">
+<main>
 
-    <!-- Navigation -->
-    <nav class="site-nav" id="siteNav">
-        <ul class="nav-links nav-glass" id="navLinks">
-            <li><a href="#about">Главная</a></li>
-            <li><a href="#portfolio">Портфолио</a></li>
-            <li><a href="#pricing">Тарифы</a></li>
-            <li><a href="#contact">Контакты</a></li>
-        </ul>
-        <a class="nav-logo nav-glass" href="#top" aria-label="Sergio Design — на главную"><img class="nav-logo-icon" src="favicon.svg" alt="Sergio Design logo"></a>
-        <div class="nav-right nav-glass">
-            <a class="nav-phone-desktop" href="tel:+77055557142" aria-label="Позвонить">
-                <svg viewBox="0 0 24 24" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07A19.5 19.5 0 013.3 10.8a19.79 19.79 0 01-3.07-8.67A2 2 0 012.2 0h3a2 2 0 012 1.72c.127.96.361 1.903.7 2.81a2 2 0 01-.45 2.11L6.09 7.91a16 16 0 006 6l1.27-1.27a2 2 0 012.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0122 16.92z"/></svg>
-            </a>
-            <a class="nav-cta" href="#contact">Связаться</a>
-            <a class="nav-phone-mobile" href="tel:+77055557142" aria-label="Позвонить">
-                <svg viewBox="0 0 24 24" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07A19.5 19.5 0 013.3 10.8a19.79 19.79 0 01-3.07-8.67A2 2 0 012.2 0h3a2 2 0 012 1.72c.127.96.361 1.903.7 2.81a2 2 0 01-.45 2.11L6.09 7.91a16 16 0 006 6l1.27-1.27a2 2 0 012.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0122 16.92z"/></svg>
-            </a>
-            <button class="nav-toggle" id="navToggle" aria-label="Меню" aria-expanded="false">
-                <span></span><span></span><span></span>
-            </button>
+    <!-- ============ HERO ============ -->
+    <section class="hero" id="top">
+        <div class="hero__head container">
+            <p class="eyebrow glass blur" style="--i:0">
+                <span class="live" aria-hidden="true"></span>
+                <span data-i18n="hero.eyebrow">Автоматизация · Интеграции · Дашборды</span>
+            </p>
+            <h1 class="hero__title" style="--i:1" data-i18n="hero.title">Весь ваш бизнес —<br><span class="grad">в одном дашборде</span></h1>
+            <p class="hero__sub" style="--i:2" data-i18n="hero.sub">Автоматизируем бизнес-процессы и связываем 1С, Битрикс24, amoCRM и Meta&nbsp;Ads в единую систему. Продажи, реклама, склад и финансы — в реальном времени.</p>
+            <div class="hero__cta" style="--i:3" data-energy>
+                <a class="btn btn--primary btn--lg btn--shine" data-wa="meeting" href="https://wa.me/77055557142" target="_blank" rel="noopener">
+                    <svg class="ico" aria-hidden="true"><use href="#i-cal"/></svg>
+                    <span data-i18n="hero.meet">Договориться о встрече</span>
+                </a>
+                <button type="button" class="btn btn--glass btn--lg blur" data-demo>
+                    <svg class="ico" aria-hidden="true"><use href="#i-play"/></svg>
+                    <span data-i18n="hero.demo">Тестовый дашборд</span>
+                </button>
+            </div>
+            <ul class="hero__notes" style="--i:4">
+                <li><svg class="ico" aria-hidden="true"><use href="#i-check"/></svg><span data-i18n="hero.n1">Бесплатный аудит</span></li>
+                <li><svg class="ico" aria-hidden="true"><use href="#i-check"/></svg><span data-i18n="hero.n2">Быстрый ответ в WhatsApp</span></li>
+                <li><svg class="ico" aria-hidden="true"><use href="#i-check"/></svg><span data-i18n="hero.n3">Работаем по NDA</span></li>
+            </ul>
         </div>
-    </nav>
 
-    <!-- Mobile Menu -->
-    <div class="mobile-menu" id="mobileMenu" aria-hidden="true">
-        <ul>
-            <li><a href="#about">Главная</a></li>
-            <li><a href="#portfolio">Портфолио</a></li>
-            <li><a href="#pricing">Тарифы</a></li>
-            <li><a href="#contact">Контакты</a></li>
-        </ul>
-    </div>
+        <div class="stage" id="stage">
+            <svg class="stage__wires" id="wires" aria-hidden="true"></svg>
 
-    <!-- Scroll Indicator -->
-    <div class="scroll-indicator" id="scrollIndicator">
-        <span>Scroll</span>
-        <div class="scroll-line"></div>
-    </div>
+            <div class="orb" data-orb aria-hidden="true"></div>
 
-    <!-- Hero Section (Fixed) -->
-    <section id="top">
-        <div class="hero-section">
-            <div class="hero-bg" id="heroBg"></div>
-            <div class="hero-overlay"></div>
-            <div class="hero-text" id="heroText">
-                <div class="hero-inner">
-                    <div class="hero-left">
-                        <span class="hero-kicker">We are</span>
-                        <h1 class="hero-h1">Creative <span>Engineers</span></h1>
-                        <p class="hero-sub">Создаём сайты, приложения и AI-решения, которые приносят бизнесу реальный результат.</p>
-                        <div class="hero-actions">
-                            <a class="hero-btn" href="#portfolio">Посмотреть кейсы
-                                <span><svg viewBox="0 0 24 24" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg></span>
-                            </a>
-                            <a class="hero-scroll-dot" href="#about" aria-label="Листать вниз">
-                                <svg viewBox="0 0 24 24" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 5v14M6 13l6 6 6-6"/></svg>
-                            </a>
-                        </div>
-                        <div class="hero-plates">
-                            <div class="hero-plate big">
-                                <span class="plate-chip">
-                                    <svg viewBox="0 0 24 24" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 17l6-6 4 4 8-8M21 7h-5M21 7v5"/></svg>
-                                    Рост бизнеса
-                                </span>
-                                <div class="plate-bottom">
-                                    <div>
-                                        <div class="plate-num grad-text">12+</div>
-                                        <div class="plate-label">проектов реализовано с начала года</div>
-                                    </div>
-                                    <a class="plate-arrow" href="#portfolio" aria-label="Смотреть проекты">
-                                        <svg viewBox="0 0 24 24" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M7 17L17 7M9 7h8v8"/></svg>
-                                    </a>
-                                </div>
-                            </div>
-                            <div class="hero-plate stat">
-                                <div class="plate-num grad-text">24ч</div>
-                                <div class="plate-label">средний срок готового лендинга</div>
-                            </div>
-                        </div>
+            <!-- Card: automation -->
+            <article class="card card--auto glass blur" data-card data-side="left" data-energy>
+                <header class="card__head">
+                    <span class="card__icon"><svg class="ico" aria-hidden="true"><use href="#i-flow"/></svg></span>
+                    <h2 data-i18n="c.auto.t">Автоматизация</h2>
+                </header>
+                <ol class="flow" id="flow">
+                    <li class="flow__step is-done"><span class="flow__dot"><svg class="ico" aria-hidden="true"><use href="#i-check"/></svg></span><span data-i18n="c.auto.s1">Заявка с сайта</span></li>
+                    <li class="flow__step is-done"><span class="flow__dot"><svg class="ico" aria-hidden="true"><use href="#i-check"/></svg></span><span data-i18n="c.auto.s2">Сделка в amoCRM</span></li>
+                    <li class="flow__step is-active"><span class="flow__dot"><svg class="ico" aria-hidden="true"><use href="#i-check"/></svg></span><span data-i18n="c.auto.s3">Счёт из 1С клиенту</span></li>
+                </ol>
+                <p class="card__foot"><span class="spark" aria-hidden="true"></span><span data-i18n="c.auto.f">0 ручных действий</span></p>
+            </article>
+
+            <!-- Card: integrations -->
+            <article class="card card--integr glass blur" data-card data-side="left" data-energy>
+                <header class="card__head">
+                    <span class="card__icon"><svg class="ico" aria-hidden="true"><use href="#i-plug"/></svg></span>
+                    <h2 data-i18n="c.int.t">Интеграции</h2>
+                    <span class="status"><i></i><span data-i18n="st.online">онлайн</span></span>
+                </header>
+                <div class="marquee" aria-hidden="true">
+                    <div class="marquee__track">
+                        <span class="chip"><i class="m" style="--c:#ffd21f;--t:#1a1200">1C</i><span data-i18n="brand.1c">1С</span></span>
+                        <span class="chip"><i class="m" style="--c:#2fc6f6">24</i><span data-i18n="brand.bitrix">Битрикс24</span></span>
+                        <span class="chip"><i class="m" style="--c:#3d7bff">a</i>amoCRM</span>
+                        <span class="chip"><i class="m" style="--c:#0a7cff">M</i>Meta Ads</span>
+                        <span class="chip"><i class="m" style="--c:#f14635">K</i>Kaspi</span>
+                        <span class="chip"><i class="m" style="--c:#ffd21f;--t:#1a1200">1C</i><span data-i18n="brand.1c">1С</span></span>
+                        <span class="chip"><i class="m" style="--c:#2fc6f6">24</i><span data-i18n="brand.bitrix">Битрикс24</span></span>
+                        <span class="chip"><i class="m" style="--c:#3d7bff">a</i>amoCRM</span>
+                        <span class="chip"><i class="m" style="--c:#0a7cff">M</i>Meta Ads</span>
+                        <span class="chip"><i class="m" style="--c:#f14635">K</i>Kaspi</span>
                     </div>
-                    <div class="hero-right">
-                        <div class="hero-phone">
-                            <div class="phone-screen"><span>Скоро</span></div>
-                        </div>
+                </div>
+                <div class="marquee marquee--rev" aria-hidden="true">
+                    <div class="marquee__track">
+                        <span class="chip"><i class="m" style="--c:#25d366">W</i>WhatsApp</span>
+                        <span class="chip"><i class="m" style="--c:#27a7e7">T</i>Telegram</span>
+                        <span class="chip"><i class="m" style="--c:#fbbc04;--t:#1a1200">G</i>Google Ads</span>
+                        <span class="chip"><i class="m" style="--c:#0f9d58">S</i>Sheets</span>
+                        <span class="chip"><i class="m" style="--c:#7b61ff">API</i>API</span>
+                        <span class="chip"><i class="m" style="--c:#25d366">W</i>WhatsApp</span>
+                        <span class="chip"><i class="m" style="--c:#27a7e7">T</i>Telegram</span>
+                        <span class="chip"><i class="m" style="--c:#fbbc04;--t:#1a1200">G</i>Google Ads</span>
+                        <span class="chip"><i class="m" style="--c:#0f9d58">S</i>Sheets</span>
+                        <span class="chip"><i class="m" style="--c:#7b61ff">API</i>API</span>
                     </div>
+                </div>
+                <p class="card__foot" data-i18n="c.int.f">1С · Битрикс24 · amoCRM · Meta</p>
+            </article>
+
+            <!-- Card: analytics -->
+            <article class="card card--analytics glass blur" data-card data-side="right" data-energy>
+                <header class="card__head">
+                    <span class="card__icon"><svg class="ico" aria-hidden="true"><use href="#i-up"/></svg></span>
+                    <h2 data-i18n="c.an.t">Аналитика</h2>
+                </header>
+                <p class="card__sub card__sub--row"><span data-i18n="c.an.s">Рост выручки</span><span class="delta">+38%</span></p>
+                <div class="bars" aria-hidden="true">
+                    <div class="bars__axis"><span>100%</span><span>50%</span><span>0%</span></div>
+                    <div class="bars__cols">
+                        <span class="bar" style="--h:.34"><b data-i18n="m.4">Апр</b></span>
+                        <span class="bar" style="--h:.46"><b data-i18n="m.5">Май</b></span>
+                        <span class="bar" style="--h:.41"><b data-i18n="m.6">Июн</b></span>
+                        <span class="bar" style="--h:.62"><b data-i18n="m.7">Июл</b></span>
+                        <span class="bar" style="--h:.71"><b data-i18n="m.8">Авг</b></span>
+                        <span class="bar bar--hot" style="--h:.92"><b data-i18n="m.9">Сен</b></span>
+                    </div>
+                </div>
+            </article>
+
+            <!-- Card: sites & apps -->
+            <article class="card card--dev glass blur" data-card data-side="right" data-energy>
+                <header class="card__head">
+                    <span class="card__icon"><svg class="ico" aria-hidden="true"><use href="#i-web"/></svg></span>
+                    <h2 data-i18n="c.dev.t">Сайты и приложения</h2>
+                </header>
+                <div class="devices" aria-hidden="true">
+                    <div class="dev-browser">
+                        <div class="dev-browser__bar"><i></i><i></i><i></i></div>
+                        <div class="sk sk--w70"></div>
+                        <div class="sk sk--w45"></div>
+                        <div class="dev-browser__row"><div class="sk sk--block"></div><div class="sk sk--block"></div></div>
+                        <div class="sk sk--btn"></div>
+                    </div>
+                    <div class="dev-phone">
+                        <div class="dev-phone__notch"></div>
+                        <div class="sk sk--w70"></div>
+                        <div class="sk sk--block sk--tall"></div>
+                        <div class="sk sk--btn"></div>
+                    </div>
+                </div>
+                <p class="card__foot" data-i18n="c.dev.f">iOS · Android · Web + CRM</p>
+            </article>
+        </div>
+    </section>
+
+    <!-- ============ CLIENTS ============ -->
+    <section class="section" id="clients">
+        <div class="container">
+            <header class="sec-head reveal">
+                <p class="kicker" data-i18n="cl.k">Клиенты</p>
+                <h2 class="h2" data-i18n="cl.t">Нам доверяют автоматизацию</h2>
+                <p class="lead" data-i18n="cl.s">Компании, которые уже управляют бизнесом через наши системы, сайты и приложения.</p>
+            </header>
+            <div class="logo-grid reveal" id="logoGrid">
+                <div class="logo-cell"><img src="logos/Vector.svg" alt="RAAF" loading="lazy" decoding="async"></div>
+                <div class="logo-cell"><img src="logos/homex vector.svg" alt="Homex" loading="lazy" decoding="async"></div>
+                <div class="logo-cell"><img src="logos/idDv0I0QDR_logos.svg" alt="Allur" loading="lazy" decoding="async"></div>
+                <div class="logo-cell"><img src="logos/motion svg.svg" alt="Motion" loading="lazy" decoding="async"></div>
+                <div class="logo-cell"><img src="logos/variteks_logo_vektre.svg" alt="Variteks" loading="lazy" decoding="async"></div>
+                <div class="logo-cell"><img src="logos/Слой_1.svg" alt="Lumina Dental" loading="lazy" decoding="async"></div>
+                <div class="logo-cell"><img src="logos/Слой_2.svg" alt="Hak Medical" loading="lazy" decoding="async"></div>
+                <a class="logo-cell logo-cell--cta" data-wa="client" href="https://wa.me/77055557142" target="_blank" rel="noopener">
+                    <span data-i18n="cl.cta">Здесь может быть ваша компания</span>
+                    <svg class="ico" aria-hidden="true"><use href="#i-arrow-ur"/></svg>
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- ============ STATS ============ -->
+    <section class="section section--tight">
+        <div class="container">
+            <div class="stats">
+                <div class="stat glass reveal">
+                    <div class="stat__num"><span data-count="27">27</span><em>+</em></div>
+                    <p data-i18n="st.1">проектов запущено за 6&nbsp;месяцев</p>
+                </div>
+                <div class="stat glass reveal">
+                    <div class="stat__num"><span data-count="70">70</span><em>%</em></div>
+                    <p data-i18n="st.2">меньше ручной работы у команд клиентов</p>
+                </div>
+                <div class="stat glass reveal">
+                    <div class="stat__num"><span data-count="3">3</span><em data-i18n="st.3u">мес</em></div>
+                    <p data-i18n="st.3">поддержки после запуска — включено</p>
+                </div>
+                <div class="stat glass reveal">
+                    <div class="stat__num"><span data-count="15">15</span><em data-i18n="st.4u">мин</em></div>
+                    <p data-i18n="st.4">среднее время ответа в WhatsApp</p>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- Spacer to enable scroll -->
-    <div class="spacer"></div>
+    <!-- ============ SOLUTIONS ============ -->
+    <section class="section" id="solutions">
+        <div class="container">
+            <header class="sec-head reveal">
+                <p class="kicker" data-i18n="so.k">Решения</p>
+                <h2 class="h2" data-i18n="so.t">Одна система вместо десятка таблиц</h2>
+                <p class="lead" data-i18n="so.s">Собираем все процессы компании в единую автоматизированную систему. Вы видите бизнес целиком и управляете им с телефона.</p>
+            </header>
 
-    <!-- Content scrolls over the fixed hero -->
-    <section class="content-section">
-        <div class="content-inner">
-
-            <!-- About -->
-            <div id="about">
-                <div class="section-label reveal">О студии</div>
-                <h2 class="big-heading reveal">
-                    Создаём <em>цифровые решения</em><br>которые приносят бизнесу реальный результат.
-                </h2>
-                <div class="text-columns reveal">
-                    <p>
-                        <strong>Каждый проект — это система.</strong> Сайт, приложение или AI-инструмент, точно выстроенный под вашу аудиторию: усиливает маркетинг, автоматизирует процессы и помогает бизнесу расти быстрее конкурентов.
-                    </p>
-                    <p>
-                        Мы убеждены: <strong>хороший дизайн не просто красиво выглядит — он работает.</strong> Конвертирует, удерживает, продаёт. Каждая деталь создаётся с одной целью — результат для вашего бизнеса.
-                    </p>
-                </div>
-            </div>
-
-            <!-- Stats -->
-            <div class="stats-row">
-                <div class="stat-item reveal">
-                    <div class="stat-number">27<span>+</span></div>
-                    <div class="stat-label">Проектов сдано за 6 месяцев</div>
-                </div>
-                <div class="stat-item reveal">
-                    <div class="stat-number">2<span> дня</span></div>
-                    <div class="stat-label">Средний срок готового лендинга</div>
-                </div>
-                <div class="stat-item reveal">
-                    <div class="stat-number">3<span> месяца</span></div>
-                    <div class="stat-label">Поддержка после запуска включена</div>
-                </div>
-                <div class="stat-item reveal">
-                    <div class="stat-number"><span class="pre">от</span> 59 000<span> ₸</span></div>
-                    <div class="stat-label">Стартовая цена готового сайта</div>
-                </div>
-            </div>
-
-            <!-- Services -->
-            <div id="services" class="section-label reveal">Что мы делаем</div>
-            <div class="services-grid reveal">
-                <div class="service-card">
-                    <span class="service-num">01</span>
-                    <h3>Веб-разработка</h3>
-                    <p>Лендинги, корпоративные сайты и веб-приложения с конверсионной структурой и современным дизайном. Быстро, чисто, на результат.</p>
-                    <a class="service-cta" href="#contact">Связаться →</a>
-                </div>
-                <div class="service-card">
-                    <span class="service-num">02</span>
-                    <h3>Мобильные приложения</h3>
-                    <p>iOS и Android приложения с интуитивным UX и плавной анимацией. От быстрого MVP до полноценного продукта с нуля.</p>
-                    <a class="service-cta" href="#contact">Связаться →</a>
-                </div>
-                <div class="service-card">
-                    <span class="service-num">03</span>
-                    <h3>AI-решения</h3>
-                    <p>Умные ассистенты, автоматизация процессов и AI-инструменты под ваш бизнес. Снижают нагрузку и дают конкурентное преимущество.</p>
-                    <a class="service-cta" href="#contact">Связаться →</a>
-                </div>
-            </div>
-
-            <!-- Portfolio -->
-            <div id="portfolio">
-                <div class="section-label reveal">Портфолио</div>
-                <div class="portfolio-grid reveal">
-                    <article class="portfolio-card">
-                        <div class="portfolio-img" role="img" aria-label="Galayeva Design — разработка сайта дизайн-студии, веб-дизайн Казахстан" style="background-image:url('galayeva-preview.png')"></div>
-                        <div class="portfolio-overlay"></div>
-                        <div class="portfolio-content">
-                            <span class="portfolio-tag">Web Design</span>
-                            <h3>Galayeva Design</h3>
-                            <p>Дизайнерский сайт с акцентом на визуальную подачу, структуру услуг и презентацию бренда.</p>
-                            <div class="portfolio-links">
-                                <a class="p-link" href="https://wa.me/77055557142" target="_blank" rel="noopener">Хочу так же</a>
-                                <a class="p-link primary" href="https://galayeva.design/" target="_blank" rel="noopener">Открыть →</a>
-                            </div>
-                        </div>
-                    </article>
-                    <article class="portfolio-card">
-<div class="portfolio-img" role="img" aria-label="MAG Studio — разработка сайта студии дизайна интерьера, лендинг под ключ" style="background-image:url('magstudio-preview.png')"></div>
-                        <div class="portfolio-overlay"></div>
-                        <div class="portfolio-content">
-                            <span class="portfolio-tag">Web Design</span>
-                            <h3>MAG Studio</h3>
-                            <p>Сайт студии с упором на стиль, удобную навигацию и конверсионную структуру для привлечения заявок.</p>
-                            <div class="portfolio-links">
-                                <a class="p-link" href="https://wa.me/77055557142" target="_blank" rel="noopener">Хочу так же</a>
-                                <a class="p-link primary" href="https://magstudio.kz/" target="_blank" rel="noopener">Открыть →</a>
-                            </div>
-                        </div>
-                    </article>
-                </div>
-            </div>
-
-            <!-- Logos Carousel -->
-            <div class="logos-carousel">
-                <div class="logos-track">
-                    <div class="logo-item"><img src="logos/Vector.svg" alt="RAAF — клиент Sergio Design"></div>
-                    <div class="logo-item"><img src="logos/homex vector.svg" alt="Homex — клиент Sergio Design"></div>
-                    <div class="logo-item"><img src="logos/idDv0I0QDR_logos.svg" alt="Клиент Sergio Design — разработка сайта"></div>
-                    <div class="logo-item"><img src="logos/motion svg.svg" alt="Motion — клиент Sergio Design"></div>
-                    <div class="logo-item"><img src="logos/variteks_logo_vektre.svg" alt="Variteks — клиент Sergio Design"></div>
-                    <div class="logo-item"><img src="logos/Слой_1.svg" alt="Клиент Sergio Design — веб-разработка Казахстан"></div>
-                    <div class="logo-item"><img src="logos/Слой_2.svg" alt="Клиент Sergio Design — веб-разработка Казахстан"></div>
-                    <!-- duplicate for seamless loop -->
-                    <div class="logo-item"><img src="logos/Vector.svg" alt="RAAF — клиент Sergio Design" aria-hidden="true"></div>
-                    <div class="logo-item"><img src="logos/homex vector.svg" alt="Homex — клиент Sergio Design" aria-hidden="true"></div>
-                    <div class="logo-item"><img src="logos/idDv0I0QDR_logos.svg" alt="" aria-hidden="true"></div>
-                    <div class="logo-item"><img src="logos/motion svg.svg" alt="" aria-hidden="true"></div>
-                    <div class="logo-item"><img src="logos/variteks_logo_vektre.svg" alt="" aria-hidden="true"></div>
-                    <div class="logo-item"><img src="logos/Слой_1.svg" alt="" aria-hidden="true"></div>
-                    <div class="logo-item"><img src="logos/Слой_2.svg" alt="" aria-hidden="true"></div>
-                </div>
-            </div>
-
-            <!-- Services / Pricing -->
-            <div id="pricing">
-                <div class="sv-header reveal">
-                    <span class="sv-label">Направления</span>
-                    <h2 class="sv-title">Что мы создаём</h2>
-                    <p class="sv-subtitle">Выберите направление — обсудим детали и подберём решение под ваш бизнес</p>
-                </div>
-
-                <div class="reveal">
-                    <div class="sv-grid">
-
-                        <!-- WEB -->
-                        <div class="sv-card">
-                            <span class="sv-card-tag">Веб-разработка</span>
-                            <div class="sv-price">от 59 000 <sup>₸</sup></div>
-                            <p class="sv-deadline">⚡ Срок сдачи — 24 часа</p>
-                            <p class="sv-price-note">— лендинг до корпоративного портала</p>
-                            <div class="sv-divider"></div>
-                            <ul class="sv-features" id="list-web">
-                                <li>Лендинг / многостраничный сайт</li>
-                                <li>Адаптив под все устройства и браузеры</li>
-                                <li>Корпоративный сайт с CMS-панелью</li>
-                                <li>Интернет-магазин с каталогом и корзиной</li>
-                                <li>Личный кабинет пользователя</li>
-                                <li>Интеграция с CRM (Bitrix24, AmoCRM)</li>
-                                <li class="hidden">Встроенный чат-бот для захвата лидов</li>
-                                <li class="hidden">Платёжные системы (Kaspi, Halyk, карты)</li>
-                                <li class="hidden">SEO-оптимизация и микроразметка</li>
-                                <li class="hidden">Google Analytics / Яндекс.Метрика</li>
-                                <li class="hidden">A/B тесты посадочных страниц</li>
-                                <li class="hidden">WhatsApp / Telegram / форма заявки</li>
-                                <li class="hidden muted">Домен и хостинг — 1 год</li>
-                                <li class="hidden bonus">Бесплатные правки — 30 дней</li>
-                                <li class="hidden bonus">Срок сдачи — от 7 дней</li>
-                            </ul>
-                            <div class="sv-expand-wrap">
-                                <button class="sv-expand-btn" onclick="svToggle('list-web', this)">+ Раскрыть детали</button>
-                                <a class="sv-cta" href="#contact">НАЧАТЬ ПРОЕКТ →</a>
-                            </div>
-                        </div>
-
-                        <!-- MOBILE -->
-                        <div class="sv-card featured">
-                            <span class="sv-featured-label">Популярное направление</span>
-                            <span class="sv-card-tag">Мобильное приложение</span>
-                            <div class="sv-price">от 190 000 <sup>₸</sup></div>
-                            <p class="sv-deadline">⚡ Срок сдачи — 7 дней</p>
-                            <p class="sv-price-note">— iOS / Android / кроссплатформа</p>
-                            <div class="sv-divider"></div>
-                            <ul class="sv-features" id="list-mobile">
-                                <li>Разработка под iOS и Android <span class="sv-badge">оба</span></li>
-                                <li>UX/UI дизайн интерфейса с нуля</li>
-                                <li>Авторизация (Google, Apple ID, SMS)</li>
-                                <li>Push-уведомления и геолокация</li>
-                                <li>Личный кабинет и профиль пользователя</li>
-                                <li>Встроенные покупки (in-app purchases)</li>
-                                <li class="hidden">Интеграция с внешними API и сервисами</li>
-                                <li class="hidden">Чат и уведомления внутри приложения</li>
-                                <li class="hidden">Офлайн-режим и кеширование данных</li>
-                                <li class="hidden">Игры и интерактивные приложения</li>
-                                <li class="hidden">Аналитика поведения пользователей</li>
-                                <li class="hidden">Публикация в App Store и Google Play</li>
-                                <li class="hidden muted">Поддержка и обновления — 60 дней</li>
-                                <li class="hidden bonus">MVP / прототип — от 14 дней</li>
-                                <li class="hidden bonus">Помощь при модерации сторов</li>
-                            </ul>
-                            <div class="sv-expand-wrap">
-                                <button class="sv-expand-btn" onclick="svToggle('list-mobile', this)">+ Раскрыть детали</button>
-                                <a class="sv-cta primary" href="#contact">ОБСУДИТЬ ПРОЕКТ →</a>
-                            </div>
-                        </div>
-
-                        <!-- AI -->
-                        <div class="sv-card">
-                            <span class="sv-card-tag">AI-решения</span>
-                            <div class="sv-price">от 250 000 <sup>₸</sup></div>
-                            <p class="sv-deadline">⚡ Срок сдачи — 14 дней</p>
-                            <p class="sv-price-note">— внедрение ИИ в бизнес-процессы</p>
-                            <div class="sv-divider"></div>
-                            <ul class="sv-features" id="list-ai">
-                                <li>AI-чат-бот с базой знаний компании</li>
-                                <li>Локальный ИИ на вашем сервере <span class="sv-badge">без утечек</span></li>
-                                <li>Платформы и системы на базе ИИ</li>
-                                <li>AI-ассистент для отдела продаж / HR</li>
-                                <li>Автоматизация документооборота и отчётов</li>
-                                <li>Голосовые и текстовые AI-агенты</li>
-                                <li class="hidden">Интеграция ИИ в существующий сайт / CRM</li>
-                                <li class="hidden">Распознавание лиц, документов, объектов</li>
-                                <li class="hidden">AI-рекомендательные системы</li>
-                                <li class="hidden">Анализ данных и предиктивная аналитика</li>
-                                <li class="hidden">Генерация контента под голос бренда</li>
-                                <li class="hidden muted">Обучение команды работе с ИИ</li>
-                                <li class="hidden bonus">Аудит бизнес-процессов — бесплатно</li>
-                                <li class="hidden bonus">NDA и полная конфиденциальность</li>
-                            </ul>
-                            <div class="sv-expand-wrap">
-                                <button class="sv-expand-btn" onclick="svToggle('list-ai', this)">+ Раскрыть детали</button>
-                                <a class="sv-cta" href="#contact">ПОЛУЧИТЬ КОНСУЛЬТАЦИЮ →</a>
-                            </div>
-                        </div>
-
+            <div class="bento">
+                <article class="tile tile--wide glass reveal">
+                    <span class="tile__icon"><svg class="ico" aria-hidden="true"><use href="#i-grid"/></svg></span>
+                    <h3 data-i18n="so.1t">Дашборд бизнеса</h3>
+                    <p data-i18n="so.1p">Единый центр управления: продажи, маркетинг, финансы, склад и команда. Цифры обновляются сами — без Excel и ручных отчётов.</p>
+                    <div class="kpi-row" aria-hidden="true">
+                        <div class="kpi"><span data-i18n="d.k1">Выручка</span><b data-i18n="d.v1">12,4M ₸</b><i class="up">+18%</i></div>
+                        <div class="kpi"><span data-i18n="d.k2">Лиды</span><b data-i18n="d.v2">1 284</b><i class="up">+32%</i></div>
+                        <div class="kpi"><span data-i18n="d.k4">Цена лида</span><b data-i18n="d.v4">1 950 ₸</b><i class="up">−21%</i></div>
                     </div>
+                    <a class="tile__cta" data-wa="s_dash" href="https://wa.me/77055557142" target="_blank" rel="noopener"><span data-i18n="so.cta">Обсудить задачу</span><svg class="ico" aria-hidden="true"><use href="#i-arrow"/></svg></a>
+                </article>
 
-                    <div class="pricing-bonus">
-                        <a class="pricing-bonus-link" href="https://www.instagram.com/sergiodesign.online?igsh=MWY5dmZvaHEzOHhoNQ%3D%3D&utm_source=qr" target="_blank" rel="noopener">Подпишись в Instagram @sergiodesign →</a>
-                        <span class="pricing-bonus-text">и получи скидку 10%</span>
+                <article class="tile glass reveal">
+                    <span class="tile__icon"><svg class="ico" aria-hidden="true"><use href="#i-flow"/></svg></span>
+                    <h3 data-i18n="so.2t">Автоматизация процессов</h3>
+                    <p data-i18n="so.2p">Заявки, сделки, счета, документы и уведомления обрабатываются автоматически. Сотрудники не тратят часы на рутину и не теряют клиентов.</p>
+                    <a class="tile__cta" data-wa="s_auto" href="https://wa.me/77055557142" target="_blank" rel="noopener"><span data-i18n="so.cta">Обсудить задачу</span><svg class="ico" aria-hidden="true"><use href="#i-arrow"/></svg></a>
+                </article>
+
+                <article class="tile glass reveal">
+                    <span class="tile__icon"><svg class="ico" aria-hidden="true"><use href="#i-plug"/></svg></span>
+                    <h3 data-i18n="so.3t">Интеграции</h3>
+                    <p data-i18n="so.3p">1С, Битрикс24, amoCRM, Meta Ads, Kaspi, WhatsApp, IP-телефония — связываем любые системы, у которых есть API.</p>
+                    <a class="tile__cta" data-wa="s_int" href="https://wa.me/77055557142" target="_blank" rel="noopener"><span data-i18n="so.cta">Обсудить задачу</span><svg class="ico" aria-hidden="true"><use href="#i-arrow"/></svg></a>
+                </article>
+
+                <article class="tile glass reveal">
+                    <span class="tile__icon"><svg class="ico" aria-hidden="true"><use href="#i-ai"/></svg></span>
+                    <h3 data-i18n="so.4t">AI-ассистенты</h3>
+                    <p data-i18n="so.4p">Чат-боты и AI-агенты отвечают клиентам 24/7, квалифицируют лиды, заполняют CRM и готовят отчёты.</p>
+                    <a class="tile__cta" data-wa="s_ai" href="https://wa.me/77055557142" target="_blank" rel="noopener"><span data-i18n="so.cta">Обсудить задачу</span><svg class="ico" aria-hidden="true"><use href="#i-arrow"/></svg></a>
+                </article>
+
+                <article class="tile glass reveal">
+                    <span class="tile__icon"><svg class="ico" aria-hidden="true"><use href="#i-web"/></svg></span>
+                    <h3 data-i18n="so.5t">Сайты</h3>
+                    <p data-i18n="so.5p">Конверсионные сайты и лендинги, сразу подключённые к CRM, рекламе и аналитике. Каждая заявка попадает в систему.</p>
+                    <a class="tile__cta" data-wa="s_web" href="https://wa.me/77055557142" target="_blank" rel="noopener"><span data-i18n="so.cta">Обсудить задачу</span><svg class="ico" aria-hidden="true"><use href="#i-arrow"/></svg></a>
+                </article>
+
+                <article class="tile glass reveal">
+                    <span class="tile__icon"><svg class="ico" aria-hidden="true"><use href="#i-app"/></svg></span>
+                    <h3 data-i18n="so.6t">Мобильные приложения</h3>
+                    <p data-i18n="so.6p">iOS- и Android-приложения для клиентов и сотрудников — с доступом к вашему дашборду и процессам.</p>
+                    <a class="tile__cta" data-wa="s_app" href="https://wa.me/77055557142" target="_blank" rel="noopener"><span data-i18n="so.cta">Обсудить задачу</span><svg class="ico" aria-hidden="true"><use href="#i-arrow"/></svg></a>
+                </article>
+
+                <a class="tile tile--cta reveal" data-wa="custom" href="https://wa.me/77055557142" target="_blank" rel="noopener">
+                    <div>
+                        <h3 data-i18n="so.7t">Не нашли свою задачу?</h3>
+                        <p data-i18n="so.7p">Опишите её в WhatsApp — предложим решение и оценим сроки в течение дня.</p>
+                    </div>
+                    <span class="tile__go"><svg class="ico" aria-hidden="true"><use href="#i-wa"/></svg></span>
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- ============ INTEGRATIONS ============ -->
+    <section class="section" id="integrations">
+        <div class="container">
+            <header class="sec-head reveal">
+                <p class="kicker" data-i18n="in.k">Интеграции</p>
+                <h2 class="h2" data-i18n="in.t">Связываем всё, чем вы уже пользуетесь</h2>
+                <p class="lead" data-i18n="in.s">Данные из учёта, CRM, рекламы и мессенджеров стекаются в одну систему и обновляются автоматически.</p>
+            </header>
+            <div class="orbits reveal" role="img" data-i18n-attr="aria-label:in.aria" aria-label="Интеграции: 1С, Битрикс24, amoCRM, Meta Ads, Google Ads, Kaspi, WhatsApp, Telegram, Google Sheets, Яндекс Директ, IP-телефония, Instagram, API">
+                <canvas class="orbits__globe" data-globe aria-hidden="true"></canvas>
+                <div class="orbit orbit--1" style="--dur:36s" aria-hidden="true">
+                    <span class="orbit__slot" style="--a:-68deg"><span class="orbit__node" style="--c:#ffd21f" data-label="1С" data-i18n-attr="data-label:brand.1c"><i class="m" style="--c:#ffd21f;--t:#1a1200">1C</i></span></span>
+                    <span class="orbit__slot" style="--a:-22deg"><span class="orbit__node" style="--c:#2fc6f6" data-label="Битрикс24" data-i18n-attr="data-label:brand.bitrix"><i class="m" style="--c:#2fc6f6">24</i></span></span>
+                    <span class="orbit__slot" style="--a:22deg"><span class="orbit__node" style="--c:#3d7bff" data-label="amoCRM"><i class="m" style="--c:#3d7bff">amo</i></span></span>
+                    <span class="orbit__slot" style="--a:68deg"><span class="orbit__node" style="--c:#0a7cff" data-label="Meta Ads"><i class="m" style="--c:#0a7cff">M</i></span></span>
+                    <span class="orbit__slot" style="--a:112deg"><span class="orbit__node" style="--c:#ffd21f" data-label="1С" data-i18n-attr="data-label:brand.1c"><i class="m" style="--c:#ffd21f;--t:#1a1200">1C</i></span></span>
+                    <span class="orbit__slot" style="--a:158deg"><span class="orbit__node" style="--c:#2fc6f6" data-label="Битрикс24" data-i18n-attr="data-label:brand.bitrix"><i class="m" style="--c:#2fc6f6">24</i></span></span>
+                    <span class="orbit__slot" style="--a:202deg"><span class="orbit__node" style="--c:#3d7bff" data-label="amoCRM"><i class="m" style="--c:#3d7bff">amo</i></span></span>
+                    <span class="orbit__slot" style="--a:248deg"><span class="orbit__node" style="--c:#0a7cff" data-label="Meta Ads"><i class="m" style="--c:#0a7cff">M</i></span></span>
+                </div>
+                <div class="orbit orbit--2 orbit--ccw" style="--dur:46s" aria-hidden="true">
+                    <span class="orbit__slot" style="--a:-46deg"><span class="orbit__node" style="--c:#f14635" data-label="Kaspi"><i class="m" style="--c:#f14635">K</i></span></span>
+                    <span class="orbit__slot" style="--a:0deg"><span class="orbit__node" style="--c:#25d366" data-label="WhatsApp"><svg class="ico" style="color:#25d366" aria-hidden="true"><use href="#i-wa"/></svg></span></span>
+                    <span class="orbit__slot" style="--a:44deg"><span class="orbit__node" style="--c:#fbbc04" data-label="Google Ads"><i class="m" style="--c:#fbbc04;--t:#1a1200">G</i></span></span>
+                    <span class="orbit__slot" style="--a:90deg"><span class="orbit__node" style="--c:#27a7e7" data-label="Telegram"><svg class="ico" style="color:#27a7e7" aria-hidden="true"><use href="#i-tg"/></svg></span></span>
+                    <span class="orbit__slot" style="--a:134deg"><span class="orbit__node" style="--c:#f14635" data-label="Kaspi"><i class="m" style="--c:#f14635">K</i></span></span>
+                    <span class="orbit__slot" style="--a:180deg"><span class="orbit__node" style="--c:#25d366" data-label="WhatsApp"><svg class="ico" style="color:#25d366" aria-hidden="true"><use href="#i-wa"/></svg></span></span>
+                    <span class="orbit__slot" style="--a:224deg"><span class="orbit__node" style="--c:#fbbc04" data-label="Google Ads"><i class="m" style="--c:#fbbc04;--t:#1a1200">G</i></span></span>
+                    <span class="orbit__slot" style="--a:270deg"><span class="orbit__node" style="--c:#27a7e7" data-label="Telegram"><svg class="ico" style="color:#27a7e7" aria-hidden="true"><use href="#i-tg"/></svg></span></span>
+                </div>
+                <div class="orbit orbit--3" style="--dur:56s" aria-hidden="true">
+                    <span class="orbit__slot" style="--a:-62deg"><span class="orbit__node" style="--c:#0f9d58" data-label="Google Sheets"><i class="m" style="--c:#0f9d58">GS</i></span></span>
+                    <span class="orbit__slot" style="--a:-26deg"><span class="orbit__node" style="--c:#ff7a1a" data-label="Яндекс Директ" data-i18n-attr="data-label:brand.ydirect"><i class="m" style="--c:#ff7a1a" data-i18n="brand.ya">Я</i></span></span>
+                    <span class="orbit__slot" style="--a:10deg"><span class="orbit__node" style="--c:#a78bfa" data-label="IP-телефония" data-i18n-attr="data-label:in.tel"><svg class="ico" style="color:#a78bfa" aria-hidden="true"><use href="#i-phone"/></svg></span></span>
+                    <span class="orbit__slot" style="--a:46deg"><span class="orbit__node" style="--c:#f472b6" data-label="Instagram"><svg class="ico" style="color:#f472b6" aria-hidden="true"><use href="#i-ig"/></svg></span></span>
+                    <span class="orbit__slot" style="--a:82deg"><span class="orbit__node" style="--c:#7b8fc0" data-label="API / Webhooks"><i class="m" style="--c:#5b6b8f">API</i></span></span>
+                    <span class="orbit__slot" style="--a:118deg"><span class="orbit__node" style="--c:#0f9d58" data-label="Google Sheets"><i class="m" style="--c:#0f9d58">GS</i></span></span>
+                    <span class="orbit__slot" style="--a:154deg"><span class="orbit__node" style="--c:#ff7a1a" data-label="Яндекс Директ" data-i18n-attr="data-label:brand.ydirect"><i class="m" style="--c:#ff7a1a" data-i18n="brand.ya">Я</i></span></span>
+                    <span class="orbit__slot" style="--a:190deg"><span class="orbit__node" style="--c:#a78bfa" data-label="IP-телефония" data-i18n-attr="data-label:in.tel"><svg class="ico" style="color:#a78bfa" aria-hidden="true"><use href="#i-phone"/></svg></span></span>
+                    <span class="orbit__slot" style="--a:226deg"><span class="orbit__node" style="--c:#f472b6" data-label="Instagram"><svg class="ico" style="color:#f472b6" aria-hidden="true"><use href="#i-ig"/></svg></span></span>
+                    <span class="orbit__slot" style="--a:262deg"><span class="orbit__node" style="--c:#7b8fc0" data-label="API / Webhooks"><i class="m" style="--c:#5b6b8f">API</i></span></span>
+                </div>
+            </div>
+            <p class="integr-names reveal" data-i18n="in.names">1С · Битрикс24 · amoCRM · Meta Ads · Google Ads · Kaspi · WhatsApp · Telegram · Google Sheets · Яндекс Директ · IP-телефония · Instagram · любые системы с API</p>
+            <div class="banner glass reveal">
+                <div>
+                    <h3 data-i18n="in.bt">Нет вашей системы в списке?</h3>
+                    <p data-i18n="in.bp">Подключим любую программу с API или выгрузкой данных — даже самописную.</p>
+                </div>
+                <a class="btn btn--primary btn--md" data-wa="integration" href="https://wa.me/77055557142" target="_blank" rel="noopener">
+                    <svg class="ico" aria-hidden="true"><use href="#i-wa"/></svg>
+                    <span data-i18n="in.cta">Спросить про интеграцию</span>
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- ============ DASHBOARD PREVIEW ============ -->
+    <section class="section" id="dashboard">
+        <div class="container">
+            <header class="sec-head reveal">
+                <p class="kicker" data-i18n="d.k">Дашборд</p>
+                <h2 class="h2" data-i18n="d.t">Так выглядит ваш бизнес в одном окне</h2>
+                <p class="lead" data-i18n="d.s">Руководитель видит выручку, лиды, рекламу и воронку продаж в реальном времени — на компьютере и в телефоне.</p>
+            </header>
+
+            <div class="dash glass blur reveal" aria-hidden="true">
+                <div class="dash__top">
+                    <div class="dash__dots"><i></i><i></i><i></i></div>
+                    <span class="dash__name" data-i18n="d.name">Дашборд компании</span>
+                    <span class="status"><i></i><span data-i18n="st.live">онлайн</span></span>
+                </div>
+                <div class="dash__kpis">
+                    <div class="dkpi"><span data-i18n="d.k1">Выручка</span><b data-i18n="d.v1">12,4M ₸</b><i class="up">+18%</i><svg viewBox="0 0 100 28" preserveAspectRatio="none"><path d="M0 22 L14 19 L28 21 L42 14 L56 16 L70 9 L84 11 L100 4"/></svg></div>
+                    <div class="dkpi"><span data-i18n="d.k2">Лиды</span><b data-i18n="d.v2">1 284</b><i class="up">+32%</i><svg viewBox="0 0 100 28" preserveAspectRatio="none"><path d="M0 24 L14 20 L28 22 L42 17 L56 12 L70 14 L84 7 L100 5"/></svg></div>
+                    <div class="dkpi"><span data-i18n="d.k3">Конверсия</span><b data-i18n="d.v3">7,9%</b><i class="up" data-i18n="d.v3d">+2,1</i><svg viewBox="0 0 100 28" preserveAspectRatio="none"><path d="M0 18 L14 20 L28 15 L42 16 L56 12 L70 13 L84 9 L100 8"/></svg></div>
+                    <div class="dkpi"><span data-i18n="d.k4">Цена лида</span><b data-i18n="d.v4">1 950 ₸</b><i class="up">−21%</i><svg viewBox="0 0 100 28" preserveAspectRatio="none"><path d="M0 6 L14 9 L28 8 L42 13 L56 12 L70 17 L84 19 L100 22"/></svg></div>
+                </div>
+                <div class="dash__grid">
+                    <div class="panel panel--chart">
+                        <div class="panel__head"><b data-i18n="d.rev">Выручка и заявки</b><span class="seg"><i data-i18n="d.w">Неделя</i><i class="on" data-i18n="d.m">Месяц</i><i data-i18n="d.y">Год</i></span></div>
+                        <svg class="area" viewBox="0 0 600 200" preserveAspectRatio="none">
+                            <defs>
+                                <linearGradient id="gArea" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#3b7bff" stop-opacity=".55"/><stop offset="1" stop-color="#3b7bff" stop-opacity="0"/></linearGradient>
+                                <linearGradient id="gLine" x1="0" y1="0" x2="1" y2="0"><stop offset="0" stop-color="#2f6bff"/><stop offset="1" stop-color="#7fd0ff"/></linearGradient>
+                            </defs>
+                            <g class="area__grid"><path d="M0 50H600M0 100H600M0 150H600"/></g>
+                            <path class="area__fill" d="M0 160 C40 150 70 120 110 126 S180 150 220 118 S290 70 330 86 S400 112 440 74 S520 30 560 40 L600 30 L600 200 L0 200Z"/>
+                            <path class="area__line" pathLength="1" d="M0 160 C40 150 70 120 110 126 S180 150 220 118 S290 70 330 86 S400 112 440 74 S520 30 560 40 L600 30"/>
+                            <path class="area__line2" pathLength="1" d="M0 178 C50 172 80 160 120 164 S200 170 240 150 S300 128 340 136 S420 140 460 118 S530 100 600 92"/>
+                            <circle class="area__dot" cx="560" cy="40" r="5"/>
+                        </svg>
+                    </div>
+                    <div class="panel">
+                        <div class="panel__head"><b data-i18n="d.src">Источники лидов</b></div>
+                        <ul class="src">
+                            <li><span>Meta Ads</span><i style="--w:.42"></i><b>42%</b></li>
+                            <li><span>Google Ads</span><i style="--w:.23"></i><b>23%</b></li>
+                            <li><span data-i18n="d.site">Сайт</span><i style="--w:.18"></i><b>18%</b></li>
+                            <li><span>Kaspi</span><i style="--w:.17"></i><b>17%</b></li>
+                        </ul>
+                    </div>
+                    <div class="panel panel--wide">
+                        <div class="panel__head"><b data-i18n="d.pipe">Воронка продаж</b><span class="muted" data-i18n="d.sync">синхронизировано с amoCRM</span></div>
+                        <div class="pipe">
+                            <div class="pipe__st" style="--w:1"><span data-i18n="d.p1">Новые</span><b>128</b></div>
+                            <div class="pipe__st" style="--w:.62"><span data-i18n="d.p2">В работе</span><b>64</b></div>
+                            <div class="pipe__st" style="--w:.38"><span data-i18n="d.p3">Счёт</span><b>31</b></div>
+                            <div class="pipe__st pipe__st--win" style="--w:.26"><span data-i18n="d.p4">Оплачено</span><b>22</b></div>
+                        </div>
                     </div>
                 </div>
             </div>
 
-        </div><!-- /content-inner -->
+            <div class="center-cta reveal">
+                <button type="button" class="btn btn--glass btn--lg blur" data-demo>
+                    <svg class="ico" aria-hidden="true"><use href="#i-play"/></svg>
+                    <span data-i18n="d.demo">Открыть тестовый дашборд</span>
+                </button>
+                <a class="btn btn--primary btn--lg" data-wa="meeting" href="https://wa.me/77055557142" target="_blank" rel="noopener">
+                    <svg class="ico" aria-hidden="true"><use href="#i-wa"/></svg>
+                    <span data-i18n="d.meet">Посмотреть на встрече</span>
+                </a>
+            </div>
+        </div>
+    </section>
 
-        <!-- Contact -->
-        <div class="contact-section" id="contact">
-            <div class="contact-inner">
-                <div class="section-label reveal">Контакты</div>
-                <div class="contact-grid">
-                    <div class="reveal">
-                        <h2 class="contact-heading">Обсудим<br>ваш <em>проект</em></h2>
-                        <p class="contact-desc">Расскажите задачу — предложим лучшее решение и подготовим план запуска под ваши цели, сроки и бюджет.</p>
-                    </div>
-                    <div class="contact-actions reveal">
-                        <a class="cta-btn whatsapp" href="https://wa.me/77055557142" target="_blank" rel="noopener">
-                            <svg viewBox="0 0 32 32" aria-hidden="true"><path d="M16 3C8.82 3 3 8.82 3 16c0 2.34.62 4.63 1.79 6.65L3 29l6.52-1.71A12.93 12.93 0 0 0 16 29c7.18 0 13-5.82 13-13S23.18 3 16 3Zm0 23.64c-1.95 0-3.86-.52-5.54-1.51l-.39-.23-3.87 1.01 1.03-3.76-.25-.4A10.61 10.61 0 0 1 5.36 16c0-5.87 4.77-10.64 10.64-10.64S26.64 10.13 26.64 16 21.87 26.64 16 26.64Zm5.84-7.99c-.32-.16-1.88-.93-2.17-1.03-.29-.1-.5-.16-.72.16-.21.32-.8 1.03-.99 1.24-.19.21-.37.24-.69.08-.32-.16-1.34-.49-2.55-1.57-.95-.85-1.59-1.9-1.77-2.22-.19-.32-.02-.5.14-.66.15-.15.32-.38.48-.57.16-.19.21-.32.32-.53.1-.21.05-.4-.03-.57-.08-.16-.72-1.73-.99-2.37-.26-.62-.52-.54-.71-.55h-.61c-.21 0-.55.08-.84.4-.29.32-1.11 1.08-1.08 2.63.03 1.55 1.11 3.04 1.27 3.24.16.21 2.19 3.34 5.31 4.69.74.32 1.33.5 1.78.64.75.24 1.43.21 1.96.13.6-.09 1.88-.73 2.15-1.44.27-.72.27-1.33.19-1.44-.08-.1-.27-.16-.58-.32Z"/></svg>
-                            Написать в WhatsApp
+    <!-- ============ CASES / NDA ============ -->
+    <section class="section" id="cases">
+        <div class="container">
+            <div class="nda glass reveal">
+                <div class="nda__text">
+                    <p class="kicker"><svg class="ico" aria-hidden="true"><use href="#i-lock"/></svg><span data-i18n="ca.k">Кейсы под NDA</span></p>
+                    <h2 class="h2" data-i18n="ca.t">Кейсы показываем только вживую</h2>
+                    <p class="lead" data-i18n="ca.s">Мы работаем с продажами, финансами и клиентскими базами компаний, поэтому большинство проектов защищены NDA. Не публикуем их в открытом доступе — показываем лично: на встрече или в Zoom.</p>
+                    <ul class="checks">
+                        <li><svg class="ico" aria-hidden="true"><use href="#i-check"/></svg><span data-i18n="ca.1">Покажем реальные дашборды и автоматизации</span></li>
+                        <li><svg class="ico" aria-hidden="true"><use href="#i-check"/></svg><span data-i18n="ca.2">Разберём ваши процессы и посчитаем эффект</span></li>
+                        <li><svg class="ico" aria-hidden="true"><use href="#i-check"/></svg><span data-i18n="ca.3">30–40 минут, бесплатно и без обязательств</span></li>
+                        <li><svg class="ico" aria-hidden="true"><use href="#i-check"/></svg><span data-i18n="ca.4">Подпишем NDA на ваших условиях</span></li>
+                    </ul>
+                    <div class="btn-row">
+                        <a class="btn btn--primary btn--lg btn--shine" data-wa="meeting" href="https://wa.me/77055557142" target="_blank" rel="noopener">
+                            <svg class="ico" aria-hidden="true"><use href="#i-cal"/></svg>
+                            <span data-i18n="ca.cta">Назначить встречу</span>
                         </a>
-                        <a class="cta-btn instagram" href="https://www.instagram.com/sergiodesign.online?igsh=MWY5dmZvaHEzOHhoNQ%3D%3D&utm_source=qr" target="_blank" rel="noopener">
-                            <svg viewBox="0 0 32 32" fill="currentColor" aria-hidden="true"><path d="M16 2.9c4.27 0 4.78.02 6.46.09 1.56.07 2.41.33 2.97.55.75.29 1.28.63 1.84 1.19.56.56.9 1.09 1.19 1.84.22.56.48 1.41.55 2.97.07 1.68.09 2.19.09 6.46s-.02 4.78-.09 6.46c-.07 1.56-.33 2.41-.55 2.97-.29.75-.63 1.28-1.19 1.84-.56.56-1.09.9-1.84 1.19-.56.22-1.41.48-2.97.55-1.68.07-2.19.09-6.46.09s-4.78-.02-6.46-.09c-1.56-.07-2.41-.33-2.97-.55-.75-.29-1.28-.63-1.84-1.19-.56-.56-.9-1.09-1.19-1.84-.22-.56-.48-1.41-.55-2.97C2.92 20.78 2.9 20.27 2.9 16s.02-4.78.09-6.46c.07-1.56.33-2.41.55-2.97.29-.75.63-1.28 1.19-1.84.56-.56 1.09-.9 1.84-1.19.56-.22 1.41-.48 2.97-.55C11.22 2.92 11.73 2.9 16 2.9M16 0c-4.34 0-4.89.02-6.59.1C7.72.17 6.54.45 5.5.85c-1.07.42-1.98.97-2.88 1.87C1.72 3.62 1.17 4.53.75 5.6.35 6.64.07 7.82 0 9.51-.02 11.21 0 11.76 0 16s.02 4.79.1 6.49c.07 1.69.35 2.87.75 3.91.42 1.07.97 1.98 1.87 2.88.9.9 1.81 1.45 2.88 1.87 1.04.4 2.22.68 3.91.75C11.21 31.98 11.76 32 16 32s4.79-.02 6.49-.1c1.69-.07 2.87-.35 3.91-.75 1.07-.42 1.98-.97 2.88-1.87.9-.9 1.45-1.81 1.87-2.88.4-1.04.68-2.22.75-3.91C31.98 20.79 32 20.24 32 16s-.02-4.79-.1-6.49c-.07-1.69-.35-2.87-.75-3.91-.42-1.07-.97-1.98-1.87-2.88-.9-.9-1.81-1.45-2.88-1.87-1.04-.4-2.22-.68-3.91-.75C20.79.02 20.24 0 16 0zm0 7.78a8.22 8.22 0 1 0 0 16.44A8.22 8.22 0 0 0 16 7.78zm0 13.56a5.34 5.34 0 1 1 0-10.68 5.34 5.34 0 0 1 0 10.68zm10.46-13.88a1.92 1.92 0 1 1-3.84 0 1.92 1.92 0 0 1 3.84 0z"/></svg>
-                            Открыть Instagram
-                        </a>
-                        <a class="cta-btn telegram" href="https://t.me/sergio_design" target="_blank" rel="noopener">
-                            <svg viewBox="0 0 32 32" fill="currentColor" aria-hidden="true"><path d="M16 0C7.163 0 0 7.163 0 16s7.163 16 16 16 16-7.163 16-16S24.837 0 16 0zm7.9 10.933-2.688 12.669c-.2.894-.724 1.114-1.468.693l-4.063-2.993-1.96 1.887c-.217.217-.398.398-.817.398l.292-4.138 7.527-6.799c.327-.292-.071-.454-.508-.162L8.847 18.56l-3.994-1.248c-.868-.272-.884-.868.181-1.285l15.608-6.018c.724-.272 1.358.162 1.258 1.014v-.09z"/></svg>
-                            Написать в Telegram
+                        <a class="btn btn--glass btn--lg" href="tel:+77055557142">
+                            <svg class="ico" aria-hidden="true"><use href="#i-phone"/></svg>
+                            <span data-i18n="ca.call">Позвонить</span>
                         </a>
                     </div>
+                </div>
+                <div class="nda__vis" aria-hidden="true">
+                    <div class="case case--1">
+                        <div class="case__top"><span data-i18n="ca.c1">Дистрибуция · Алматы</span><span class="lock"><svg class="ico"><use href="#i-lock"/></svg>NDA</span></div>
+                        <div class="case__blur"><i style="--w:.8"></i><i style="--w:.55"></i><div class="case__bars"><b style="--h:.4"></b><b style="--h:.7"></b><b style="--h:.55"></b><b style="--h:.9"></b><b style="--h:.75"></b></div></div>
+                    </div>
+                    <div class="case case--2">
+                        <div class="case__top"><span data-i18n="ca.c2">Ритейл · 14 точек</span><span class="lock"><svg class="ico"><use href="#i-lock"/></svg>NDA</span></div>
+                        <div class="case__blur"><i style="--w:.7"></i><i style="--w:.9"></i><i style="--w:.45"></i></div>
+                    </div>
+                    <div class="case case--3">
+                        <div class="case__top"><span data-i18n="ca.c3">Производство</span><span class="lock"><svg class="ico"><use href="#i-lock"/></svg>NDA</span></div>
+                        <div class="case__blur"><i style="--w:.6"></i><i style="--w:.85"></i></div>
+                    </div>
+                    <div class="nda__scan"></div>
                 </div>
             </div>
         </div>
+    </section>
 
-        <!-- Footer -->
-        <footer>
-            <div class="site-footer">
-                <div class="footer-logo">SERGIO <em>design</em></div>
-                <nav class="footer-links" aria-label="Footer navigation">
-                    <a href="#portfolio">Портфолио</a>
-                    <a href="#pricing">Тарифы</a>
-                    <a href="#contact">Контакты</a>
-                </nav>
-                <p class="footer-copy">© 2026 sergiodesign.online</p>
+    <!-- ============ PROCESS ============ -->
+    <section class="section" id="process">
+        <div class="container">
+            <header class="sec-head reveal">
+                <p class="kicker" data-i18n="pr.k">Как работаем</p>
+                <h2 class="h2" data-i18n="pr.t">От аудита до работающей системы</h2>
+                <p class="lead" data-i18n="pr.s">Запускаем поэтапно, чтобы первый результат вы увидели уже через пару недель.</p>
+            </header>
+            <ol class="steps">
+                <li class="step glass reveal">
+                    <span class="step__n">01</span>
+                    <span class="step__time" data-i18n="pr.1d">1–2 дня</span>
+                    <h3 data-i18n="pr.1t">Бесплатный аудит</h3>
+                    <p data-i18n="pr.1p">Встречаемся, разбираем процессы и находим, где бизнес теряет деньги и время.</p>
+                </li>
+                <li class="step glass reveal">
+                    <span class="step__n">02</span>
+                    <span class="step__time" data-i18n="pr.2d">3–5 дней</span>
+                    <h3 data-i18n="pr.2t">Проектирование</h3>
+                    <p data-i18n="pr.2p">Схема интеграций, структура дашборда, план автоматизации, сроки и точная смета.</p>
+                </li>
+                <li class="step glass reveal">
+                    <span class="step__n">03</span>
+                    <span class="step__time" data-i18n="pr.3d">от 2 недель</span>
+                    <h3 data-i18n="pr.3t">Внедрение</h3>
+                    <p data-i18n="pr.3p">Подключаем системы, настраиваем автоматизации и дашборд, обучаем команду.</p>
+                </li>
+                <li class="step glass reveal">
+                    <span class="step__n">04</span>
+                    <span class="step__time" data-i18n="pr.4d">3 месяца</span>
+                    <h3 data-i18n="pr.4t">Поддержка и рост</h3>
+                    <p data-i18n="pr.4p">Поддержка включена. Развиваем систему вместе с вашим бизнесом.</p>
+                </li>
+            </ol>
+            <div class="center-cta reveal">
+                <a class="btn btn--primary btn--lg" data-wa="audit" href="https://wa.me/77055557142" target="_blank" rel="noopener">
+                    <svg class="ico" aria-hidden="true"><use href="#i-wa"/></svg>
+                    <span data-i18n="pr.cta">Начать с бесплатного аудита</span>
+                </a>
             </div>
-        </footer>
+        </div>
+    </section>
 
-    </section><!-- /content-section -->
+    <!-- ============ FAQ ============ -->
+    <section class="section" id="faq">
+        <div class="container container--narrow">
+            <header class="sec-head reveal">
+                <p class="kicker" data-i18n="fq.k">Вопросы</p>
+                <h2 class="h2" data-i18n="fq.t">Частые вопросы</h2>
+            </header>
+            <div class="faq">
+                <details class="faq__item glass reveal">
+                    <summary><span data-i18n="fq.1q">Сколько стоит автоматизация?</span><svg class="ico" aria-hidden="true"><use href="#i-plus"/></svg></summary>
+                    <p data-i18n="fq.1a">Зависит от количества систем и процессов. После бесплатного аудита вы получите точную смету и сроки — без скрытых платежей.</p>
+                </details>
+                <details class="faq__item glass reveal">
+                    <summary><span data-i18n="fq.2q">Сколько времени занимает внедрение?</span><svg class="ico" aria-hidden="true"><use href="#i-plus"/></svg></summary>
+                    <p data-i18n="fq.2a">Первый дашборд — от 2 недель. Комплексная автоматизация — 1–3 месяца. Запускаем поэтапно, чтобы результат был виден сразу.</p>
+                </details>
+                <details class="faq__item glass reveal">
+                    <summary><span data-i18n="fq.3q">Вы работаете с нашей 1С и CRM?</span><svg class="ico" aria-hidden="true"><use href="#i-plus"/></svg></summary>
+                    <p data-i18n="fq.3a">Да. Подключаемся к 1С (УТ, Бухгалтерия, ERP), Битрикс24, amoCRM и любым системам с API или выгрузкой данных.</p>
+                </details>
+                <details class="faq__item glass reveal">
+                    <summary><span data-i18n="fq.4q">Насколько безопасны наши данные?</span><svg class="ico" aria-hidden="true"><use href="#i-plus"/></svg></summary>
+                    <p data-i18n="fq.4a">Подписываем NDA, разграничиваем доступы сотрудников и можем развернуть систему на вашем сервере.</p>
+                </details>
+                <details class="faq__item glass reveal">
+                    <summary><span data-i18n="fq.5q">Придётся менять привычную работу команды?</span><svg class="ico" aria-hidden="true"><use href="#i-plus"/></svg></summary>
+                    <p data-i18n="fq.5a">Нет. Мы встраиваемся в инструменты, которыми вы уже пользуетесь, и обучаем команду.</p>
+                </details>
+                <details class="faq__item glass reveal">
+                    <summary><span data-i18n="fq.6q">Что будет после запуска?</span><svg class="ico" aria-hidden="true"><use href="#i-plus"/></svg></summary>
+                    <p data-i18n="fq.6a">3 месяца поддержки включены в проект. Дальше развиваем систему по договорённости.</p>
+                </details>
+            </div>
+        </div>
+    </section>
 
-</div><!-- /mainSite -->
+    <!-- ============ CONTACT ============ -->
+    <section class="section" id="contact">
+        <div class="container">
+            <div class="final glass reveal">
+                <div class="final__glow" aria-hidden="true"></div>
+                <p class="kicker" data-i18n="ct.k">Контакты</p>
+                <h2 class="h2 final__title" data-i18n="ct.t">Обсудим ваш проект?</h2>
+                <p class="lead" data-i18n="ct.s">Напишите в WhatsApp — ответим в течение 15 минут в рабочие часы и согласуем удобное время встречи.</p>
+                <div class="final__cta">
+                    <a class="btn btn--primary btn--xl btn--shine" data-wa="contact" href="https://wa.me/77055557142" target="_blank" rel="noopener">
+                        <svg class="ico" aria-hidden="true"><use href="#i-wa"/></svg>
+                        <span data-i18n="ct.wa">Написать в WhatsApp</span>
+                    </a>
+                </div>
+                <div class="socials">
+                    <a class="btn btn--glass btn--md" href="https://t.me/sergio_design" target="_blank" rel="noopener"><svg class="ico" aria-hidden="true"><use href="#i-tg"/></svg><span>Telegram</span></a>
+                    <a class="btn btn--glass btn--md" href="https://www.instagram.com/sergiodesign.online" target="_blank" rel="noopener"><svg class="ico" aria-hidden="true"><use href="#i-ig"/></svg><span>Instagram</span></a>
+                    <a class="btn btn--glass btn--md" href="tel:+77055557142"><svg class="ico" aria-hidden="true"><use href="#i-phone"/></svg><span>+7 705 555 71 42</span></a>
+                </div>
+            </div>
+        </div>
+    </section>
 
-<!-- WhatsApp Float -->
-<a class="whatsapp-float" id="waFloat" href="https://wa.me/77055557142" target="_blank" rel="noopener" aria-label="Написать в WhatsApp">
-    <svg viewBox="0 0 32 32" aria-hidden="true"><path d="M16 3C8.82 3 3 8.82 3 16c0 2.34.62 4.63 1.79 6.65L3 29l6.52-1.71A12.93 12.93 0 0 0 16 29c7.18 0 13-5.82 13-13S23.18 3 16 3Zm0 23.64c-1.95 0-3.86-.52-5.54-1.51l-.39-.23-3.87 1.01 1.03-3.76-.25-.4A10.61 10.61 0 0 1 5.36 16c0-5.87 4.77-10.64 10.64-10.64S26.64 10.13 26.64 16 21.87 26.64 16 26.64Zm5.84-7.99c-.32-.16-1.88-.93-2.17-1.03-.29-.1-.5-.16-.72.16-.21.32-.8 1.03-.99 1.24-.19.21-.37.24-.69.08-.32-.16-1.34-.49-2.55-1.57-.95-.85-1.59-1.9-1.77-2.22-.19-.32-.02-.5.14-.66.15-.15.32-.38.48-.57.16-.19.21-.32.32-.53.1-.21.05-.4-.03-.57-.08-.16-.72-1.73-.99-2.37-.26-.62-.52-.54-.71-.55h-.61c-.21 0-.55.08-.84.4-.29.32-1.11 1.08-1.08 2.63.03 1.55 1.11 3.04 1.27 3.24.16.21 2.19 3.34 5.31 4.69.74.32 1.33.5 1.78.64.75.24 1.43.21 1.96.13.6-.09 1.88-.73 2.15-1.44.27-.72.27-1.33.19-1.44-.08-.1-.27-.16-.58-.32Z"/></svg>
+</main>
+
+<footer class="footer">
+    <div class="container footer__inner">
+        <p>© 2026 Sergio Design</p>
+        <p data-i18n="ft.t">Автоматизация бизнес-процессов, интеграции, сайты и приложения · Казахстан</p>
+    </div>
+</footer>
+
+<!-- Floating WhatsApp -->
+<a class="fab" id="fab" data-wa="fab" href="https://wa.me/77055557142" target="_blank" rel="noopener" data-i18n-attr="aria-label:fab" aria-label="Написать в WhatsApp">
+    <svg class="ico" aria-hidden="true"><use href="#i-wa"/></svg>
 </a>
 
-<script>
-(function () {
-    'use strict';
+<!-- Demo dialog -->
+<dialog class="modal glass blur" id="demoModal" aria-labelledby="demoTitle">
+    <button type="button" class="modal__x" data-close data-i18n-attr="aria-label:close" aria-label="Закрыть"><svg class="ico" aria-hidden="true"><use href="#i-x"/></svg></button>
+    <span class="modal__icon"><svg class="ico" aria-hidden="true"><use href="#i-grid"/></svg></span>
+    <h2 id="demoTitle" data-i18n="mo.t">Тестовый дашборд почти готов</h2>
+    <p data-i18n="mo.p">Мы готовим открытую демо-версию. А пока покажем живой дашборд лично — напишите нам, и мы проведём экскурсию по системе за 15 минут.</p>
+    <a class="btn btn--primary btn--lg btn--block" data-wa="demo" data-close href="https://wa.me/77055557142" target="_blank" rel="noopener">
+        <svg class="ico" aria-hidden="true"><use href="#i-wa"/></svg>
+        <span data-i18n="mo.cta">Показать мне дашборд</span>
+    </a>
+</dialog>
 
-    /* ===================================
-       BOOT SEQUENCE
-    =================================== */
-    var bootLines = [
-        { t: 'SERGIO.DESIGN — v2026 — INIT',                    c: 'accent' },
-        { t: 'Инициализация платформы...',                       c: '' },
-        { t: '  [OK] web-development.service',                  c: 'green' },
-        { t: '  [OK] mobile-apps.service',                      c: 'green' },
-        { t: '  [OK] ai-solutions.service',                     c: 'green' },
-        { t: '  [OK] portfolio.module',                         c: 'green' },
-        { t: '  [OK] analytics.service',                        c: 'green' },
-        { t: 'Загрузка проектов... done',                       c: 'dim' },
-        { t: 'Подключение к CRM... done',                       c: 'dim' },
-        { t: 'Проверка соединений... done',                     c: 'dim' },
-        { t: 'Запуск студии...',                                c: '' },
-        { t: '',                                                 c: '' },
-        { t: 'Добро пожаловать. Создаём будущее вашего бизнеса.', c: 'bright' },
-        { t: '',                                                 c: '' },
-    ];
-
-    var bootScreen  = document.getElementById('bootScreen');
-    var bootTextEl  = document.getElementById('bootText');
-    var mainSite    = document.getElementById('mainSite');
-    var waFloat     = document.getElementById('waFloat');
-
-    function runBoot() {
-        var lineEls = bootLines.map(function (item) {
-            var el = document.createElement('span');
-            el.className = 'boot-line' + (item.c ? ' ' + item.c : '');
-            el.textContent = item.t || ' ';
-            bootTextEl.appendChild(el);
-            return el;
-        });
-
-        var i = 0;
-        function showNext() {
-            if (i < lineEls.length) {
-                lineEls[i].classList.add('show');
-                i++;
-                setTimeout(showNext, 25 + Math.random() * 40);
-            } else {
-                setTimeout(function () {
-                    bootScreen.classList.add('hidden');
-                    mainSite.style.opacity = '1';
-                    initPage();
-                }, 200);
-            }
-        }
-        showNext();
-    }
-
-    /* ===================================
-       NAVIGATION
-    =================================== */
-    var siteNav   = document.getElementById('siteNav');
-    var navToggle = document.getElementById('navToggle');
-    var mobileMenu = document.getElementById('mobileMenu');
-    var allNavLinks = document.querySelectorAll('.nav-links a, .mobile-menu a');
-    var sections    = document.querySelectorAll('section[id], div[id]');
-
-    window.addEventListener('scroll', function () {
-        siteNav.classList.toggle('scrolled', window.scrollY > 60);
-    }, { passive: true });
-
-    navToggle.addEventListener('click', function () {
-        var isOpen = mobileMenu.classList.contains('is-open');
-        mobileMenu.classList.toggle('is-open', !isOpen);
-        navToggle.setAttribute('aria-expanded', String(!isOpen));
-        mobileMenu.setAttribute('aria-hidden', String(isOpen));
-        document.body.style.overflow = isOpen ? '' : 'hidden';
-    });
-
-    mobileMenu.querySelectorAll('a').forEach(function (a) {
-        a.addEventListener('click', function () {
-            mobileMenu.classList.remove('is-open');
-            navToggle.setAttribute('aria-expanded', 'false');
-            mobileMenu.setAttribute('aria-hidden', 'true');
-            document.body.style.overflow = '';
-        });
-    });
-
-    /* Active nav */
-    var navObserver = new IntersectionObserver(function (entries) {
-        entries.forEach(function (e) {
-            if (e.isIntersecting) {
-                allNavLinks.forEach(function (a) {
-                    a.classList.toggle('active', a.getAttribute('href') === '#' + e.target.id);
-                });
-            }
-        });
-    }, { threshold: 0.45 });
-
-    document.querySelectorAll('#about,#portfolio,#pricing,#contact').forEach(function (el) {
-        navObserver.observe(el);
-    });
-
-    /* ===================================
-       HERO PARALLAX
-    =================================== */
-    var heroBg   = document.getElementById('heroBg');
-    var heroText = document.getElementById('heroText');
-    var scrollInd = document.getElementById('scrollIndicator');
-    var ticking = false;
-
-    function updateScroll() {
-        var sy = window.scrollY;
-        var vh = window.innerHeight;
-        var p  = Math.min(sy / vh, 1);
-
-        heroBg.style.transform   = 'scale(' + (1 + p * 0.1) + ')';
-        heroText.style.transform = 'translateY(' + (-sy * 0.55) + 'px)';
-        heroText.style.opacity   = String(Math.max(0, 1 - p * 2.2));
-        scrollInd.classList.toggle('hidden', p > 0.07);
-        ticking = false;
-    }
-
-    window.addEventListener('scroll', function () {
-        if (!ticking) {
-            requestAnimationFrame(updateScroll);
-            ticking = true;
-        }
-    }, { passive: true });
-
-    /* ===================================
-       WHATSAPP FLOAT — show on services scroll
-    =================================== */
-    (function () {
-        var servicesEl = document.getElementById('services');
-        if (!servicesEl || !waFloat) return;
-        var waObs = new IntersectionObserver(function (entries) {
-            if (entries[0].isIntersecting) {
-                waFloat.classList.add('show');
-                waObs.disconnect();
-            }
-        }, { threshold: 0.1 });
-        waObs.observe(servicesEl);
-    })();
-
-    /* ===================================
-       REVEAL ON SCROLL
-    =================================== */
-    function initReveal() {
-        var revEls = document.querySelectorAll('.reveal');
-        var revObs = new IntersectionObserver(function (entries, obs) {
-            entries.forEach(function (entry, idx) {
-                if (entry.isIntersecting) {
-                    setTimeout(function () {
-                        entry.target.classList.add('visible');
-                        if (entry.target.classList.contains('stat-item')) {
-                            var numEl = entry.target.querySelector('.stat-number');
-                            if (numEl && numEl.dataset.target) countUp(numEl);
-                        }
-                    }, Math.min(idx, 3) * 100);
-                    obs.unobserve(entry.target);
-                }
-            });
-        }, { threshold: 0.1, rootMargin: '0px 0px -40px 0px' });
-
-        revEls.forEach(function (el) { revObs.observe(el); });
-    }
-
-    /* ===================================
-       PRICING TOGGLE
-    =================================== */
-    function initPricing() {
-        document.querySelectorAll('.pricing-toggle-btn').forEach(function (btn) {
-            btn.addEventListener('click', function () {
-                var card = btn.closest('.pricing-card');
-                var expanded = card.classList.toggle('expanded');
-                btn.textContent = expanded ? '− Свернуть тариф' : '+ Раскрыть тариф';
-            });
-        });
-    }
-
-    /* ===================================
-       STAT COUNT-UP
-    =================================== */
-    function initCountUp() {
-        document.querySelectorAll('.stat-item .stat-number').forEach(function (el) {
-            var textNode = el.childNodes[0];
-            if (!textNode || textNode.nodeType !== 3) return;
-            var match = textNode.textContent.match(/^(\d+)/);
-            if (!match) return;
-            el.dataset.target = match[1];
-            el.dataset.suffix = textNode.textContent.replace(/^\d+/, '');
-            textNode.textContent = '0' + el.dataset.suffix;
-        });
-    }
-
-    function countUp(el) {
-        var target = parseInt(el.dataset.target, 10);
-        if (!target) return;
-        var suffix   = el.dataset.suffix || '';
-        var textNode = el.childNodes[0];
-        if (!textNode) return;
-        var t0  = performance.now();
-        var dur = 900;
-        function tick(now) {
-            var p    = Math.min((now - t0) / dur, 1);
-            var ease = p === 1 ? 1 : 1 - Math.pow(2, -10 * p);
-            textNode.textContent = Math.round(target * ease) + suffix;
-            if (p < 1) requestAnimationFrame(tick);
-        }
-        requestAnimationFrame(tick);
-    }
-
-    /* ===================================
-       MAGNETIC BUTTONS
-    =================================== */
-    function initMagnetic() {
-        if (!window.matchMedia('(hover: hover)').matches) return;
-        document.querySelectorAll('.cta-btn').forEach(function (btn) {
-            btn.addEventListener('mouseenter', function () {
-                btn.style.transition =
-                    'transform 0.08s linear, border-color 0.25s ease, background 0.25s ease';
-            });
-            btn.addEventListener('mousemove', function (e) {
-                var r = btn.getBoundingClientRect();
-                var x = (e.clientX - r.left - r.width  * 0.5) * 0.22;
-                var y = (e.clientY - r.top  - r.height * 0.5) * 0.22;
-                btn.style.transform = 'translate(' + x + 'px,' + y + 'px)';
-            });
-            btn.addEventListener('mouseleave', function () {
-                btn.style.transition = '';
-                btn.style.transform  = '';
-            });
-        });
-    }
-
-    /* ===================================
-       3D CARD TILT
-    =================================== */
-    function initCardTilt() {
-        if (!window.matchMedia('(hover: hover)').matches) return;
-        document.querySelectorAll('.service-card, .sv-card').forEach(function (card) {
-            card.addEventListener('mousemove', function (e) {
-                card.style.transition = 'background 0.3s ease, transform 0.08s linear';
-                var r = card.getBoundingClientRect();
-                var x = (e.clientX - r.left) / r.width  - 0.5;
-                var y = (e.clientY - r.top)  / r.height - 0.5;
-                card.style.transform =
-                    'perspective(900px) rotateY(' + (x * 6) + 'deg) rotateX(' + (-y * 6) + 'deg)';
-            });
-            card.addEventListener('mouseleave', function () {
-                card.style.transition = '';
-                card.style.transform  = '';
-            });
-        });
-    }
-
-    /* ===================================
-       INIT
-    =================================== */
-    function initPage() {
-        updateScroll();
-        initCountUp();
-        initReveal();
-        initPricing();
-        initMagnetic();
-        initCardTilt();
-    }
-
-    runBoot();
-})();
-
-/* Services block expand */
-function svToggle(listId, btn) {
-    var list = document.getElementById(listId);
-    var hidden = list.querySelectorAll('li.hidden');
-    var isOpen = btn.dataset.open === 'true';
-    if (isOpen) {
-        hidden.forEach(function(li) { li.classList.remove('visible'); });
-        btn.textContent = '+ Раскрыть детали';
-        btn.dataset.open = 'false';
-    } else {
-        hidden.forEach(function(li) { li.classList.add('visible'); });
-        btn.textContent = '— Скрыть';
-        btn.dataset.open = 'true';
-    }
-}
-</script>
 </body>
 </html>
