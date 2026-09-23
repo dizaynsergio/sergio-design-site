@@ -418,6 +418,7 @@ html[lang="en"] .lang__thumb { transform: translateX(100%); }
     box-shadow: inset 0 1px 0 rgba(255, 255, 255, .4), 0 0 10px -2px var(--c);
 }
 .m--lg { width: 44px; height: 44px; border-radius: 14px; font-size: 13px; }
+.chip__i { width: 19px; height: 19px; flex: none; margin: 0 1px; object-fit: contain; }
 
 /* analytics bars */
 .bars { display: grid; grid-template-columns: auto 1fr; gap: 7px; }
@@ -639,6 +640,7 @@ html[lang="en"] .lang__thumb { transform: translateX(100%); }
     transform: rotate(calc(var(--a) * -1)); animation: orbitCounter var(--dur) linear infinite;
 }
 .orbit__node .m { width: 23px; height: 23px; font-size: 8.5px; }
+.orbit__node .brand { width: 25px; height: 25px; object-fit: contain; }
 .orbit__node .ico { width: 20px; height: 20px; }
 .orbit--ccw .orbit__slot, .orbit--ccw .orbit__node { animation-direction: reverse; }
 @keyframes orbitSpin { from { transform: rotate(var(--a)); } to { transform: rotate(calc(var(--a) + 360deg)); } }
@@ -900,6 +902,7 @@ html[lang="en"] .lang__thumb { transform: translateX(100%); }
 @media (min-width: 768px) {
     .orbits { --o3: min(calc(100vw - 140px), 1000px); --o2: calc(var(--o3) * .78); --o1: calc(var(--o3) * .56); --g: calc(var(--o3) * .42); --n: 58px; height: calc(var(--o3) / 2 + var(--n) + 16px); margin: 0; }
     .orbit__node .m { width: 32px; height: 32px; font-size: 11px; }
+    .orbit__node .brand { width: 32px; height: 32px; }
     .orbit__node .ico { width: 28px; height: 28px; }
 }
 
