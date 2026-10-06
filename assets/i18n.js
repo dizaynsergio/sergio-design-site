@@ -79,8 +79,9 @@ window.SD_I18N = {
 
         'd.k': 'Dashboard',
         'd.t': 'Your whole business on one screen',
-        'd.s': 'Owners see revenue, leads, ads and the sales funnel in real time — on desktop and on their phone. This is a live demo: switch tabs, drag the sliders, reply to customers.',
-        'd.name': 'Company dashboard',
+        'd.s': 'Owners see revenue, leads, ads and the sales funnel in real time — on desktop and on their phone.',
+        'd.hint': 'This is an interactive demo — try the tabs, switches and sliders',
+        'd.name': 'Demo dashboard',
         'd.k1': 'Revenue',
         'd.k2': 'Leads',
         'd.k3': 'Conversion',

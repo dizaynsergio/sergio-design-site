@@ -297,6 +297,7 @@
     function on(e) {
         var el = e.target.closest('[data-a]');
         if (!el || /^(INPUT|SELECT)$/.test(el.tagName) === (e.type === 'click')) return;
+        dash.classList.remove('is-fresh');
         var a = el.getAttribute('data-a').split(':');
         if (el.parentNode.className === 'seg') [].forEach.call(el.parentNode.children, function (c) { c.classList.toggle('on', c === el); });
         ACT[a[0]](a[1], el);
@@ -308,6 +309,7 @@
     function all() { overview(); adsDraw(); inbox(); team(); autoDraw(); }
     all();
     tabsEl.hidden = false;
+    dash.classList.add('is-fresh'); // tabs pulse until the first interaction
     // main.js switches the language by setting <html lang>
     new MutationObserver(all).observe(root, { attributes: true, attributeFilter: ['lang'] });
 })();
