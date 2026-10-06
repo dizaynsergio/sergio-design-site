@@ -361,7 +361,7 @@
         /* custom cursor: a small orb that grows over clickable things */
         var cur = $('.cursor');
         if (cur) {
-            var HOVER = 'a, button, summary, label, [data-demo], .logo-cell';
+            var HOVER = 'a, button, summary, label, input, select, .logo-cell';
             var cx = -100, cy = -100, tx = cx, ty = cy, craf = 0, shown = false;
             var loop = function () {
                 var kk = reduce ? 1 : 0.24;
@@ -385,27 +385,6 @@
             d.addEventListener('pointerup', function () { cur.classList.remove('is-down'); });
             d.addEventListener('mouseout', function (e) { if (!e.relatedTarget) cur.classList.remove('is-visible'); });
         }
-    }
-
-    /* ---------- demo dashboard dialog ---------- */
-    var modal = $('#demoModal');
-    $$('[data-demo]').forEach(function (b) {
-        b.addEventListener('click', function () {
-            if (modal && typeof modal.showModal === 'function') {
-                modal.showModal();
-                root.classList.add('modal-open');
-            } else {
-                window.open(waHref('demo'), '_blank', 'noopener');
-            }
-        });
-    });
-    if (modal) {
-        modal.addEventListener('click', function (e) {
-            var r = modal.getBoundingClientRect();
-            var outside = e.clientX < r.left || e.clientX > r.right || e.clientY < r.top || e.clientY > r.bottom;
-            if (outside || e.target.closest('[data-close]')) modal.close();
-        });
-        modal.addEventListener('close', function () { root.classList.remove('modal-open'); });
     }
 
     /* ---------- floating WhatsApp: appears once the hero CTAs scroll away ---------- */

@@ -84,7 +84,7 @@ window.SD_I18N = {
 
         'd.k': 'Dashboard',
         'd.t': 'Your whole business on one screen',
-        'd.s': 'Owners see revenue, leads, ads and the sales funnel in real time — on desktop and on their phone.',
+        'd.s': 'Owners see revenue, leads, ads and the sales funnel in real time — on desktop and on their phone. This is a live demo: switch tabs, drag the sliders, reply to customers.',
         'd.name': 'Company dashboard',
         'd.k1': 'Revenue',
         'd.k2': 'Leads',
@@ -92,8 +92,6 @@ window.SD_I18N = {
         'd.k4': 'Cost per lead',
         'd.v1': '12.4M ₸',
         'd.v2': '1,284',
-        'd.v3': '7.9%',
-        'd.v3d': '+2.1',
         'd.v4': '1,950 ₸',
         'd.rev': 'Revenue & leads',
         'd.w': 'Week',
@@ -107,7 +105,6 @@ window.SD_I18N = {
         'd.p2': 'In progress',
         'd.p3': 'Invoiced',
         'd.p4': 'Paid',
-        'd.demo': 'Open demo dashboard',
         'd.meet': 'See it at a meeting',
 
         'ca.k': 'Cases under NDA',
@@ -166,12 +163,7 @@ window.SD_I18N = {
         'a.main': 'Main navigation',
         'a.mobile': 'Mobile navigation',
         'st.online': 'online',
-        'st.live': 'live',
-        'close': 'Close',
-
-        'mo.t': 'The demo dashboard is almost ready',
-        'mo.p': 'We’re preparing a public demo. In the meantime we’ll show you a live dashboard in person — message us and we’ll give you a 15-minute tour of the system.',
-        'mo.cta': 'Show me the dashboard'
+        'st.live': 'live'
     },
 
     /* Prefilled WhatsApp messages per CTA (data-wa="key") */
@@ -179,7 +171,6 @@ window.SD_I18N = {
         ru: {
             nav: 'Здравствуйте! Хочу обсудить автоматизацию бизнеса.',
             meeting: 'Здравствуйте! Хочу договориться о встрече и посмотреть кейсы.',
-            demo: 'Здравствуйте! Хочу посмотреть тестовый дашборд.',
             audit: 'Здравствуйте! Хочу бесплатный аудит бизнес-процессов.',
             integration: 'Здравствуйте! Нужна интеграция систем.',
             s_dash: 'Здравствуйте! Интересует дашборд для бизнеса.',
@@ -196,7 +187,6 @@ window.SD_I18N = {
         en: {
             nav: 'Hi! I’d like to discuss business automation.',
             meeting: 'Hi! I’d like to book a meeting and see your cases.',
-            demo: 'Hi! I’d like to see the demo dashboard.',
             audit: 'Hi! I’d like a free business process audit.',
             integration: 'Hi! I need a systems integration.',
             s_dash: 'Hi! I’m interested in a business dashboard.',

@@ -20,7 +20,7 @@
     </script>
     <title data-i18n="meta.title">Sergio Design — Автоматизация бизнеса, дашборды и интеграции 1С, Битрикс24, amoCRM</title>
     <meta name="description" data-i18n-attr="content:meta.desc" content="Полная автоматизация бизнес-процессов и интеграции 1С, Битрикс24, amoCRM и Meta Ads. Все данные компании — в одном дашборде. Сайты и приложения. Бесплатный аудит — пишите в WhatsApp.">
-    <link rel="icon" type="image/svg+xml" href="favicon.svg?v=5">
+    <link rel="icon" type="image/svg+xml" href="favicon.svg?v=6">
     <link rel="apple-touch-icon" href="apple-touch-icon.png">
     <link rel="canonical" href="https://sergiodesign.online/">
     <meta property="og:title" content="Sergio Design — весь бизнес в одном дашборде">
@@ -51,10 +51,11 @@
     <link rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Inter+Tight:wght@500;600&display=swap">
     <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Inter+Tight:wght@500;600&display=swap" media="print" onload="this.media='all'">
     <noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Inter+Tight:wght@500;600&display=swap"></noscript>
-    <link rel="stylesheet" href="assets/site.css?v=5">
-    <script src="assets/i18n.js?v=5" defer></script>
-    <script src="assets/main.js?v=5" defer></script>
-    <script src="assets/orb.js?v=5" defer></script>
+    <link rel="stylesheet" href="assets/site.css?v=6">
+    <script src="assets/i18n.js?v=6" defer></script>
+    <script src="assets/main.js?v=6" defer></script>
+    <script src="assets/demo.js?v=6" defer></script>
+    <script src="assets/orb.js?v=6" defer></script>
 </head>
 <body>
 
@@ -154,10 +155,10 @@
                     <svg class="ico" aria-hidden="true"><use href="#i-cal"/></svg>
                     <span data-i18n="hero.meet">Договориться о встрече</span>
                 </a>
-                <button type="button" class="btn btn--glass btn--lg blur" data-demo>
+                <a class="btn btn--glass btn--lg blur" href="#dashboard">
                     <svg class="ico" aria-hidden="true"><use href="#i-play"/></svg>
                     <span data-i18n="hero.demo">Тестовый дашборд</span>
-                </button>
+                </a>
             </div>
             <ul class="hero__notes" style="--i:4">
                 <li><svg class="ico" aria-hidden="true"><use href="#i-check"/></svg><span data-i18n="hero.n1">Бесплатный аудит</span></li>
@@ -448,35 +449,37 @@
             <header class="sec-head reveal">
                 <p class="kicker" data-i18n="d.k">Дашборд</p>
                 <h2 class="h2" data-i18n="d.t">Так выглядит ваш бизнес в одном окне</h2>
-                <p class="lead" data-i18n="d.s">Руководитель видит выручку, лиды, рекламу и воронку продаж в реальном времени — на компьютере и в телефоне.</p>
+                <p class="lead" data-i18n="d.s">Руководитель видит выручку, лиды, рекламу и воронку продаж в реальном времени — на компьютере и в телефоне. Это живое демо: переключайте вкладки, двигайте ползунки, отвечайте клиентам.</p>
             </header>
 
-            <div class="dash glass blur reveal" aria-hidden="true">
+            <div class="dash glass blur reveal" id="demo">
+                <svg width="0" height="0" style="position:absolute" aria-hidden="true"><defs>
+                    <linearGradient id="gArea" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#3b7bff" stop-opacity=".55"/><stop offset="1" stop-color="#3b7bff" stop-opacity="0"/></linearGradient>
+                    <linearGradient id="gLine" x1="0" y1="0" x2="1" y2="0"><stop offset="0" stop-color="#2f6bff"/><stop offset="1" stop-color="#7fd0ff"/></linearGradient>
+                </defs></svg>
                 <div class="dash__top">
                     <div class="dash__dots"><i></i><i></i><i></i></div>
                     <span class="dash__name" data-i18n="d.name">Дашборд компании</span>
                     <span class="status"><i></i><span data-i18n="st.live">онлайн</span></span>
                 </div>
+                <div class="dtabs" role="tablist" hidden></div>
+                <div data-pane="overview">
                 <div class="dash__kpis">
-                    <div class="dkpi"><span data-i18n="d.k1">Выручка</span><b data-i18n="d.v1">12,4M ₸</b><i class="up">+18%</i><svg viewBox="0 0 100 28" preserveAspectRatio="none"><path d="M0 22 L14 19 L28 21 L42 14 L56 16 L70 9 L84 11 L100 4"/></svg></div>
-                    <div class="dkpi"><span data-i18n="d.k2">Лиды</span><b data-i18n="d.v2">1 284</b><i class="up">+32%</i><svg viewBox="0 0 100 28" preserveAspectRatio="none"><path d="M0 24 L14 20 L28 22 L42 17 L56 12 L70 14 L84 7 L100 5"/></svg></div>
-                    <div class="dkpi"><span data-i18n="d.k3">Конверсия</span><b data-i18n="d.v3">7,9%</b><i class="up" data-i18n="d.v3d">+2,1</i><svg viewBox="0 0 100 28" preserveAspectRatio="none"><path d="M0 18 L14 20 L28 15 L42 16 L56 12 L70 13 L84 9 L100 8"/></svg></div>
-                    <div class="dkpi"><span data-i18n="d.k4">Цена лида</span><b data-i18n="d.v4">1 950 ₸</b><i class="up">−21%</i><svg viewBox="0 0 100 28" preserveAspectRatio="none"><path d="M0 6 L14 9 L28 8 L42 13 L56 12 L70 17 L84 19 L100 22"/></svg></div>
+                    <div class="dkpi"><span data-i18n="d.k1">Выручка</span><b>12,4M ₸</b><i class="up">+18%</i><svg viewBox="0 0 100 28" preserveAspectRatio="none"><path d="M0 22 L14 19 L28 21 L42 14 L56 16 L70 9 L84 11 L100 4"/></svg></div>
+                    <div class="dkpi"><span data-i18n="d.k2">Лиды</span><b>1 284</b><i class="up">+32%</i><svg viewBox="0 0 100 28" preserveAspectRatio="none"><path d="M0 24 L14 20 L28 22 L42 17 L56 12 L70 14 L84 7 L100 5"/></svg></div>
+                    <div class="dkpi"><span data-i18n="d.k3">Конверсия</span><b>7,9%</b><i class="up">+2,1</i><svg viewBox="0 0 100 28" preserveAspectRatio="none"><path d="M0 18 L14 20 L28 15 L42 16 L56 12 L70 13 L84 9 L100 8"/></svg></div>
+                    <div class="dkpi"><span data-i18n="d.k4">Цена лида</span><b>1 950 ₸</b><i class="up">−21%</i><svg viewBox="0 0 100 28" preserveAspectRatio="none"><path d="M0 6 L14 9 L28 8 L42 13 L56 12 L70 17 L84 19 L100 22"/></svg></div>
                 </div>
                 <div class="dash__grid">
                     <div class="panel panel--chart">
-                        <div class="panel__head"><b data-i18n="d.rev">Выручка и заявки</b><span class="seg"><i data-i18n="d.w">Неделя</i><i class="on" data-i18n="d.m">Месяц</i><i data-i18n="d.y">Год</i></span></div>
-                        <svg class="area" viewBox="0 0 600 200" preserveAspectRatio="none">
-                            <defs>
-                                <linearGradient id="gArea" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#3b7bff" stop-opacity=".55"/><stop offset="1" stop-color="#3b7bff" stop-opacity="0"/></linearGradient>
-                                <linearGradient id="gLine" x1="0" y1="0" x2="1" y2="0"><stop offset="0" stop-color="#2f6bff"/><stop offset="1" stop-color="#7fd0ff"/></linearGradient>
-                            </defs>
+                        <div class="panel__head"><b data-i18n="d.rev">Выручка и заявки</b><span class="seg"><button type="button" data-a="ov:w" data-i18n="d.w">Неделя</button><button type="button" class="on" data-a="ov:m" data-i18n="d.m">Месяц</button><button type="button" data-a="ov:y" data-i18n="d.y">Год</button></span></div>
+                        <div data-k="chart"><svg class="area" viewBox="0 0 600 200" preserveAspectRatio="none">
                             <g class="area__grid"><path d="M0 50H600M0 100H600M0 150H600"/></g>
                             <path class="area__fill" d="M0 160 C40 150 70 120 110 126 S180 150 220 118 S290 70 330 86 S400 112 440 74 S520 30 560 40 L600 30 L600 200 L0 200Z"/>
                             <path class="area__line" pathLength="1" d="M0 160 C40 150 70 120 110 126 S180 150 220 118 S290 70 330 86 S400 112 440 74 S520 30 560 40 L600 30"/>
                             <path class="area__line2" pathLength="1" d="M0 178 C50 172 80 160 120 164 S200 170 240 150 S300 128 340 136 S420 140 460 118 S530 100 600 92"/>
                             <circle class="area__dot" cx="560" cy="40" r="5"/>
-                        </svg>
+                        </svg></div>
                     </div>
                     <div class="panel">
                         <div class="panel__head"><b data-i18n="d.src">Источники лидов</b></div>
@@ -497,13 +500,14 @@
                         </div>
                     </div>
                 </div>
+                </div>
+                <div data-pane="ads" hidden></div>
+                <div data-pane="inbox" hidden></div>
+                <div data-pane="team" hidden></div>
+                <div data-pane="auto" hidden></div>
             </div>
 
             <div class="center-cta reveal">
-                <button type="button" class="btn btn--glass btn--lg blur" data-demo>
-                    <svg class="ico" aria-hidden="true"><use href="#i-play"/></svg>
-                    <span data-i18n="d.demo">Открыть тестовый дашборд</span>
-                </button>
                 <a class="btn btn--primary btn--lg" data-wa="meeting" href="https://wa.me/77055557142" target="_blank" rel="noopener">
                     <svg class="ico" aria-hidden="true"><use href="#i-wa"/></svg>
                     <span data-i18n="d.meet">Посмотреть на встрече</span>
@@ -671,18 +675,6 @@
 <a class="fab" id="fab" data-wa="fab" href="https://wa.me/77055557142" target="_blank" rel="noopener" data-i18n-attr="aria-label:fab" aria-label="Написать в WhatsApp">
     <svg class="ico" aria-hidden="true"><use href="#i-wa"/></svg>
 </a>
-
-<!-- Demo dialog -->
-<dialog class="modal glass blur" id="demoModal" aria-labelledby="demoTitle">
-    <button type="button" class="modal__x" data-close data-i18n-attr="aria-label:close" aria-label="Закрыть"><svg class="ico" aria-hidden="true"><use href="#i-x"/></svg></button>
-    <span class="modal__icon"><svg class="ico" aria-hidden="true"><use href="#i-grid"/></svg></span>
-    <h2 id="demoTitle" data-i18n="mo.t">Тестовый дашборд почти готов</h2>
-    <p data-i18n="mo.p">Мы готовим открытую демо-версию. А пока покажем живой дашборд лично — напишите нам, и мы проведём экскурсию по системе за 15 минут.</p>
-    <a class="btn btn--primary btn--lg btn--block" data-wa="demo" data-close href="https://wa.me/77055557142" target="_blank" rel="noopener">
-        <svg class="ico" aria-hidden="true"><use href="#i-wa"/></svg>
-        <span data-i18n="mo.cta">Показать мне дашборд</span>
-    </a>
-</dialog>
 
 </body>
 </html>
