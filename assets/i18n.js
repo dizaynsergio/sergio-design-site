@@ -41,11 +41,6 @@ window.SD_I18N = {
         'brand.ydirect': 'Yandex Direct',
         'brand.ya': 'Y',
 
-        'cl.k': 'Clients',
-        'cl.t': 'Companies trust us with their automation',
-        'cl.s': 'Companies that already run their business on our systems, websites and apps.',
-        'cl.cta': 'Your company could be here',
-
         'st.1': 'projects launched in the last 6&nbsp;months',
         'st.2': 'less manual work for our clients’ teams',
         'st.3u': 'mo',
