@@ -138,7 +138,7 @@
     var offObs = new IntersectionObserver(function (en) {
         en.forEach(function (e) { e.target.classList.toggle('is-off', !e.isIntersecting); });
     });
-    $$('.hero, #clients, #integrations, #dashboard, #cases, #contact').forEach(function (sct) { offObs.observe(sct); });
+    $$('.hero, #integrations, #dashboard, #cases, #contact').forEach(function (sct) { offObs.observe(sct); });
 
     /* ---------- count-up ---------- */
     if (!reduce) {
@@ -316,7 +316,6 @@
 
     /* ---------- pointer-driven effects (mouse only) ---------- */
     if (fine) {
-        var grid = $('#logoGrid');
         d.addEventListener('pointermove', function (e) {
             if (e.pointerType !== 'mouse' || !e.target.closest) return;
             var t = e.target.closest('.glass, .btn');
@@ -324,11 +323,6 @@
                 var r = t.getBoundingClientRect();
                 t.style.setProperty('--mx', (e.clientX - r.left) + 'px');
                 t.style.setProperty('--my', (e.clientY - r.top) + 'px');
-            }
-            if (grid && e.target.closest('#logoGrid')) {
-                var g = grid.getBoundingClientRect();
-                grid.style.setProperty('--mx', (e.clientX - g.left) + 'px');
-                grid.style.setProperty('--my', (e.clientY - g.top) + 'px');
             }
         }, { passive: true });
 
@@ -361,7 +355,7 @@
         /* custom cursor: a small orb that grows over clickable things */
         var cur = $('.cursor');
         if (cur) {
-            var HOVER = 'a, button, summary, label, [data-demo], .logo-cell';
+            var HOVER = 'a, button, summary, label, [data-demo]';
             var cx = -100, cy = -100, tx = cx, ty = cy, craf = 0, shown = false;
             var loop = function () {
                 var kk = reduce ? 1 : 0.24;
